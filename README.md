@@ -1,10 +1,8 @@
-# Kubernetes Boot Camp
+# CKAD Boot Camp
 
-This tutorial is a basic introduction to Kubernetes for Application Developers.
+This tutorial is a introduction to Kubernetes for Application Developers to aid in the preparation for the [CKAD](https://www.cncf.io/certification/ckad/) exam.
 
-```diff
-UNDER CONSTRUCTION
-```
+![image](https://user-images.githubusercontent.com/18049790/43352583-0b37edda-9269-11e8-9695-1e8de81acb76.png)
 
 ## Disclaimer
 
