@@ -14,11 +14,11 @@ UNDER CONSTRUCTION
 ## Tutorials by Domain
 
 The sections follow a logical progression and should be followed in the order below:
-- [Kubernetes Introduction](xx)
-- [Kubernetes Pod](xx)
-- [Kubernetes Configuration](xx)
-- [Kubernetes Workloads](xx)
-- [Kubernetes Networking](xx)
-- [Kubernetes Storage](xx)
+- [Kubernetes Introduction](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/00-kubernetes-introduction.md)
+- [Kubernetes Pod](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/01-kubernetes-pod.md)
+- [Kubernetes Configuration](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/02-kubernetes-configuration.md)
+- [Kubernetes Workloads](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/03-kubernetes-workloads.md)
+- [Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
+- [Kubernetes Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md)
 
 _End of Section_
