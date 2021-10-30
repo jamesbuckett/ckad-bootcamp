@@ -12,20 +12,16 @@ In this section:
 
 ## Kubernetes Workloads
 
-<details class="faq box"><summary>Kubernetes Namespace (ns)</summary>
+<details class="faq box"><summary>Kubernetes Namespace (ns) - Logical isolation for your application</summary>
 <p>
-
-### Namespace - Logical isolation for your application
 
 ```bash
 kubectl create namespace ns-bootcamp-workloads
 kubectl config set-context --current --namespace=ns-bootcamp-workloads
 ```
 
-<details class="faq box"><summary>Kubernetes Deployment (deploy)</summary>
+<details class="faq box"><summary>Kubernetes Deployment (deploy) - Resilient, scalable long running workload with zero downtime upgrades</summary>
 <p>
-
-### Deployments - Resilient, scalable long running workload with zero downtime upgrades
 
 kubernetes.io bookmark: [Creating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
@@ -58,10 +54,8 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Job</summary>
+<details class="faq box"><summary>Kubernetes Job - Running a workload to guaranteed completion</summary>
 <p>
-
-### Jobs - Running a workload to guaranteed completion
 
 kubernetes.io bookmark: [Running an example Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/#running-an-example-job)
 
@@ -87,10 +81,8 @@ EOF
 </details>
 
 
-<details class="faq box"><summary>Kubernetes CronJob (cj)</summary>
+<details class="faq box"><summary>Kubernetes CronJob (cj)  - Running a workload to guaranteed completion on a time schedule</summary>
 <p>
-
-### CronJobs - Running a workload to guaranteed completion on a time schedule
 
 kubernetes.io bookmark: [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example)
 
@@ -121,10 +113,8 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Deployment (deploy)</summary>
+<details class="faq box"><summary>Kubernetes Deployment (deploy) - Running a workload with persistent storage</summary>
 <p>
-
-### Stateful Sets - Running a workload with persistent storage
 
 kubernetes.io bookmark: [Creating a StatefulSet](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/)
 
@@ -182,10 +172,8 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes DaemonSet (ds)</summary>
+<details class="faq box"><summary>Kubernetes DaemonSet (ds) - Running a workload on every worker node</summary>
 <p>
-
-### Daemon Sets - Running a workload on every Linux worker node
 
 kubernetes.io bookmark: [Writing a DaemonSet Spec](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#writing-a-daemonset-spec)
 

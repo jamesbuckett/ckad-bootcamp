@@ -8,10 +8,8 @@ In this section:
 
 ## Kubernetes Storage
 
-<details class="faq box"><summary>Kubernetes Namespace (ns)</summary>
+<details class="faq box"><summary>Kubernetes Namespace (ns) - Logical isolation for your application</summary>
 <p>
-
-### Namespace - Logical isolation for your application
 
 ```bash
 kubectl create namespace ns-bootcamp-storage
@@ -21,10 +19,8 @@ kubectl config set-context --current --namespace=ns-bootcamp-storage
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes PersistentVolume (pv)</summary>
+<details class="faq box"><summary>Kubernetes PersistentVolume (pv) – the low level representation of a storage volume</summary>
 <p>
-
-### PersistentVolume – the low level representation of a storage volume
 
 kubernetes.io bookmark: [Create a PersistentVolume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume)
 
@@ -51,10 +47,8 @@ EOF
 </details>
 
 
-<details class="faq box"><summary>Kubernetes PersistentVolumeClaim (pvc)</summary>
+<details class="faq box"><summary>Kubernetes PersistentVolumeClaim (pvc) – the binding between a Pod and PersistentVolume</summary>
 <p>
-
-### PersistentVolumeClaim – the binding between a Pod and PersistentVolume
 
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 
@@ -76,8 +70,6 @@ EOF
 
 <details class="faq box"><summary>Kubernetes Pod consuming PersistentVolume</summary>
 <p>
-
-###  Pod – a running container that will consume a PersistentVolume
 
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 

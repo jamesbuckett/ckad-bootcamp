@@ -11,10 +11,8 @@ In this section:
 
 ## Kubernetes Configuration
 
-<details class="faq box"><summary>Kubernetes Namespace (ns)</summary>
+<details class="faq box"><summary>Kubernetes Namespace (ns) - Logical isolation for your application</summary>
 <p>
-
-### Namespace - Logical isolation for your application
 
 ```bash
 kubectl create namespace ns-bootcamp-configuration
@@ -24,10 +22,8 @@ kubectl config set-context --current --namespace=ns-bootcamp-configuration
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes ResourceQuota (quota)</summary>
+<details class="faq box"><summary>Kubernetes ResourceQuota (quota) - Namespace restriction on total resource usage</summary>
 <p>
-
-### ResourceQuota - Namespace restriction on total resource usage
 
 xx
 
@@ -49,10 +45,8 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes LimitRange (limits)</summary>
+<details class="faq box"><summary>Kubernetes LimitRange (limits) A policy to constrain resource allocations (to Pods or Containers) in a namespace</summary>
 <p>
-
-### Limit Range - A policy to constrain resource allocations (to Pods or Containers) in a namespace
 
 xx
 
@@ -77,10 +71,8 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes ConfigMap  (cm)</summary>
+<details class="faq box"><summary>Kubernetes ConfigMap (cm) - Storing environmental variables per namespace</summary>
 <p>
-
-### Configuration Map - Storing environmental variables per namespace
 
 xx
 
@@ -100,10 +92,8 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Secret</summary>
+<details class="faq box"><summary>Kubernetes Secret  - Storing obfuscated environmental variables per namespace</summary>
 <p>
-
-### Secret  - Storing obfuscated environmental variables per namespace
 
 xx
 

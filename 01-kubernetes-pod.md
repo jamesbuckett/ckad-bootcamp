@@ -12,10 +12,8 @@ In this section:
 
 ## Kubernetes Pod
 
-<details class="faq box"><summary>Kubernetes Namespace (ns)</summary>
+<details class="faq box"><summary>Kubernetes Namespace (ns)  - Logical isolation for your application</summary>
 <p>
-
-### Namespace - Logical isolation for your application
 
 xx
 
@@ -38,10 +36,8 @@ metadata:
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Pod (po)</summary>
+<details class="faq box"><summary>Kubernetes Pod (po) - A pod is the smallest execution unit in Kubernetes</summary>
 <p>
-
-### A pod is the smallest execution unit in Kubernetes
 
 xx
 
@@ -71,10 +67,8 @@ spec:
 </p>
 </details>
 
-<details class="faq box"><summary>Limits and Requests</summary>
+<details class="faq box"><summary>Limits and Requests - CPU and Memory reservation for a Pod</summary>
 <p>
-
-### Limits and Requests - CPU and Memory reservation for a Pod
 
 xx
 
@@ -114,10 +108,8 @@ kubectl apply -f ~/ckad/01-k8s-bootcamp-pod-resources.yml
 </p>
 </details>
 
-<details class="faq box"><summary>Liveness and Readiness Probes</summary>
+<details class="faq box"><summary>Liveness and Readiness Probes - Health Checks for a Pod</summary>
 <p>
-
-### Liveness and Readiness Probes - Health Checks for a Pod
 
 xx
 
@@ -170,10 +162,8 @@ vi ~/ckad/02-k8s-bootcamp-pod-probes.yml
 </p>
 </details>
 
-<details class="faq box"><summary>ServiceAccount (sa)</summary>
+<details class="faq box"><summary>ServiceAccount (sa) - Functional ID inside the Pod to connect to the API server</summary>
 <p>
-
-### ServiceAccount - Functional ID inside the Pod to connect to the API server
 
 xx
 

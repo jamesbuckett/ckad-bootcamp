@@ -3,16 +3,14 @@
 In this section:
 - Service - A load balancer for Pods
 - Ingress - Expose Kubernetes Services outside a Kubernetes cluster
-- Network Policy - Software based firewall around Kubernetes Services
+- Network Policy - Software based firewall around Kubernetes Pods
 
 ![00-pod](https://user-images.githubusercontent.com/18049790/135598360-f75b3c0d-1a41-4bb2-bf0e-cb983e819690.jpg)
 
 ## Kubernetes Networking
 
-<details class="faq box"><summary>Kubernetes Namespace (ns)</summary>
+<details class="faq box"><summary>Kubernetes Namespace (ns) - Logical isolation for your application</summary>
 <p>
-
-### Namespace - Logical isolation for your application
 
 kubernetes.io bookmark: [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 
@@ -24,10 +22,8 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Service (svc)</summary>
+<details class="faq box"><summary>Kubernetes Service (svc) - A load balancer for Pods</summary>
 <p>
-
-### Service - A load balancer for Pods
 
 xx
 
@@ -82,10 +78,8 @@ kubectl expose pod my-pod --port=8080 --target-port=80 --name=my-service
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Ingress (ing)</summary>
+<details class="faq box"><summary>Kubernetes Ingress (ing) - Expose Kubernetes Services outside a Kubernetes cluster</summary>
 <p>
-
-### Ingress - Expose Kubernetes Services outside a Kubernetes cluster
 
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
@@ -122,10 +116,8 @@ wget -qO- localhost
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes NetworkPolicy (netpol)</summary>
+<details class="faq box"><summary>Kubernetes NetworkPolicy (netpol) - Software based firewall around Kubernetes Pods</summary>
 <p>
-
-### Network Policy - Software based firewall around Kubernetes Services
 
 Note to self: test this on Docker Desktop and Digital Ocean to see which works
 
