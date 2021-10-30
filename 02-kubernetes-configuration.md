@@ -117,7 +117,6 @@ EOF
 </p>
 </details>
 
-
 <details class="faq box"><summary>Configuration Pod</summary>
 <p>
 
@@ -152,15 +151,12 @@ spec:
 EOF    
 ```
 
-<details class="faq box"><summary>Sample CKAD Questions</summary>
-<p>
+</p>
+</details>
 
-### Sample CKAD Questions
+## Sample CKAD Questions
 
 * [Sample CKAD Question - Secret](https://github.com/jamesbuckett/ckad-questions/blob/main/02-ckad-env-configuration-security.md#02-03-create-a-namespace-called-secret-namespace-create-a-secret-in-this-namespace-called-my-secret-the-secret-should-be-immutable-and-contain-the-literal-values-userbob-and-password123456-create-a-pod-called-called-secret-pod-using-the-nginx-image-the-pod-should-consume-the-secret-as-environmental-variables-secret-env-user-and-secret-env-password)
 * [Sample CKAD Question - ResourceQuota](https://github.com/jamesbuckett/ckad-questions/blob/main/02-ckad-env-configuration-security.md#02-02-create-a-namespace-called-quota-namespace-create-a-resource-quota-for-this-namespace-called-my-quota-set-a-memory-reservation-of-2gi-set-a-cpu-reservation-of-500mi)
-
-</p>
-</details>
 
 _End of Section_

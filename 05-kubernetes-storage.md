@@ -108,11 +108,8 @@ curl http://localhost/
 </p>
 </details>
 
-### Sample CKAD Questions
+## Sample CKAD Questions
 
 * [Sample CKAD Question - PersistentVolume & PersistentVolumeClaim](https://github.com/jamesbuckett/ckad-questions/blob/main/01-ckad-design-build.md#01-03-create-a-namespace-called-storage-namespace-create-a-persistent-volume-called-my-pv-with-5gi-storage-using-hostpath-mntmy-host-create-a-persistent-volume-claim-called-my-pvc-with-2gi-storage-create-a-pod-called-storage-pod-using-the-nginx-image-mount-the-persistent-volume-claim-onto-my-mount-in-storage-pod)
-
-</p>
-</details>
 
 _End of Section_
