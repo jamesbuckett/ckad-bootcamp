@@ -27,9 +27,9 @@ kubectl config set-context --current --namespace=ns-bootcamp-configuration
 
 xx
 
-> Problem Statement: I want to protect my application from run-away memory leaks 
+> Problem Statement:  I want to prevent resource contention and "land grabs" by controlling how much CPU or memory an application can consume.
 >
-> tl;dr – CPU and Memory constraints for your whole microservice application 
+> tl;dr – CPU and Memory constraints for the namespace
 
 
 kubernetes.io bookmark: [Create a ResourceQuota](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/#create-a-resourcequota)
@@ -53,7 +53,7 @@ EOF
 <details class="faq box"><summary>Kubernetes LimitRange (limits) A policy to constrain resource allocations (to Pods or Containers) in a namespace</summary>
 <p>
 
-> Problem Statement: I want to set default CPU and Memory allocations for my containers if missing
+> Problem Statement: I want to set default CPU and Memory allocations for my microservices if missing
 >
 > tl;dr – Forgot to define CPU and Memory in your Pod spec, no worries let me set some defaults for you
 

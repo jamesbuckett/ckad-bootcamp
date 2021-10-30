@@ -7,9 +7,6 @@ In this section:
 * Stateful Sets - Running a workload with persistent storage
 * Daemon Sets - Running a workload on every Linux worker node
 
-![00-pod](https://user-images.githubusercontent.com/18049790/135598360-f75b3c0d-1a41-4bb2-bf0e-cb983e819690.jpg)
-
-
 ## Kubernetes Workloads
 
 <details class="faq box"><summary>Kubernetes Namespace (ns) - Logical isolation for your application</summary>
@@ -27,8 +24,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-workloads
 <p>
 
 > Problem Statement: 
-> I want to have zero downtime when doing software deployments
-> I want resilience for my application
+> I want to have zero downtime when doing software deployments and I want a resilient microservices application
 
 > tl;dr – The thing that controls how you do upgrades with zero-downtime, also resilience with replicas
 

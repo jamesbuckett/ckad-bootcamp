@@ -124,9 +124,9 @@ kubectl apply -f ~/ckad/01-k8s-bootcamp-pod-resources.yml
 
 xx
 
-> Problem Solving: I want a way to check the health of my application
+> Problem Solving: I want a way to check the health of my microservices application
 
-> tl;dr – How to perform Health Checks on my application 
+> tl;dr – How to perform Health Checks on my microservices application 
 
 
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
