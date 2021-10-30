@@ -117,7 +117,7 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Configuration Pod</summary>
+<details class="faq box"><summary>A Pod consuming the ConfigMap and Secret</summary>
 <p>
 
 ```bash

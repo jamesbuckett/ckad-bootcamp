@@ -5,7 +5,7 @@ In this section:
 - Ingress - Expose Kubernetes Services outside a Kubernetes cluster
 - Network Policy - Software based firewall around Kubernetes Pods
 
-![00-pod](https://user-images.githubusercontent.com/18049790/135598360-f75b3c0d-1a41-4bb2-bf0e-cb983e819690.jpg)
+![04-network](https://user-images.githubusercontent.com/18049790/135599284-67c0bc4c-b880-4b84-9a85-9c45497b02c7.jpg)
 
 ## Kubernetes Networking
 
@@ -159,14 +159,10 @@ kubectl run busybox --rm -ti --image=busybox -- /bin/sh
 </p>
 </details>
 
-
-### Sample CKAD Questions
+## Sample CKAD Questions
 
 * [Sample CKAD Question - Service](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-02-create-a-namespace-called-service-namespace-create-a-pod-called-service-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierweb-create-a-service-for-the-pod-called-my-service-allowing-for-communication-inside-the-cluster-let-the-service-expose-port-8080)
 * [Sample CKAD Question - Ingress](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-03-create-an-ingress-called-my-ingress-to-expose-the-service-my-service-from-previous-question-outside-the-cluster)
 * [Sample CKAD Question - NetworkPolicy](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-01-create-a-namespace-called-netpol-namespace-create-a-pod-called-web-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierweb-create-a-pod-called-app-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierapp-create-a-pod-called-db-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierdb-create-a-network-policy-called-my-netpol-that-allows-the-web-pod-to-only-egress-to-app-pod-on-port-80)
-
-</p>
-</details>
 
 _End of Section_
