@@ -53,7 +53,9 @@ EOF
 <details class="faq box"><summary>Kubernetes LimitRange (limits) A policy to constrain resource allocations (to Pods or Containers) in a namespace</summary>
 <p>
 
-xx
+> Problem Statement: I want to set default CPU and Memory allocations for my containers if missing
+>
+> tl;dr – Forgot to define CPU and Memory in your Pod spec, no worries let me set some defaults for you
 
 ```bash
 cat << EOF | kubectl apply -f -
@@ -79,6 +81,10 @@ EOF
 <details class="faq box"><summary>Kubernetes ConfigMap (cm) - Storing environmental variables per namespace</summary>
 <p>
 
+> Problem Statement: I want to store configuration (environmental variables) in the environment
+>
+> tl;dr – All configuration data should be stored separately from the code
+
 xx
 
 kubernetes.io bookmark: [Define a container environment variable with data from a single ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-a-container-environment-variable-with-data-from-a-single-configmap)
@@ -99,6 +105,10 @@ EOF
 
 <details class="faq box"><summary>Kubernetes Secret  - Storing obfuscated environmental variables per namespace</summary>
 <p>
+
+> Problem Statement: I want a way to obfuscate my environmental variables
+> 
+> tl;dr – base64 encoded environment variables in memory
 
 xx
 
