@@ -15,7 +15,9 @@ In this section:
 <details class="faq box"><summary>Kubernetes Namespace (ns)  - Logical isolation for your application</summary>
 <p>
 
-xx
+> Problem Statement: I want logical separation and isolation for my application
+
+> tl;dr – This is the holder for your application
 
 kubernetes.io bookmark: [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 
