@@ -70,6 +70,9 @@ spec:
 EOF      
 ```
 
+</p>
+</details>
+
 <details class="faq box"><summary>Kubernetes Pod consuming PersistentVolume</summary>
 <p>
 
