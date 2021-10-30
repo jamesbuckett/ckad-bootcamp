@@ -16,7 +16,7 @@ In this section:
 <p>
 
 > Problem Statement: I want logical separation and isolation for my application
-
+>
 > tl;dr – This is the holder for your application
 
 kubernetes.io bookmark: [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
@@ -42,6 +42,10 @@ metadata:
 <p>
 
 xx
+
+> Problem Statement: I want to run immutable and resilient Linux workloads 
+>
+> tl;dr – Compute, Network, Storage and Monitoring around your application
 
 kubernetes.io bookmark: [Using Pods](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)
 
@@ -73,6 +77,11 @@ spec:
 <p>
 
 xx
+
+> Problem Solving: I want to guarantee CPU and RAM for my microservice
+>
+> tl;dr – Give me guaranteed CPU and RAM 
+
 
 kubernetes.io bookmark: [Meaning of Memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
@@ -114,6 +123,11 @@ kubectl apply -f ~/ckad/01-k8s-bootcamp-pod-resources.yml
 <p>
 
 xx
+
+> Problem Solving: I want a way to check the health of my application
+
+> tl;dr – How to perform Health Checks on my application 
+
 
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
 

@@ -26,6 +26,12 @@ kubectl config set-context --current --namespace=ns-bootcamp-workloads
 <details class="faq box"><summary>Kubernetes Deployment (deploy) - Resilient, scalable long running workload with zero downtime upgrades</summary>
 <p>
 
+> Problem Statement: 
+> I want to have zero downtime when doing software deployments
+> I want resilience for my application
+
+> tl;dr – The thing that controls how you do upgrades with zero-downtime, also resilience with replicas
+
 kubernetes.io bookmark: [Creating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
 ```bash
@@ -60,6 +66,10 @@ EOF
 <details class="faq box"><summary>Kubernetes Job - Running a workload to guaranteed completion</summary>
 <p>
 
+> Problem Statement: I want to run a Linux workload to guaranteed completion
+> 
+> tl;dr – Want to run a batch job? 
+
 kubernetes.io bookmark: [Running an example Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/#running-an-example-job)
 
 ```bash
@@ -86,6 +96,10 @@ EOF
 
 <details class="faq box"><summary>Kubernetes CronJob (cj)  - Running a workload to guaranteed completion on a time schedule</summary>
 <p>
+
+> Problem Statement: I want to run a Linux workload to guaranteed completion on a particular schedule
+> 
+> tl;dr – Want to run a cronjob?
 
 kubernetes.io bookmark: [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example)
 
@@ -116,7 +130,7 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Deployment (deploy) - Running a workload with persistent storage</summary>
+<details class="faq box"><summary>Kubernetes StatefulSet (sts) - Running a workload with persistent storage</summary>
 <p>
 
 kubernetes.io bookmark: [Creating a StatefulSet](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/)
@@ -177,6 +191,10 @@ EOF
 
 <details class="faq box"><summary>Kubernetes DaemonSet (ds) - Running a workload on every worker node</summary>
 <p>
+
+> Problem Statement: I want to run a Linux workload on every single worker node
+> 
+> tl;dr – Want to run everywhere in the cluster?
 
 kubernetes.io bookmark: [Writing a DaemonSet Spec](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#writing-a-daemonset-spec)
 

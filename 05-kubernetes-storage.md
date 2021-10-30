@@ -24,6 +24,10 @@ kubectl config set-context --current --namespace=ns-bootcamp-storage
 <details class="faq box"><summary>Kubernetes PersistentVolume (pv) – the low level representation of a storage volume</summary>
 <p>
 
+> Problem Statement: I want a way abstract Storage definitions away from application developers
+>
+> tl;dr – Define some external storage for use by the Kubernetes cluster
+
 kubernetes.io bookmark: [Create a PersistentVolume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume)
 
 ```bash
@@ -51,6 +55,10 @@ EOF
 
 <details class="faq box"><summary>Kubernetes PersistentVolumeClaim (pvc) – the binding between a Pod and PersistentVolume</summary>
 <p>
+
+> Problem Statement: I want a way for my microservices application to claim some storage
+> 
+> tl;dr – Now I want to claim some storage for use inside my container
 
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 

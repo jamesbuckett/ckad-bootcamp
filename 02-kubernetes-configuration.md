@@ -27,6 +27,11 @@ kubectl config set-context --current --namespace=ns-bootcamp-configuration
 
 xx
 
+> Problem Statement: I want to protect my application from run-away memory leaks 
+>
+> tl;dr – CPU and Memory constraints for your whole microservice application 
+
+
 kubernetes.io bookmark: [Create a ResourceQuota](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/#create-a-resourcequota)
 
 ```bash

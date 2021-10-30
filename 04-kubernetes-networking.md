@@ -27,6 +27,10 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 
 xx
 
+> Problem Statement: I want a stable network entry point into my application
+> 
+> tl;dr – Think Load balancer for individual microservices
+
 kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 Create a Pod 
@@ -81,6 +85,10 @@ kubectl expose pod my-pod --port=8080 --target-port=80 --name=my-service
 <details class="faq box"><summary>Kubernetes Ingress (ing) - Expose Kubernetes Services outside a Kubernetes cluster</summary>
 <p>
 
+> Problem Statement: I want a way to expose my application outside the Kubernetes cluster
+
+> tl;dr – Want to open up your microservice application to the Internet with a fancy URL?
+
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
 ```bash
@@ -118,6 +126,10 @@ wget -qO- localhost
 
 <details class="faq box"><summary>Kubernetes NetworkPolicy (netpol) - Software based firewall around Kubernetes Pods</summary>
 <p>
+
+> Problem Statement: I want a way to deny all network traffic around pods unless explicitly allowed
+>
+> tl;dr – Trust no one, explicitly define who talks to who with my software based firewall 
 
 Note to self: test this on Docker Desktop and Digital Ocean to see which works
 
