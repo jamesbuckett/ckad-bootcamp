@@ -212,16 +212,11 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Sample CKAD Questions</summary>
-<p>
-
-### Sample CKAD Questions
+## Sample CKAD Questions
 
 * [Sample CKAD Question - Container Name](https://github.com/jamesbuckett/ckad-questions/blob/main/01-ckad-design-build.md#01-02-create-a-namespace-called-pod-namespace-create-a-pod-called-pod-1-using-nginx-image-the-container-in-the-pod-should-be-named-container-1)
 
 * [Sample CKAD Question - ServiceAccount](https://github.com/jamesbuckett/ckad-questions/blob/main/02-ckad-env-configuration-security.md#02-04-create-a-namespace-called-serviceaccount-namespace-create-a-pod-called-serviceaccount-pod-using-nginx-image-create-a-seviceaccount-called-my-serviceaccount-update-the-pod-to-use-the-new-serviceaccount-display-the-token-for-the-new-serviceaccount)
 
-</p>
-</details>
 
 _End of Section_
