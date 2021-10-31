@@ -16,6 +16,6 @@ The North Star Diagram
 
 What happens when you type `kubectl`?
 
-![00-under-the-hood](https://user-images.githubusercontent.com/18049790/139566103-01770dbf-63ae-4f40-98f6-f9ffd752ce4e.jpg)
+![00-under-the-hood](https://user-images.githubusercontent.com/18049790/139566351-14b705cb-7ca3-410f-8e4f-49b9a6d24812.jpg)
 
 _End of Section_
