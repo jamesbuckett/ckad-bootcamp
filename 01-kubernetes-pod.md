@@ -238,7 +238,7 @@ EOF
 ```bash
 cd
 yes | rm -R ~/ckad/
-ns-bootcamp-pod
+kubectl delete ns ns-bootcamp-pod
 kubectl delete sa my-serviceaccount  
 ```
 
