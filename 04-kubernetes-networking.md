@@ -64,7 +64,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-ingress #👈👈👈 Change: `my-ingress`
+  name: my-ingress #👈👈👈 Ingress Name
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -75,7 +75,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: my-service #👈👈👈 Change: `my-service`
+            name: my-service #👈👈👈 Service Name
             port:
               number: 8080 #👈👈👈 Change: --port=8080
 EOF
@@ -116,6 +116,8 @@ kubectl run busybox --rm -ti --image=busybox -- /bin/sh
 # wget --spider --timeout=1 nginx
 ```
 
+Leave the busybox active in a shell. Open another shell and apply the network policy.
+
 ```bash
 cat << EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
@@ -133,6 +135,8 @@ spec:
           access: "true"
 EOF
 ```
+
+Come back to the busybox shell and check connectivity.
 
 ```bash
 kubectl run busybox --rm -ti --image=busybox -- /bin/sh
