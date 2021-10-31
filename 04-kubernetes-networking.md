@@ -36,43 +36,7 @@ kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-n
 Create a Pod 
 
 ```bash
-cat << EOF | kubectl apply -f -
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: my-serviceaccount  
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: my-pod
-spec:
-  serviceAccountName: my-serviceaccount #👈👈👈 give an identity to your pod
-  containers:
-  - name: my-container
-    image: nginx:1.20.0
-    ports:
-    - containerPort: 80
-    resources:
-      requests:
-        memory: "64Mi"
-        cpu: "250m"
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
-    livenessProbe: 
-      httpGet:  
-        path: / 
-        port: 80 
-      initialDelaySeconds: 3  
-      periodSeconds: 3 
-    readinessProbe: 
-      httpGet:
-        path: /
-        port: 80
-      initialDelaySeconds: 3
-      periodSeconds: 3
-EOF
+kubectl run my-pod --image=nginx:1.20.0 --port=80 --labels=app=nginx
 ```
 
 ```bash
