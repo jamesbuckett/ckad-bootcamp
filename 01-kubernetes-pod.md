@@ -86,7 +86,7 @@ xx
 kubernetes.io bookmark: [Meaning of Memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
 ```bash
-kubectl delete pod my-pod
+kubectl delete pod my-pod --grace-period 0 --force
 clear
 ```
 
@@ -128,7 +128,7 @@ xx
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
 
 ```bash
-kubectl delete pod my-pod
+kubectl delete pod my-pod --grace-period 0 --force
 clear
 ```
 
@@ -177,7 +177,7 @@ xx
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 
 ```bash
-kubectl delete pod my-pod
+kubectl delete pod my-pod --grace-period 0 --force
 clear
 ```
 
