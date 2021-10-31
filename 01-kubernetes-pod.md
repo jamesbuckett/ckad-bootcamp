@@ -41,11 +41,11 @@ metadata:
 <details class="faq box"><summary>Kubernetes Pod (po) - A pod is the smallest execution unit in Kubernetes</summary>
 <p>
 
-![01-pod-basic](https://user-images.githubusercontent.com/18049790/139566106-670dc523-0cd2-491c-8e1d-1ae69ff7815a.jpg)
-
 > Problem Statement: I want to run immutable and resilient Linux workloads 
 >
 > tl;dr – Compute, Network, Storage and Monitoring around your application
+
+![01-pod-basic](https://user-images.githubusercontent.com/18049790/139566106-670dc523-0cd2-491c-8e1d-1ae69ff7815a.jpg)
 
 kubernetes.io bookmark: [Using Pods](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)
 
@@ -75,6 +75,10 @@ spec:
 
 <details class="faq box"><summary>Limits and Requests - CPU and Memory reservation for a Pod</summary>
 <p>
+
+> Problem Solving: I want to guarantee CPU and RAM for my microservice
+>
+> tl;dr – Let me make a CPU and RAM reservation
 
 ![01-pod-cpu-ram](https://user-images.githubusercontent.com/18049790/139566107-f1c831ff-2d97-48bb-beb3-a45df7bb8371.jpg)
 
@@ -120,11 +124,11 @@ EOF
 <details class="faq box"><summary>Liveness and Readiness Probes - Health Checks for a Pod</summary>
 <p>
 
-![01-pod-probes](https://user-images.githubusercontent.com/18049790/139566110-9b9b79ef-225e-49ec-8a8d-af630ced639e.jpg)
-
 > Problem Solving: I want a way to check the health of my microservices application
 
 > tl;dr – How to perform Health Checks on my microservices application 
+
+![01-pod-probes](https://user-images.githubusercontent.com/18049790/139566110-9b9b79ef-225e-49ec-8a8d-af630ced639e.jpg)
 
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
 
@@ -239,8 +243,8 @@ EOF
 ```bash
 cd
 yes | rm -R ~/ckad/
-kubectl delete ns ns-bootcamp-pod --grace-period 0 --force
-kubectl delete sa my-serviceaccount --grace-period 0 --force 
+kubectl delete ns ns-bootcamp-pod 
+kubectl delete sa my-serviceaccount
 ```
 
 </p>
