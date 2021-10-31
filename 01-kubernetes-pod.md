@@ -41,7 +41,7 @@ metadata:
 <details class="faq box"><summary>Kubernetes Pod (po) - A pod is the smallest execution unit in Kubernetes</summary>
 <p>
 
-xx
+![01-pod-basic](https://user-images.githubusercontent.com/18049790/139566106-670dc523-0cd2-491c-8e1d-1ae69ff7815a.jpg)
 
 > Problem Statement: I want to run immutable and resilient Linux workloads 
 >
@@ -76,7 +76,9 @@ spec:
 <details class="faq box"><summary>Limits and Requests - CPU and Memory reservation for a Pod</summary>
 <p>
 
-xx
+![01-pod-cpu-ram](https://user-images.githubusercontent.com/18049790/139566107-f1c831ff-2d97-48bb-beb3-a45df7bb8371.jpg)
+
+![01-pod-qos](https://user-images.githubusercontent.com/18049790/139566111-74dcc981-a0d6-47a1-900a-02c65314314d.jpg)
 
 > Problem Solving: I want to guarantee CPU and RAM for my microservice
 >
@@ -118,12 +120,11 @@ EOF
 <details class="faq box"><summary>Liveness and Readiness Probes - Health Checks for a Pod</summary>
 <p>
 
-xx
+![01-pod-probes](https://user-images.githubusercontent.com/18049790/139566110-9b9b79ef-225e-49ec-8a8d-af630ced639e.jpg)
 
 > Problem Solving: I want a way to check the health of my microservices application
 
 > tl;dr – How to perform Health Checks on my microservices application 
-
 
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
 
@@ -172,7 +173,7 @@ EOF
 <details class="faq box"><summary>ServiceAccount (sa) - Functional ID inside the Pod to connect to the API server</summary>
 <p>
 
-xx
+![01-pod-sa](https://user-images.githubusercontent.com/18049790/139566115-4d03c529-8db7-49e9-9a35-ef54136ade72.jpg)
 
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 

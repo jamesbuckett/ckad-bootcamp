@@ -95,9 +95,12 @@ wget -qO- localhost
 >
 > tl;dr – Trust no one, explicitly define who talks to who with my software based firewall 
 
-Note to self: test this on Docker Desktop and Digital Ocean to see which works
-
 kubernetes.io bookmark: [Declare Network Policy](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/)
+
+Notes
+* This does not work on Docker Desktop
+* Network Policies are not enforced on Docker Desktop
+* Run on alternative Cloud Provider
 
 ```bash
 kubectl create deployment nginx --image=nginx
