@@ -2,7 +2,12 @@
 
 Intent:
 * This tutorial is an introduction to Kubernetes for Application Developers
-* The tutorial will aid in the preparation for the [CKAD](https://www.cncf.io/certification/ckad/) exam
+    * It covers the basics of compute in the Kubernetes Pod section
+    * Storing configuration in the environment in the Kubernetes Configuration section
+    * Different workload types possible in the Kubernetes Workloads section
+    * Networking in the Kubernetes Networking section 
+    * Storage in the Kubernetes Storage section
+* Sample CKAD questions are included at the end of each section    
 
 ![image](https://user-images.githubusercontent.com/18049790/43352583-0b37edda-9269-11e8-9695-1e8de81acb76.png)
 
