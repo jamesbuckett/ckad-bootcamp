@@ -238,8 +238,8 @@ EOF
 ```bash
 cd
 yes | rm -R ~/ckad/
-kubectl delete ns ns-bootcamp-pod
-kubectl delete sa my-serviceaccount  
+kubectl delete ns ns-bootcamp-pod --grace-period 0 --force
+kubectl delete sa my-serviceaccount --grace-period 0 --force 
 ```
 
 </p>
