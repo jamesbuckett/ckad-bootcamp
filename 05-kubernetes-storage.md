@@ -28,6 +28,8 @@ kubectl config set-context --current --namespace=ns-bootcamp-storage
 >
 > tl;dr – Define some external storage for use by the Kubernetes cluster
 
+![05-pv](https://user-images.githubusercontent.com/18049790/139567410-6cf7860e-51cd-40bf-9ab1-8cd81c7597ca.jpg)
+
 kubernetes.io bookmark: [Create a PersistentVolume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume)
 
 ```bash
@@ -52,13 +54,14 @@ EOF
 </p>
 </details>
 
-
 <details class="faq box"><summary>Kubernetes PersistentVolumeClaim (pvc) – the binding between a Pod and PersistentVolume</summary>
 <p>
 
 > Problem Statement: I want a way for my microservices application to claim some storage
 > 
 > tl;dr – Now I want to claim some storage for use inside my container
+
+![05-pv-pvc](https://user-images.githubusercontent.com/18049790/139567412-b28d67bf-217c-4dcb-8b2c-b0be627f118f.jpg)
 
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 
