@@ -126,4 +126,15 @@ curl http://localhost/
 
 * [Sample CKAD Question - PersistentVolume & PersistentVolumeClaim](https://github.com/jamesbuckett/ckad-questions/blob/main/01-ckad-design-build.md#01-03-create-a-namespace-called-storage-namespace-create-a-persistent-volume-called-my-pv-with-5gi-storage-using-hostpath-mntmy-host-create-a-persistent-volume-claim-called-my-pvc-with-2gi-storage-create-a-pod-called-storage-pod-using-the-nginx-image-mount-the-persistent-volume-claim-onto-my-mount-in-storage-pod)
 
+## Clean Up
+
+<details class="faq box"><summary>Clean Up</summary>
+<p>
+
+```bash
+cd
+yes | rm -R ~/ckad/
+kubectl delete ns ns-bootcamp-storage --grace-period 0 --force
+```
+
 _End of Section_
