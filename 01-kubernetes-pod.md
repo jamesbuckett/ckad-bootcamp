@@ -86,8 +86,8 @@ xx
 kubernetes.io bookmark: [Meaning of Memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
 ```bash
-mkdir -p ~/ckad/
-vi ~/ckad/01-k8s-bootcamp-pod-resources.yml
+kubectl delete pod my-pod
+clear
 ```
 
 ```bash
@@ -112,10 +112,6 @@ spec:
 EOF
 ```
 
-```bash
-kubectl apply -f ~/ckad/01-k8s-bootcamp-pod-resources.yml
-```
-
 </p>
 </details>
 
@@ -132,8 +128,8 @@ xx
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
 
 ```bash
-mkdir -p ~/ckad/
-vi ~/ckad/02-k8s-bootcamp-pod-probes.yml
+kubectl delete pod my-pod
+clear
 ```
 
 ```bash
@@ -170,11 +166,6 @@ spec:
 EOF
 ```
 
-```bash
-mkdir -p ~/ckad/
-vi ~/ckad/02-k8s-bootcamp-pod-probes.yml
-```
-
 </p>
 </details>
 
@@ -184,6 +175,11 @@ vi ~/ckad/02-k8s-bootcamp-pod-probes.yml
 xx
 
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+```bash
+kubectl delete pod my-pod
+clear
+```
 
 ```bash
 cat << EOF | kubectl apply -f -
@@ -233,6 +229,21 @@ EOF
 * [Sample CKAD Question - Container Name](https://github.com/jamesbuckett/ckad-questions/blob/main/01-ckad-design-build.md#01-02-create-a-namespace-called-pod-namespace-create-a-pod-called-pod-1-using-nginx-image-the-container-in-the-pod-should-be-named-container-1)
 
 * [Sample CKAD Question - ServiceAccount](https://github.com/jamesbuckett/ckad-questions/blob/main/02-ckad-env-configuration-security.md#02-04-create-a-namespace-called-serviceaccount-namespace-create-a-pod-called-serviceaccount-pod-using-nginx-image-create-a-seviceaccount-called-my-serviceaccount-update-the-pod-to-use-the-new-serviceaccount-display-the-token-for-the-new-serviceaccount)
+
+## Clean Up
+
+<details class="faq box"><summary>Clean Up</summary>
+<p>
+
+```bash
+cd
+yes | rm -R ~/ckad/
+ns-bootcamp-pod
+kubectl delete sa my-serviceaccount  
+```
+
+</p>
+</details>
 
 
 _End of Section_
