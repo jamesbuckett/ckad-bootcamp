@@ -45,7 +45,7 @@ metadata:
 >
 > tl;dr – Compute, Network, Storage and Monitoring around your application
 
-![01-pod-basic](https://user-images.githubusercontent.com/18049790/139566106-670dc523-0cd2-491c-8e1d-1ae69ff7815a.jpg)
+![01-pod-basic](https://user-images.githubusercontent.com/18049790/139566637-f641afe6-67b1-4066-88e3-b4762e8b0ebf.jpg)
 
 kubernetes.io bookmark: [Using Pods](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)
 
