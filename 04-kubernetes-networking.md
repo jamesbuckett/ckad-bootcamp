@@ -25,22 +25,24 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 <details class="faq box"><summary>Kubernetes Service (svc) - A load balancer for Pods</summary>
 <p>
 
-xx
-
 > Problem Statement: I want a stable network entry point into my application
 > 
 > tl;dr – Think Load balancer for individual microservices
+
+![04-pod-svc](https://user-images.githubusercontent.com/18049790/139566952-602bacc9-03b3-4109-a85e-2ebd582024a7.jpg)
 
 kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 Create a Pod 
 
 ```bash
-kubectl run my-pod --image=nginx:1.20.0 --port=80 --labels=app=nginx
+kubectl run service-pod --image=nginx --port=80  --labels="tier=web"
 ```
 
+Create the Service
+
 ```bash
-kubectl expose pod my-pod --port=8080 --target-port=80 --name=my-service
+kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 ```
 
 </p>
@@ -52,6 +54,8 @@ kubectl expose pod my-pod --port=8080 --target-port=80 --name=my-service
 > Problem Statement: I want a way to expose my application outside the Kubernetes cluster
 
 > tl;dr – Want to open up your microservice application to the Internet with a fancy URL?
+
+![04-pod-svc-ing](https://user-images.githubusercontent.com/18049790/139566958-21ce4c6b-aef0-4839-9628-a6f56ed67f8f.jpg)
 
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 

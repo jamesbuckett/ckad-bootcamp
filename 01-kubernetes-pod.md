@@ -82,13 +82,6 @@ spec:
 
 ![01-pod-cpu-ram](https://user-images.githubusercontent.com/18049790/139566107-f1c831ff-2d97-48bb-beb3-a45df7bb8371.jpg)
 
-![01-pod-qos](https://user-images.githubusercontent.com/18049790/139566111-74dcc981-a0d6-47a1-900a-02c65314314d.jpg)
-
-> Problem Solving: I want to guarantee CPU and RAM for my microservice
->
-> tl;dr – Give me guaranteed CPU and RAM 
-
-
 kubernetes.io bookmark: [Meaning of Memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
 ```bash
@@ -117,6 +110,9 @@ spec:
         cpu: "500m" #👈👈👈 500m = 500 milliCPU (½ CPU)
 EOF
 ```
+Relationship between Resources and Quality of Service
+
+![01-pod-qos](https://user-images.githubusercontent.com/18049790/139566111-74dcc981-a0d6-47a1-900a-02c65314314d.jpg)
 
 </p>
 </details>
