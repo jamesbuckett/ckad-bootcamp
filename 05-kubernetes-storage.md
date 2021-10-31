@@ -37,17 +37,17 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: task-pv-volume
+  name: my-pv #👈👈👈 PersistentVolume Name
   labels:
     type: local
 spec:
-  storageClassName: manual
+  storageClassName: manual  #👈👈👈 NOT link to PersistentVolumeClaim
   capacity:
-    storage: 10Gi
+    storage: 5Gi #👈👈👈 Reserve 5 Gigabyte
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data"
+    path: "/mnt/my-host" #👈👈👈 Path on Linux Node 
 EOF
 ```
 
@@ -70,14 +70,14 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: task-pv-claim
+  name: my-pvc #👈👈👈 PersistentVolumeClaim Name 
 spec:
-  storageClassName: manual
+  storageClassName: manual #👈👈👈 NOT link to PersistentVolume
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
+      storage: 2Gi #👈👈👈 Reserve 2 Gigabyte
 EOF
 ```
 
@@ -94,21 +94,21 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
-  name: task-pv-pod
+  name: storage-pod 
 spec:
   volumes:
-    - name: task-pv-storage
+    - name: my-volume
       persistentVolumeClaim:
-        claimName: task-pv-claim
+        claimName: my-pvc #👈👈👈 Link to PersistentVolumeClaim
   containers:
-    - name: task-pv-container
+    - name: my-container
       image: nginx
       ports:
         - containerPort: 80
           name: "http-server"
       volumeMounts:
-        - mountPath: "/usr/share/nginx/html"
-          name: task-pv-storage
+        - mountPath: "/my-mount" #👈👈👈 Mount path in the container
+          name: my-volume
 EOF
 ```
 
