@@ -72,7 +72,7 @@ spec:
         port: 80
       initialDelaySeconds: 3
       periodSeconds: 3
-EOF            
+EOF
 ```
 
 ```bash
@@ -110,7 +110,7 @@ spec:
             name: my-service #👈👈👈 Change: `my-service`
             port:
               number: 8080 #👈👈👈 Change: --port=8080
-EOF                
+EOF
 ```
 
 ```bash
@@ -160,7 +160,7 @@ spec:
     - podSelector:
         matchLabels:
           access: "true"
-EOF         
+EOF
 ```
 
 ```bash

@@ -53,7 +53,7 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
-EOF           
+EOF
 ```
 
 </p>
@@ -83,7 +83,7 @@ spec:
         command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
       restartPolicy: Never
   backoffLimit: 4
-EOF   
+EOF
 ```
 
 </p>
@@ -120,7 +120,7 @@ spec:
             - -c
             - date; echo Hello from the Kubernetes cluster
           restartPolicy: OnFailure
-EOF            
+EOF
 ```
 
 </p>
@@ -179,7 +179,7 @@ spec:
       resources:
         requests:
           storage: 1Gi
-EOF                  
+EOF
 ```
 
 </p>
@@ -241,7 +241,7 @@ spec:
       - name: varlibdockercontainers
         hostPath:
           path: /var/lib/docker/containers
-EOF 
+EOF
 ```
 
 </p>

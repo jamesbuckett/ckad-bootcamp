@@ -46,7 +46,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data"
-EOF      
+EOF
 ```
 
 </p>
@@ -75,7 +75,7 @@ spec:
   resources:
     requests:
       storage: 3Gi
-EOF      
+EOF
 ```
 
 </p>
@@ -87,6 +87,7 @@ EOF
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 
 ```bash
+cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -105,7 +106,7 @@ spec:
       volumeMounts:
         - mountPath: "/usr/share/nginx/html"
           name: task-pv-storage
-EOF      
+EOF
 ```
 
 ```bash

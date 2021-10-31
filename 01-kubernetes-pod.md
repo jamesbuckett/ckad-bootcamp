@@ -52,7 +52,7 @@ kubernetes.io bookmark: [Using Pods](https://kubernetes.io/docs/concepts/workloa
 ```bash
 clear
 # Create the pod via the command line imperatively
-kubectl run my-pod –image=nginx:1.20.0 –port=80
+kubectl run my-pod --image=nginx:1.20.0 --port=80
 ```
 
 Output:
@@ -109,7 +109,7 @@ spec:
       limits:  #👈👈👈 Maximum “Limit”
         memory: "128Mi" #👈👈👈 128Mi = 128 Megabyte
         cpu: "500m" #👈👈👈 500m = 500 milliCPU (½ CPU)
-EOF           
+EOF
 ```
 
 ```bash
@@ -167,7 +167,7 @@ spec:
         port: 80
       initialDelaySeconds: 3
       periodSeconds: 3
-EOF      
+EOF
 ```
 
 ```bash
@@ -222,7 +222,7 @@ spec:
         port: 80
       initialDelaySeconds: 3
       periodSeconds: 3
-EOF            
+EOF
 ```
 
 </p>

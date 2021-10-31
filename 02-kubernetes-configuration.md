@@ -44,7 +44,7 @@ spec:
   hard:
     cpu: 500Mi
     memory: 2G
-EOF      
+EOF
 ```
 
 </p>
@@ -72,7 +72,7 @@ spec:
       cpu: 100m
       memory: 128Mi
     type: Container 
-EOF      
+EOF
 ```
 
 </p>
@@ -97,7 +97,7 @@ metadata:
   name: my-configmap  
 data:
   error-log-level: notice
-EOF    
+EOF
 ```
 
 </p>
@@ -126,7 +126,7 @@ data:
 kind: Secret
 metadata:
   name: my-secret
-EOF    
+EOF
 ```
 
 </p>
@@ -163,7 +163,7 @@ spec:
           secretKeyRef:
             name: my-secret  #👈👈👈 Secret
             key: password
-EOF    
+EOF
 ```
 
 </p>
