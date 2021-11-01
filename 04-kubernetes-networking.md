@@ -59,6 +59,11 @@ kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
+Prerequisite Software for this example to work:
+```bash
+kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
+```
+
 ```bash
 cat << EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
