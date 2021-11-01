@@ -44,6 +44,14 @@ Create the Service
 ```bash
 kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 ```
+```bash
+clear
+# Check your work - run a diagnostics pod
+kubectl run remote-run --image=busybox --restart=Never --rm -it
+# Repeat this command to see different responses
+wget -qO- my-service:8080
+```
+
 
 </p>
 </details>
@@ -87,11 +95,7 @@ EOF
 ```
 
 ```bash
-clear
-# Check your work - run a diagnostics pod
-kubectl run remote-run --image=busybox --restart=Never --rm -it
-# Repeat this command to see different responses
-wget -qO- localhost
+curl localhost
 ```
 
 </p>
