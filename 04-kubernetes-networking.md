@@ -99,6 +99,8 @@ wget -qO- localhost
 >
 > tl;dr – Trust no one, explicitly define who talks to who with my software based firewall 
 
+GUI for explaining and generating Network Policies: [editor.cilium.io](https://editor.cilium.io/)
+
 kubernetes.io bookmark: [Declare Network Policy](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/)
 
 Notes
