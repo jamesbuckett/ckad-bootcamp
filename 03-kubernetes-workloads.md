@@ -70,8 +70,7 @@ EOF
 
 kubernetes.io bookmark: [Running an example Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/#running-an-example-job)
 
-* Here is an example Job config. 
-* It computes π to 2000 places and prints it out.
+* This example Job manifest computes π to 2000 places and prints it out:
 
 ```bash
 cat << EOF | kubectl apply -f -
@@ -95,7 +94,6 @@ EOF
 pods=$(kubectl get pods --selector=job-name=pi --output=jsonpath='{.items[*].metadata.name}')
 kubectl logs $pods
 ```
-
 
 </p>
 </details>
@@ -144,7 +142,10 @@ EOF
 
 kubernetes.io bookmark: [Creating a StatefulSet](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/)
 
+* This example StatefulSet manifest creates a headless Service, nginx, to publish the IP addresses of Pods in the StatefulSet, web:
+
 ```bash
+
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
