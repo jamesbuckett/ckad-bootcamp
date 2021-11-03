@@ -28,6 +28,8 @@ kubectl config set-context --current --namespace=ns-bootcamp-workloads
 
 > tl;dr – The thing that controls how you do upgrades with zero-downtime, also resilience with replicas
 
+![03-deployment](https://user-images.githubusercontent.com/18049790/140038711-2ff33916-cd52-4d11-bd0c-812118517a68.jpg)
+
 kubernetes.io bookmark: [Creating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
 ```bash
