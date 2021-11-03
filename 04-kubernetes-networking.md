@@ -44,6 +44,14 @@ Create the Service
 ```bash
 kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 ```
+```bash
+clear
+# Check your work - run a diagnostics pod
+kubectl run remote-run --image=busybox --restart=Never --rm -it
+# Repeat this command to see different responses
+wget -qO- my-service:8080
+```
+
 
 </p>
 </details>
@@ -58,6 +66,11 @@ kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 ![04-pod-svc-ing](https://user-images.githubusercontent.com/18049790/139566958-21ce4c6b-aef0-4839-9628-a6f56ed67f8f.jpg)
 
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+
+Prerequisite Software for this example to work:
+```bash
+kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
+```
 
 ```bash
 cat << EOF | kubectl apply -f -
@@ -82,11 +95,7 @@ EOF
 ```
 
 ```bash
-clear
-# Check your work - run a diagnostics pod
-kubectl run remote-run --image=busybox --restart=Never --rm -it
-# Repeat this command to see different responses
-wget -qO- localhost
+curl localhost
 ```
 
 </p>
