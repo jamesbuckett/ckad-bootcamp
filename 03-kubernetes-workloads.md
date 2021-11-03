@@ -70,6 +70,9 @@ EOF
 
 kubernetes.io bookmark: [Running an example Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/#running-an-example-job)
 
+* Here is an example Job config. 
+* It computes π to 2000 places and prints it out.
+
 ```bash
 cat << EOF | kubectl apply -f -
 apiVersion: batch/v1
@@ -88,6 +91,12 @@ spec:
 EOF
 ```
 
+```bash
+pods=$(kubectl get pods --selector=job-name=pi --output=jsonpath='{.items[*].metadata.name}')
+kubectl logs $pods
+```
+
+
 </p>
 </details>
 
@@ -100,6 +109,8 @@ EOF
 > tl;dr – Want to run a cronjob?
 
 kubernetes.io bookmark: [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example)
+
+* This example CronJob manifest prints the current time and a hello message every minute:
 
 ```bash
 cat << EOF | kubectl apply -f -
