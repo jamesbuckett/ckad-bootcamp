@@ -131,6 +131,19 @@ Leave the busybox active in a shell. Open another shell and apply the network po
 
 ```bash
 cat << EOF | kubectl apply -f -
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: default-deny-all
+  namespace: default
+spec:
+  podSelector: {}
+  ingress: []
+  EOF
+  ```
+
+```bash
+cat << EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
