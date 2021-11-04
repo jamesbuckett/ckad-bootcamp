@@ -129,6 +129,7 @@ kubectl run busybox --rm -ti --image=busybox -- /bin/sh
 
 Leave the busybox active in a shell. Open another shell and apply the network policy.
 
+Deny All Traffic in Namespace
 ```bash
 cat << EOF | kubectl apply -f -
 kind: NetworkPolicy
