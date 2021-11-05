@@ -89,7 +89,7 @@ kubectl delete pod my-pod --grace-period 0 --force
 clear
 ```
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
