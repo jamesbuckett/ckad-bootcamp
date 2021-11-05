@@ -57,7 +57,7 @@ kubectl run my-pod --image=nginx:1.20.0 --port=80
 
 Output:
 
-```bash
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -133,7 +133,7 @@ kubectl delete pod my-pod --grace-period 0 --force
 clear
 ```
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
@@ -182,7 +182,7 @@ kubectl delete pod my-pod --grace-period 0 --force
 clear
 ```
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: ServiceAccount
@@ -245,6 +245,5 @@ kubectl delete sa my-serviceaccount
 
 </p>
 </details>
-
 
 _End of Section_

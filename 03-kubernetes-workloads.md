@@ -32,7 +32,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-workloads
 
 kubernetes.io bookmark: [Creating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -72,7 +72,7 @@ kubernetes.io bookmark: [Running an example Job](https://kubernetes.io/docs/conc
 
 * This example Job manifest computes π to 2000 places and prints it out:
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: batch/v1
 kind: Job
@@ -110,7 +110,7 @@ kubernetes.io bookmark: [CronJob](https://kubernetes.io/docs/concepts/workloads/
 
 * This example CronJob manifest prints the current time and a hello message every minute:
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: batch/v1
 kind: CronJob
@@ -152,8 +152,7 @@ kubernetes.io bookmark: [Creating a StatefulSet](https://kubernetes.io/docs/tuto
 
 * This example StatefulSet manifest creates a headless Service, nginx, to publish the IP addresses of Pods in the StatefulSet, web:
 
-```bash
-
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
@@ -216,7 +215,7 @@ EOF
 
 kubernetes.io bookmark: [Writing a DaemonSet Spec](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#writing-a-daemonset-spec)
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: DaemonSet

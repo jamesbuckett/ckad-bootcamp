@@ -6,8 +6,6 @@ In this section:
 * Pod – a running container that will consume a PersistentVolume
 * StorageClass – allows for dynamic provisioning of PersistentVolumes
 
-
-
 ## Kubernetes Storage
 
 <details class="faq box"><summary>Kubernetes Namespace (ns) - Logical isolation for your application</summary>
@@ -32,7 +30,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-storage
 
 kubernetes.io bookmark: [Create a PersistentVolume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume)
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolume
@@ -65,7 +63,7 @@ EOF
 
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -89,7 +87,7 @@ EOF
 
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod

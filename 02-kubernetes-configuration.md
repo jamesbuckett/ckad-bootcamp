@@ -34,7 +34,7 @@ xx
 
 kubernetes.io bookmark: [Create a ResourceQuota](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/#create-a-resourcequota)
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: ResourceQuota
@@ -57,7 +57,7 @@ EOF
 >
 > tl;dr – Forgot to define CPU and Memory in your Pod spec, no worries let me set some defaults for you
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: LimitRange
@@ -89,7 +89,7 @@ xx
 
 kubernetes.io bookmark: [Define a container environment variable with data from a single ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-a-container-environment-variable-with-data-from-a-single-configmap)
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
@@ -114,7 +114,7 @@ xx
 
 kubernetes.io bookmark: [Using Secrets as environment variables](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables)
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
@@ -135,7 +135,7 @@ EOF
 <details class="faq box"><summary>A Pod consuming the ConfigMap and Secret</summary>
 <p>
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
