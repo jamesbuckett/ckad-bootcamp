@@ -120,7 +120,7 @@ echo 'Hardships often prepare ordinary people for an extraordinary destiny' >> /
 ```
 
 ```bash
-kubectl delete pod storage-pod
+kubectl delete pod storage-pod --force --grace-period=0
 ```
 
 ```yaml
