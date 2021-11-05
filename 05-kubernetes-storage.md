@@ -112,14 +112,48 @@ EOF
 ```
 
 ```bash
-kubectl exec -it task-pv-pod -- /bin/bash
+kubectl exec -it storage-pod -- /bin/bash
 ```
 
 ```bash
-apt update
-apt install curl
-curl http://localhost/
+echo 'Hardships often prepare ordinary people for an extraordinary destiny' >> /my-mount/hello-world.txt
 ```
+
+```bash
+kubectl delete pod storage-pod
+```
+
+```yaml
+cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: storage-pod 
+spec:
+  volumes:
+    - name: my-volume
+      persistentVolumeClaim:
+        claimName: my-pvc #👈👈👈 Link to PersistentVolumeClaim
+  containers:
+    - name: my-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/my-mount" #👈👈👈 Mount path in the container
+          name: my-volume
+EOF
+```
+
+```bash
+kubectl exec -it storage-pod -- /bin/bash
+```
+
+```bash
+cat /my-mount/hello-world.txt
+```
+
 
 </p>
 </details>
