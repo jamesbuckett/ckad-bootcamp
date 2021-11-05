@@ -5,12 +5,14 @@
 In this section:
 * Kubernetes Resource Types
 * Kubernetes Under the Hood
+<br />
 
 ## Kubernetes Resource Types
 
 The North Star Diagram
 
 ![00-north-star](https://user-images.githubusercontent.com/18049790/139566099-c561e1e6-ce62-431f-bb14-f7ea2d4aea3e.jpg)
+<br />
 
 ### Kubernetes Under the Hood
 

@@ -4,8 +4,10 @@ In this section:
 - Service - A load balancer for Pods
 - Ingress - Expose Kubernetes Services outside a Kubernetes cluster
 - Network Policy - Software based firewall around Kubernetes Pods
+<br />
 
 ![04-network](https://user-images.githubusercontent.com/18049790/135599284-67c0bc4c-b880-4b84-9a85-9c45497b02c7.jpg)
+<br />
 
 ## Kubernetes Networking
 
@@ -52,7 +54,6 @@ kubectl run remote-run --image=busybox --restart=Never --rm -it
 wget -qO- my-service:8080
 ```
 
-
 </p>
 </details>
 
@@ -72,7 +73,7 @@ Prerequisite Software for this example to work:
 kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
 ```
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -129,7 +130,7 @@ kubectl run busybox --rm -ti --image=busybox -- /bin/sh
 
 Leave the busybox active in a shell. Open another shell and apply the network policy.
 
-```bash
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy

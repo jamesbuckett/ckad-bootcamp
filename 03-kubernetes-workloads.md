@@ -6,6 +6,7 @@ In this section:
 * CronJobs - Running a workload to guaranteed completion on a time schedule
 * Stateful Sets - Running a workload with persistent storage
 * Daemon Sets - Running a workload on every Linux worker node
+<br />
 
 ## Kubernetes Workloads
 

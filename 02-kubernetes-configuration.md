@@ -6,8 +6,10 @@ In this section:
 - Limit Range - A policy to constrain resource allocations (to Pods or Containers) in a namespace
 - Configuration Map - Storing environmental variables per namespace
 - Secret  - Storing obfuscated environmental variables per namespace
+<br />
 
 ![01-config](https://user-images.githubusercontent.com/18049790/135598375-34b557bc-96fd-499b-bc02-c2bb0c743199.jpg)
+<br />
 
 ## Kubernetes Configuration
 

@@ -5,6 +5,7 @@ In this section:
 * PersistentVolumeClaim – the binding between a Pod and PersistentVolume
 * Pod – a running container that will consume a PersistentVolume
 * StorageClass – allows for dynamic provisioning of PersistentVolumes
+<br />
 
 ## Kubernetes Storage
 

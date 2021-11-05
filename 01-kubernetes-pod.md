@@ -7,8 +7,10 @@ In this section:
 - Liveness and Readiness - Health Checks for a Pod
 - ServiceAccount - Functional ID inside the Pod to connect to the API server
 - Security Context - Linux privilege and access control settings for a Pod or Container
+<br />
 
 ![00-pod](https://user-images.githubusercontent.com/18049790/135598360-f75b3c0d-1a41-4bb2-bf0e-cb983e819690.jpg)
+<br />
 
 ## Kubernetes Pod
 
