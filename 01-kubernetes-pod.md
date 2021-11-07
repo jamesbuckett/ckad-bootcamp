@@ -48,7 +48,7 @@ metadata:
 >
 > tl;dr – Compute, Network, Storage and Monitoring around your application
 
-![02-basic-pod](https://user-images.githubusercontent.com/18049790/140636351-ca0b3797-be8c-4a13-9cab-9a8d822fc7f3.jpg)
+![02-basic-pod](https://user-images.githubusercontent.com/18049790/140636726-0c08ffb0-e520-42ba-8807-8928da6c53e7.jpg)
 
 kubernetes.io bookmark: [Using Pods](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)
 
@@ -83,7 +83,7 @@ spec:
 >
 > tl;dr – Let me make a CPU and RAM reservation
 
-![02-basic-pod-cpu-ram](https://user-images.githubusercontent.com/18049790/140636353-8942ddfc-edae-4a84-86d3-eb41fe04bd9f.jpg)
+![02-cpu-ram](https://user-images.githubusercontent.com/18049790/140636727-9b6ceba7-5bfa-4f24-bca0-7f40c73181b2.jpg)
 
 kubernetes.io bookmark: [Meaning of Memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
@@ -115,7 +115,7 @@ EOF
 ```
 The Relationship between Resources and Quality of Service
 
-![02-qos](https://user-images.githubusercontent.com/18049790/140636356-998f8802-1869-4316-88ae-86c59e3192f4.jpg)
+![02-qos](https://user-images.githubusercontent.com/18049790/140636729-64c34a54-38e3-4057-92ca-3ffd82c4fbb6.jpg)
 
 </p>
 </details>
@@ -127,7 +127,7 @@ The Relationship between Resources and Quality of Service
 
 > tl;dr – How to perform Health Checks on my microservices application 
 
-![02-probes](https://user-images.githubusercontent.com/18049790/140636355-41c9dd4d-c2f5-48a2-82f8-eb369c6ac370.jpg)
+![probes](https://user-images.githubusercontent.com/18049790/140636733-846c09eb-2e81-467a-8ad0-331e45b9b4fd.jpg)
 
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
 
@@ -176,12 +176,12 @@ EOF
 <details class="faq box"><summary>ServiceAccount (sa) - Functional ID inside the Pod to connect to the API server</summary>
 <p>
 
-![02-sa](https://user-images.githubusercontent.com/18049790/140636357-47267a95-7dd2-4bca-8ab4-b8214e7e25b0.jpg)
+![02-sa](https://user-images.githubusercontent.com/18049790/140636731-77ba1689-b901-4ad9-bb2a-885fdddfe3ca.jpg)
 
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 
 ```bash
-kubectl delete pod my-pod --grace-period 0 --force
+kubectl delete pod my-pod --now
 clear
 ```
 
