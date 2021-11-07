@@ -31,7 +31,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-workloads
 
 > tl;dr – The thing that controls how you do upgrades with zero-downtime, also resilience with replicas
 
-![03-deployment](https://user-images.githubusercontent.com/18049790/140038711-2ff33916-cd52-4d11-bd0c-812118517a68.jpg)
+![04-deployment](https://user-images.githubusercontent.com/18049790/140640341-b72a123b-befe-4701-8b92-130f25c062bf.jpg)
 
 kubernetes.io bookmark: [Creating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
@@ -71,6 +71,8 @@ EOF
 > 
 > tl;dr – Want to run a batch job? 
 
+![04-job](https://user-images.githubusercontent.com/18049790/140640342-9203f1ba-5223-4a63-8e85-167a85b5f9db.jpg)
+
 kubernetes.io bookmark: [Running an example Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/#running-an-example-job)
 
 * This example Job manifest computes π to 2000 places and prints it out:
@@ -108,6 +110,8 @@ kubectl logs $pods
 > Problem Statement: I want to run a Linux workload to guaranteed completion on a particular schedule
 > 
 > tl;dr – Want to run a cronjob?
+
+![04-cronjob](https://user-images.githubusercontent.com/18049790/140640337-22fbee82-3005-4d0c-9a36-9c946a82b143.jpg)
 
 kubernetes.io bookmark: [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example)
 
