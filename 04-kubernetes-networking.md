@@ -109,51 +109,21 @@ curl localhost
 >
 > tl;dr – Trust no one, explicitly define who talks to who with my software based firewall 
 
+![05-netpol](https://user-images.githubusercontent.com/18049790/140638229-62871b17-bc71-4e51-a71c-4c75c178a78f.jpg)
+
 GUI for explaining and generating Network Policies: [editor.cilium.io](https://editor.cilium.io/)
 
 kubernetes.io bookmark: [Declare Network Policy](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/)
 
-Notes
-* This does not work on Docker Desktop
-* Network Policies are not enforced on Docker Desktop
-* Run on alternative Cloud Provider
-
-```bash
-kubectl create deployment nginx --image=nginx
-kubectl expose deployment nginx --port=80
+```diff
+Please NOTE:
+- Docker Desktop does not support CNI (container network interface) so the NetworkPolicy's define are ignored.
+- The commands work but the NetworkPolicy's are not enforced
+- Perform this on any cluster that enforces Network Policies
 ```
 
-```bash
-kubectl run busybox --rm -ti --image=busybox -- /bin/sh
-# wget --spider --timeout=1 nginx
-```
+* [Sample CKAD Question - NetworkPolicy](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-01-create-a-namespace-called-netpol-namespace-create-a-pod-called-web-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierweb-create-a-pod-called-app-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierapp-create-a-pod-called-db-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierdb-create-a-network-policy-called-my-netpol-that-allows-the-web-pod-to-only-egress-to-app-pod-on-port-80)
 
-Leave the busybox active in a shell. Open another shell and apply the network policy.
-
-```yaml
-cat << EOF | kubectl apply -f -
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: access-nginx
-spec:
-  podSelector:
-    matchLabels:
-      app: nginx
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          access: "true"
-EOF
-```
-
-Come back to the busybox shell and check connectivity.
-
-```bash
-kubectl run busybox --rm -ti --image=busybox -- /bin/sh
-# wget --spider --timeout=1 nginx
-```
 
 </p>
 </details>
@@ -163,7 +133,6 @@ kubectl run busybox --rm -ti --image=busybox -- /bin/sh
 
 * [Sample CKAD Question - Service](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-02-create-a-namespace-called-service-namespace-create-a-pod-called-service-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierweb-create-a-service-for-the-pod-called-my-service-allowing-for-communication-inside-the-cluster-let-the-service-expose-port-8080)
 * [Sample CKAD Question - Ingress](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-03-create-an-ingress-called-my-ingress-to-expose-the-service-my-service-from-previous-question-outside-the-cluster)
-* [Sample CKAD Question - NetworkPolicy](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-01-create-a-namespace-called-netpol-namespace-create-a-pod-called-web-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierweb-create-a-pod-called-app-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierapp-create-a-pod-called-db-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierdb-create-a-network-policy-called-my-netpol-that-allows-the-web-pod-to-only-egress-to-app-pod-on-port-80)
 <br />
 
 ## Clean Up
