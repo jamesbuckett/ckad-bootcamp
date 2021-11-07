@@ -5,6 +5,9 @@ In this section:
 * PersistentVolumeClaim – the binding between a Pod and PersistentVolume
 * Pod – a running container that will consume a PersistentVolume
 * StorageClass – allows for dynamic provisioning of PersistentVolumes
+
+![06-storage](https://user-images.githubusercontent.com/18049790/140639302-4fdea482-eacb-4dce-8fee-22325605f6b3.jpg)
+
 <br />
 
 ## Kubernetes Storage
@@ -27,7 +30,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-storage
 >
 > tl;dr – Define some external storage for use by the Kubernetes cluster
 
-![05-pv](https://user-images.githubusercontent.com/18049790/139567410-6cf7860e-51cd-40bf-9ab1-8cd81c7597ca.jpg)
+![06-pv](https://user-images.githubusercontent.com/18049790/140639303-5cf1c9d9-094f-4d9b-b85d-2fce70e28afb.jpg)
 
 kubernetes.io bookmark: [Create a PersistentVolume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume)
 
@@ -60,7 +63,7 @@ EOF
 > 
 > tl;dr – Now I want to claim some storage for use inside my container
 
-![05-pv-pvc](https://user-images.githubusercontent.com/18049790/139567412-b28d67bf-217c-4dcb-8b2c-b0be627f118f.jpg)
+![06-pvc](https://user-images.githubusercontent.com/18049790/140639304-92e5766a-82eb-4e5b-8af2-05c191fc753d.jpg)
 
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 
@@ -85,6 +88,9 @@ EOF
 
 <details class="faq box"><summary>Kubernetes Pod consuming PersistentVolume</summary>
 <p>
+
+![06-pv-pvc-pod](https://user-images.githubusercontent.com/18049790/140639299-1b5a2c1b-139d-4b52-9a35-66d79de5fb71.jpg)
+
 
 kubernetes.io bookmark: [Create a PersistentVolumeClaim](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolumeclaim)
 
