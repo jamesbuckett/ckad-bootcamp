@@ -1,7 +1,8 @@
 # Kubernetes Tutorial - Kubernetes Pod & Friends
 
-In this section:
+ A pod should be considered as the smallest unit of execution in Kubernetes and all Kubernetes workloads run Pods at their core.
 
+In this section:
 - Pod - A pod is the smallest execution unit in Kubernetes
 - Limits and Requests - CPU and Memory reservation for a Pod
 - Liveness and Readiness - Health Checks for a Pod

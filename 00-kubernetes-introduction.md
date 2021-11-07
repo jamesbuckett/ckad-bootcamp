@@ -1,6 +1,6 @@
 # Kubernetes Tutorial - Kubernetes Introduction
 
-
+Kubernetes is a steady state engine for running distributed immutable workloads.
 
 In this section:
 * Kubernetes Resource Types
