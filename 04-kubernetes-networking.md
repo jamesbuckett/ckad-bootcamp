@@ -6,7 +6,7 @@ In this section:
 - Network Policy - Software based firewall around Kubernetes Pods
 <br />
 
-![04-network](https://user-images.githubusercontent.com/18049790/135599284-67c0bc4c-b880-4b84-9a85-9c45497b02c7.jpg)
+![05-network-basic](https://user-images.githubusercontent.com/18049790/140637546-e3535aa3-cbd6-4dd9-bd39-37c466b6566a.jpg)
 <br />
 
 ## Kubernetes Networking
@@ -31,7 +31,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 > 
 > tl;dr – Think Load balancer for individual microservices
 
-![04-pod-svc](https://user-images.githubusercontent.com/18049790/139566952-602bacc9-03b3-4109-a85e-2ebd582024a7.jpg)
+![05-network-svc](https://user-images.githubusercontent.com/18049790/140637550-b404f946-de52-4c45-8bb5-23b7ea7ebe2d.jpg)
 
 kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
@@ -64,7 +64,7 @@ wget -qO- my-service:8080
 
 > tl;dr – Want to open up your microservice application to the Internet with a fancy URL?
 
-![04-pod-svc-ing](https://user-images.githubusercontent.com/18049790/139566958-21ce4c6b-aef0-4839-9628-a6f56ed67f8f.jpg)
+![05-network-ing](https://user-images.githubusercontent.com/18049790/140637548-d1a9ced9-7c66-406c-86d3-1a7001de2e75.jpg)
 
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
@@ -174,7 +174,7 @@ kubectl run busybox --rm -ti --image=busybox -- /bin/sh
 ```bash
 cd
 yes | rm -R ~/ckad/
-kubectl delete ns ns-bootcamp-networking --grace-period 0 --force
+kubectl delete ns ns-bootcamp-networking --now
 ```
 
 _End of Section_
