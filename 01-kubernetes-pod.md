@@ -48,7 +48,7 @@ metadata:
 >
 > tl;dr – Compute, Network, Storage and Monitoring around your application
 
-![01-pod-basic](https://user-images.githubusercontent.com/18049790/139566637-f641afe6-67b1-4066-88e3-b4762e8b0ebf.jpg)
+![02-basic-pod](https://user-images.githubusercontent.com/18049790/140636351-ca0b3797-be8c-4a13-9cab-9a8d822fc7f3.jpg)
 
 kubernetes.io bookmark: [Using Pods](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)
 
@@ -83,7 +83,7 @@ spec:
 >
 > tl;dr – Let me make a CPU and RAM reservation
 
-![01-pod-cpu-ram](https://user-images.githubusercontent.com/18049790/139566107-f1c831ff-2d97-48bb-beb3-a45df7bb8371.jpg)
+![02-basic-pod-cpu-ram](https://user-images.githubusercontent.com/18049790/140636353-8942ddfc-edae-4a84-86d3-eb41fe04bd9f.jpg)
 
 kubernetes.io bookmark: [Meaning of Memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
@@ -113,9 +113,9 @@ spec:
         cpu: "500m" #👈👈👈 500m = 500 milliCPU (½ CPU)
 EOF
 ```
-Relationship between Resources and Quality of Service
+The Relationship between Resources and Quality of Service
 
-![01-pod-qos](https://user-images.githubusercontent.com/18049790/139566111-74dcc981-a0d6-47a1-900a-02c65314314d.jpg)
+![02-qos](https://user-images.githubusercontent.com/18049790/140636356-998f8802-1869-4316-88ae-86c59e3192f4.jpg)
 
 </p>
 </details>
@@ -127,7 +127,7 @@ Relationship between Resources and Quality of Service
 
 > tl;dr – How to perform Health Checks on my microservices application 
 
-![01-pod-probes](https://user-images.githubusercontent.com/18049790/139566110-9b9b79ef-225e-49ec-8a8d-af630ced639e.jpg)
+![02-probes](https://user-images.githubusercontent.com/18049790/140636355-41c9dd4d-c2f5-48a2-82f8-eb369c6ac370.jpg)
 
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
 
@@ -176,7 +176,7 @@ EOF
 <details class="faq box"><summary>ServiceAccount (sa) - Functional ID inside the Pod to connect to the API server</summary>
 <p>
 
-![01-pod-sa](https://user-images.githubusercontent.com/18049790/139566115-4d03c529-8db7-49e9-9a35-ef54136ade72.jpg)
+![02-sa](https://user-images.githubusercontent.com/18049790/140636357-47267a95-7dd2-4bca-8ab4-b8214e7e25b0.jpg)
 
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 
