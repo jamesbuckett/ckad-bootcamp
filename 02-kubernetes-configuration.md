@@ -27,12 +27,11 @@ kubectl config set-context --current --namespace=ns-bootcamp-configuration
 <details class="faq box"><summary>Kubernetes ResourceQuota (quota) - Namespace restriction on total resource usage</summary>
 <p>
 
-xx
-
 > Problem Statement:  I want to prevent resource contention and "land grabs" by controlling how much CPU or memory an application can consume.
 >
 > tl;dr – CPU and Memory constraints for the namespace
 
+![03-quota](https://user-images.githubusercontent.com/18049790/140637139-550aec0f-1e2e-4988-9d31-b0b62efaf77b.jpg)
 
 kubernetes.io bookmark: [Create a ResourceQuota](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/#create-a-resourcequota)
 
@@ -54,6 +53,8 @@ EOF
 
 <details class="faq box"><summary>Kubernetes LimitRange (limits) A policy to constrain resource allocations (to Pods or Containers) in a namespace</summary>
 <p>
+
+![03-quota](https://user-images.githubusercontent.com/18049790/140637139-550aec0f-1e2e-4988-9d31-b0b62efaf77b.jpg)
 
 > Problem Statement: I want to set default CPU and Memory allocations for my microservices if missing
 >
@@ -87,7 +88,7 @@ EOF
 >
 > tl;dr – All configuration data should be stored separately from the code
 
-xx
+![03-cm](https://user-images.githubusercontent.com/18049790/140637134-aa560ccb-cba8-47be-9f3a-3e8cc19d719a.jpg)
 
 kubernetes.io bookmark: [Define a container environment variable with data from a single ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-a-container-environment-variable-with-data-from-a-single-configmap)
 
@@ -112,7 +113,7 @@ EOF
 > 
 > tl;dr – base64 encoded environment variables in memory
 
-xx
+![03-secret](https://user-images.githubusercontent.com/18049790/140637140-709ae658-74e4-4a76-aa5f-b2751cb1e4c7.jpg)
 
 kubernetes.io bookmark: [Using Secrets as environment variables](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables)
 
@@ -136,6 +137,8 @@ EOF
 
 <details class="faq box"><summary>A Pod consuming the ConfigMap and Secret</summary>
 <p>
+
+![03-pod-cm-sec](https://user-images.githubusercontent.com/18049790/140637137-09125908-0320-49c2-aafd-c91b956bddbf.jpg)
 
 ```yaml
 cat << EOF | kubectl apply -f -
