@@ -31,7 +31,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 > 
 > tl;dr – Think Load balancer for individual microservices
 
-![05-network-svc](https://user-images.githubusercontent.com/18049790/140637550-b404f946-de52-4c45-8bb5-23b7ea7ebe2d.jpg)
+![05-network-svc](https://user-images.githubusercontent.com/18049790/140637642-5ef46de4-4867-41a6-ba44-6333cd9441af.jpg)
 
 kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
