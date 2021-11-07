@@ -71,7 +71,7 @@ EOF
 > 
 > tl;dr – Want to run a batch job? 
 
-![04-job](https://user-images.githubusercontent.com/18049790/140640342-9203f1ba-5223-4a63-8e85-167a85b5f9db.jpg)
+![04-job](https://user-images.githubusercontent.com/18049790/140640468-f448ce27-2c29-4081-b81b-00acfdcb63cb.jpg)
 
 kubernetes.io bookmark: [Running an example Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/#running-an-example-job)
 
@@ -111,7 +111,7 @@ kubectl logs $pods
 > 
 > tl;dr – Want to run a cronjob?
 
-![04-cronjob](https://user-images.githubusercontent.com/18049790/140640337-22fbee82-3005-4d0c-9a36-9c946a82b143.jpg)
+![04-cronjob](https://user-images.githubusercontent.com/18049790/140640514-e7eb5127-f772-4ea7-94dd-c6ddea78ee30.jpg)
 
 kubernetes.io bookmark: [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example)
 
