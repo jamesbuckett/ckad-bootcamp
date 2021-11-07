@@ -10,6 +10,7 @@ Intent:
 * Sample CKAD questions are included at the end of each section    
 
 ![image](https://user-images.githubusercontent.com/18049790/43352583-0b37edda-9269-11e8-9695-1e8de81acb76.png)
+<br />
 
 ## Disclaimer
 
