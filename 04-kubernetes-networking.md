@@ -72,6 +72,13 @@ wget -qO- my-service:8080
 
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
+Notes
+* Ingress operates using a controller with an Ingress resource and a daemon. 
+* The Ingress resource is a set of rules governing traffic. 
+  * kind: Ingress
+* The daemon applies the rules inside a specialized Kubernetes pod. 
+  * Envoy DaemonSet
+
 Prerequisite Software for this example to work:
 ```bash
 kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
