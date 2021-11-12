@@ -35,6 +35,10 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 
 kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
+Notes
+* The default kube-proxy mode for rule-based IP management is iptables, and the iptables mode native method for load distribution is random selection. 
+
+
 Create a Pod 
 
 ```bash
@@ -114,6 +118,12 @@ curl localhost
 GUI for explaining and generating Network Policies: [editor.cilium.io](https://editor.cilium.io/)
 
 kubernetes.io bookmark: [Declare Network Policy](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/)
+
+Notes 
+* Network policies do not conflict; they are additive. 
+* If any policy or policies select a pod, the pod is restricted to what is allowed by the union of those policies' ingress/egress rules. 
+* Thus, order of evaluation does not affect the policy result.
+
 
 ```diff
 Please NOTE:
