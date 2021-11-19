@@ -231,13 +231,19 @@ EOF
 
 ## Kubernetes Pod Best Practices 
 
-Tools
+<details class="faq box"><summary>Tools</summary>
+<p>
+
+### Tools
 * [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions.
 * [datree](https://www.datree.io/) - Prevent Kubernetes Misconfigurations From Reaching Production
 
 Usage
 * `kubes-core score ~/ckad/01-kubernetes-pod-basic-pod.yml`
 * `datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml`
+
+</p>
+</details>
 
 <details class="faq box"><summary>Kubernetes Pod (po) - Best Practices</summary>
 <p>
