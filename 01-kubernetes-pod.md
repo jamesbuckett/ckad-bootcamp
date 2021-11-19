@@ -285,10 +285,8 @@ metadata:
   name: my-pod
 spec:
   securityContext:
-    runAsUser: 10000 ## 👈👈👈 A userid above 10 000 is recommended to avoid conflicts with the host. 
-                                        ## 👈👈👈 Set securityContext.runAsUser to a value > 10000
-    runAsGroup: 30000 ## 👈👈👈 A groupid above 10 000 is recommended to avoid conflicts with the host. 
-                                          ## 👈👈👈 Set securityContext.runAsGroup to a value > 10000
+    runAsUser: 10000 ## 👈👈👈 A userid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsUser to a value > 10000
+    runAsGroup: 30000 ## 👈👈👈 A groupid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsGroup to a value > 10000
     fsGroup: 2000
   containers:
   - image: nginx:1.20.0
@@ -299,26 +297,19 @@ spec:
       readOnlyRootFilesystem: true ##  👈👈👈 Container Security Context ReadOnlyRootFilesystem
     resources:
       requests:
-        memory: "64Mi" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. 
-                                         ## 👈👈👈 Set resources.requests.memory
-        cpu: "32m" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. 
-                              ## 👈👈👈 Set resources.requests.cpu
+        memory: "64Mi" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
+        cpu: "32m" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
       limits:
-        memory: "64Mi" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. 
-                                        ## 👈👈👈 Set resources.limits.memory
-        cpu: "32m" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. 
-                              ## 👈👈👈 Set resources.limits.cpu
-    imagePullPolicy: Always ## 👈👈👈 It's recommended to always set the ImagePullPolicy to Always.
-                                                    ## 👈👈👈 To make sure that the imagePullSecrets are always correct, and to always get the image you want.
-    livenessProbe: ## 👈👈👈 Missing property object `livenessProbe` 
-                                 ## 👈👈👈 add a properly configured livenessProbe to catch possible deadlocks
+        memory: "64Mi" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
+        cpu: "32m" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
+    imagePullPolicy: Always ## 👈👈👈 It's recommended to always set the ImagePullPolicy to Always. To make sure that the imagePullSecrets are always correct, and to always get the image you want.
+    livenessProbe: ## 👈👈👈 Missing property object `livenessProbe` - add a properly configured livenessProbe to catch possible deadlocks
       httpGet:
         path: /
         port: 80
       initialDelaySeconds: 10
       periodSeconds: 5
-    readinessProbe: ## 👈👈👈 Missing property object `readinessProbe` 
-                                    ## 👈👈👈 Add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
+    readinessProbe: ## 👈👈👈 Missing property object `readinessProbe` - Add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
       httpGet:
         path: /
         port: 80
