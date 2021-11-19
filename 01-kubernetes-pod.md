@@ -231,7 +231,7 @@ EOF
 
 ## Kubernetes Pod Best Practices 
 
-<details class="faq box"><summary>Kubernetes Pod (po) - A pod is the smallest execution unit in Kubernetes</summary>
+<details class="faq box"><summary>kubes-core score</summary>
 <p>
 
 ```bash
@@ -240,19 +240,66 @@ mkdir -p ~/ckad/
 kubectl run my-pod --image=nginx:1.20.0 --port=80 --dry-run=client -o yaml > ~/ckad/01-kubernetes-pod-basic-pod.yml
 ```
 
+Tools
+* [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions.
+* [datree](https://www.datree.io/) - Prevent Kubernetes Misconfigurations From Reaching Production
+
 ```bash
-kubescore score ~/ckad/01-kubernetes-pod-basic-pod.yml
+kubes-core score ~/ckad/01-kubernetes-pod-basic-pod.yml
+# or
+datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
 ```
 
-```console
-kubescore score ~/ckad/01-kubernetes-pod-basic-pod.yml
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my-pod
+  name: my-pod
+spec:
+  securityContext:
+    runAsUser: 10000 ## 👈👈👈 A userid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsUser to a value > 10000
+    runAsGroup: 30000 ## 👈👈👈 A groupid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsGroup to a value > 10000
+    fsGroup: 2000
+  containers:
+  - image: nginx:1.20.0
+    name: my-pod
+    ports:
+    - containerPort: 80
+    securityContext:
+      readOnlyRootFilesystem: true ##  👈👈👈 Container Security Context ReadOnlyRootFilesystem
+    resources:
+      requests:
+        memory: "64Mi" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
+        cpu: "32m" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
+      limits:
+        memory: "64Mi" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
+        cpu: "32m" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
+    imagePullPolicy: Always ## 👈👈👈 It's recommended to always set the ImagePullPolicy to Always.
+                            ## 👈👈👈 To make sure that the imagePullSecrets are always correct, and to always get the image you want.
+    livenessProbe: ## 👈👈👈 Missing property object `livenessProbe` - add a properly configured livenessProbe to catch possible deadlocks
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 10
+      periodSeconds: 5
+    readinessProbe: ## 👈👈👈 Missing property object `readinessProbe` - add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 10
+      periodSeconds: 5
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
 ```
-
-
 
 </p>
 </details>
-
+<br />
 
 ## Sample CKAD Questions
 
