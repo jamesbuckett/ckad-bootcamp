@@ -35,6 +35,10 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 
 kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
+Notes
+* The default kube-proxy mode for rule-based IP management is iptables, and the iptables mode native method for load distribution is random selection. 
+
+
 Create a Pod 
 
 ```bash
@@ -67,6 +71,13 @@ wget -qO- my-service:8080
 ![05-network-ing](https://user-images.githubusercontent.com/18049790/140637548-d1a9ced9-7c66-406c-86d3-1a7001de2e75.jpg)
 
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+
+Notes
+* Ingress operates using a controller with an Ingress resource and a daemon. 
+* The Ingress resource is a set of rules governing traffic. 
+  * kind: Ingress
+* The daemon applies the rules inside a specialized Kubernetes pod. 
+  * Envoy DaemonSet
 
 Prerequisite Software for this example to work:
 ```bash
@@ -114,6 +125,12 @@ curl localhost
 GUI for explaining and generating Network Policies: [editor.cilium.io](https://editor.cilium.io/)
 
 kubernetes.io bookmark: [Declare Network Policy](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/)
+
+Notes 
+* Network policies do not conflict; they are additive. 
+* If any policy or policies select a pod, the pod is restricted to what is allowed by the union of those policies' ingress/egress rules. 
+* Thus, order of evaluation does not affect the policy result.
+
 
 ```diff
 Please NOTE:
