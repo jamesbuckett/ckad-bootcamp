@@ -273,7 +273,7 @@ EOF
 
 ## Kubernetes Workload Best Practices 
 
-<details class="faq box"><summary>Kubernetes Deployment (deploy) - Best Practices</summary>
+<details class="faq box"><summary>Kubernetes Deployment (deploy) - PodAntiAffinity & PodDisruptionBudget</summary>
 <p>
 
 Before:
@@ -303,8 +303,8 @@ spec:
 
 After:
 
-* PodDisruptionBudget
-  * During any Kubernetes Cluster operation such a node drain before a repave event
+* PodDisruptionBudget 
+  * PodDisruptionBudget is active during any Kubernetes Cluster operation such a node drain which usually precedes a node repave 
   * Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
 
 ```yaml
