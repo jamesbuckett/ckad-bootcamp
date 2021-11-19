@@ -229,6 +229,31 @@ EOF
 </details>
 <br />
 
+## Kubernetes Pod Best Practices 
+
+<details class="faq box"><summary>Kubernetes Pod (po) - A pod is the smallest execution unit in Kubernetes</summary>
+<p>
+
+```bash
+clear
+mkdir -p ~/ckad/
+kubectl run my-pod --image=nginx:1.20.0 --port=80 --dry-run=client -o yaml > ~/ckad/01-kubernetes-pod-basic-pod.yml
+```
+
+```bash
+kubescore score ~/ckad/01-kubernetes-pod-basic-pod.yml
+```
+
+```console
+kubescore score ~/ckad/01-kubernetes-pod-basic-pod.yml
+```
+
+
+
+</p>
+</details>
+
+
 ## Sample CKAD Questions
 
 * [Sample CKAD Question - Container Name](https://github.com/jamesbuckett/ckad-questions/blob/main/01-ckad-design-build.md#01-02-create-a-namespace-called-pod-namespace-create-a-pod-called-pod-1-using-nginx-image-the-container-in-the-pod-should-be-named-container-1)
