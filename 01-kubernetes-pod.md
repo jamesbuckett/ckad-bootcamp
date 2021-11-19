@@ -305,11 +305,11 @@ spec:
                               ## 👈👈👈 Set resources.requests.cpu
       limits:
         memory: "64Mi" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. 
-                                         ## 👈👈👈 Set resources.limits.memory
+                                        ## 👈👈👈 Set resources.limits.memory
         cpu: "32m" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. 
                               ## 👈👈👈 Set resources.limits.cpu
     imagePullPolicy: Always ## 👈👈👈 It's recommended to always set the ImagePullPolicy to Always.
-                            ## 👈👈👈 To make sure that the imagePullSecrets are always correct, and to always get the image you want.
+                                                    ## 👈👈👈 To make sure that the imagePullSecrets are always correct, and to always get the image you want.
     livenessProbe: ## 👈👈👈 Missing property object `livenessProbe` 
                                  ## 👈👈👈 add a properly configured livenessProbe to catch possible deadlocks
       httpGet:
