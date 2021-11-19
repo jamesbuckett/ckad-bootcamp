@@ -239,7 +239,7 @@ Usage
 * `kubes-core score ~/ckad/01-kubernetes-pod-basic-pod.yml`
 * `datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml`
 
-<details class="faq box"><summary>Kubernetes Pod (po) - A pod is the smallest execution unit in Kubernetes - Best Practices</summary>
+<details class="faq box"><summary>Kubernetes Pod (po) - Best Practices</summary>
 <p>
 
 ```bash
