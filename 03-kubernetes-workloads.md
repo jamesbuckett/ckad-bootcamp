@@ -271,6 +271,96 @@ EOF
 </details>
 <br />
 
+## Kubernetes Workload Best Practices 
+
+<details class="faq box"><summary>Kubernetes Deployment (deploy) - Best Practices</summary>
+<p>
+
+Before:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+### Result
+
+* PodDisruptionBudget
+  * During any Kubernetes Cluster operation such a node drain before a repave event
+  * Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
+
+```yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: my-pdb
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: nginx
+```
+
+* PodAntiAffinity
+  * podAntiAffinity stops multiple pods from a deployment from being scheduled on the same node
+  * This increases availability in case the node becomes unavailable
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution: ## Hard anti-affinity - guarantees the distribution
+          - labelSelector:
+              matchExpressions: # Pod should not be scheduled on the node if a pod with the label app=nginx
+              - key: app
+                operator: In
+                values:
+                - nginx
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+</p>
+</details>
+<br />
+
 ## Sample CKAD Questions
 
 * [Sample CKAD Question - Blue-Green-Canary](https://github.com/jamesbuckett/ckad-questions/blob/main/03-ckad-deployment.md#03-05-create-a-namespace-called-blue-green-namespace-create-a-deployment-called-blue-deployment-with-10-replicas-using-the-nginx-image-inside-the-namespace-expose-port-80-for-the-nginx-containers-label-the-pods-versionblue-and-tierweb-create-a-service-called-bsg-service-to-route-traffic-to-blue-deployment-verify-that-traffic-is-flowing-from-the-service-to-the-deployment-create-a-new-deployment-called-green-deployment--with-10-replicas-using-the-nginx-image-inside-the-namespace-expose-port-80-for-the-nginx-containers-label-the-pods-versiongreen-and-tierweb-once-the-green-deployment-is-active-split-traffic-between-blue-deployment70-and-green-deployment30)
