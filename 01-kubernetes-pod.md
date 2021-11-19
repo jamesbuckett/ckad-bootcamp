@@ -231,7 +231,15 @@ EOF
 
 ## Kubernetes Pod Best Practices 
 
-<details class="faq box"><summary>kubes-core score</summary>
+Tools
+* [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions.
+* [datree](https://www.datree.io/) - Prevent Kubernetes Misconfigurations From Reaching Production
+
+Usage
+* `kubes-core score ~/ckad/01-kubernetes-pod-basic-pod.yml`
+* `datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml`
+
+<details class="faq box"><summary>Pod Best Practices</summary>
 <p>
 
 ```bash
@@ -240,17 +248,28 @@ mkdir -p ~/ckad/
 kubectl run my-pod --image=nginx:1.20.0 --port=80 --dry-run=client -o yaml > ~/ckad/01-kubernetes-pod-basic-pod.yml
 ```
 
-Tools
-* [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions.
-* [datree](https://www.datree.io/) - Prevent Kubernetes Misconfigurations From Reaching Production
-
-```bash
-kubes-core score ~/ckad/01-kubernetes-pod-basic-pod.yml
-# or
-datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
+Before:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my-pod
+  name: my-pod
+spec:
+  containers:
+  - image: nginx:1.20.0
+    name: my-pod
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
 ```
 
-
+After:
 ```yaml
 apiVersion: v1
 kind: Pod
