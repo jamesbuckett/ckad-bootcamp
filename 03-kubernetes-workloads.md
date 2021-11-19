@@ -304,7 +304,7 @@ spec:
 After:
 
 * PodDisruptionBudget 
-* tl;dr - Please cluster administrators hold on this is a critical application and I need some pods kept alive
+* tl;dr - Please cluster administrators, cool your jets, this is a critical application and I need some pods kept alive
   * PodDisruptionBudget is active during any Kubernetes Cluster operation such a node drain which usually precedes a node repave 
   * Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
 
@@ -362,65 +362,6 @@ spec:
 </p>
 </details>
 <br />
-
-<details class="faq box"><summary>Stateful Sets - Running a workload with persistent storage</summary>
-<p>
-
-Before:
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-  labels:
-    app: nginx
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.14.2
-        ports:
-        - containerPort: 80
-```
-
-After:
-
-* PodDisruptionBudget 
-  * PodDisruptionBudget is active during any Kubernetes Cluster operation such a node drain which usually precedes a node repave 
-  * Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
-
-```yaml
-apiVersion: policy/v1
-kind: PodDisruptionBudget
-metadata:
-  name: my-pdb
-spec:
-  minAvailable: 2
-  selector:
-    matchLabels:
-      app: nginx
-```
-
-* PodAntiAffinity
-  * podAntiAffinity stops multiple pods from a deployment from being scheduled on the same node
-  * This increases availability in case the node becomes unavailable
-
-```yaml
-
-```
-
-</p>
-</details>
-<br />
-
 
 ## Sample CKAD Questions
 
