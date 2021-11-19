@@ -301,7 +301,7 @@ spec:
         - containerPort: 80
 ```
 
-### Result
+After:
 
 * PodDisruptionBudget
   * During any Kubernetes Cluster operation such a node drain before a repave event
