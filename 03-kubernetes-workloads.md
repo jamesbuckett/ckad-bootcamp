@@ -344,7 +344,7 @@ spec:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution: ## Hard anti-affinity - guarantees the distribution
           - labelSelector:
-              matchExpressions: # Pod should not be scheduled on the node if a pod with the label app=nginx
+              matchExpressions: # Pod should not be scheduled on the node if a pod with the label app=nginx already present
               - key: app
                 operator: In
                 values:
