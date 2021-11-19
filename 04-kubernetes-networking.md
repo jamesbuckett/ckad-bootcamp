@@ -146,12 +146,6 @@ Please NOTE:
 </details>
 <br />
 
-## Sample CKAD Questions
-
-* [Sample CKAD Question - Service](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-02-create-a-namespace-called-service-namespace-create-a-pod-called-service-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierweb-create-a-service-for-the-pod-called-my-service-allowing-for-communication-inside-the-cluster-let-the-service-expose-port-8080)
-* [Sample CKAD Question - Ingress](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-03-create-an-ingress-called-my-ingress-to-expose-the-service-my-service-from-previous-question-outside-the-cluster)
-<br />
-
 ## Clean Up
 
 <details class="faq box"><summary>Clean Up</summary>
