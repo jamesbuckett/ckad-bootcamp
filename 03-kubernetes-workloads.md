@@ -304,13 +304,13 @@ spec:
 
 ```console
     [WARNING] Deployment has host PodAntiAffinity
-        · Deployment does not have a host podAntiAffinity set
-        It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. 
-        This increases availability in case the node becomes unavailable.
+      · Deployment does not have a host podAntiAffinity set
+      It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. 
+      This increases availability in case the node becomes unavailable.
     [CRITICAL] Deployment has PodDisruptionBudget
-        · No matching PodDisruptionBudget was found
-        It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations 
-        Such as when draining a node.
+      · No matching PodDisruptionBudget was found
+      It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations 
+      Such as when draining a node.
 ```
 
 </p>
@@ -321,9 +321,9 @@ spec:
 
 ```console
     [WARNING] Deployment has host PodAntiAffinity
-        · Deployment does not have a host podAntiAffinity set
-        It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. 
-        This increases availability in case the node becomes unavailable.
+      · Deployment does not have a host podAntiAffinity set
+      It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. 
+      This increases availability in case the node becomes unavailable.
 ```
 
 ![PodAntiAffinity](https://user-images.githubusercontent.com/18049790/142724430-cd88bb28-e023-4390-9681-31a38dc956a8.jpg)
@@ -375,9 +375,9 @@ spec:
 
 ```console
     [CRITICAL] Deployment has PodDisruptionBudget
-        · No matching PodDisruptionBudget was found
-        It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations
-        Such as when draining a node.
+      · No matching PodDisruptionBudget was found
+      It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations
+      Such as when draining a node.
 ```
 
 ![PodDisruptionBudget](https://user-images.githubusercontent.com/18049790/142724615-93ecefda-cfcf-45c8-bd8b-f220a2908b62.jpg)
