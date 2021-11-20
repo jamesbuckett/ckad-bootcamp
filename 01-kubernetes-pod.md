@@ -310,7 +310,18 @@ v1/Pod my-pod                                                                 �
 Set securityContext to run the container in a more secure context.
 ```
 
-[Security Context](https://github.com/zegl/kube-score/blob/master/README_SECURITYCONTEXT.md)
+```yaml
+  securityContext:
+    runAsUser: 10000 ## 👈👈👈 
+    runAsGroup: 30000 ## 👈👈👈 
+    fsGroup: 2000
+```
+
+Notes
+* A userid above 10 000 is recommended to avoid conflicts with the host. 
+* Set securityContext.runAsUser to a value > 10000
+* A groupid above 10 000 is recommended to avoid conflicts with the host. 
+* Set securityContext.runAsGroup to a value > 10000
 
 </p>
 </details>
@@ -322,7 +333,15 @@ Set securityContext to run the container in a more secure context.
 Set securityContext to run the container in a more secure context.
 ```
 
-[Security Context](https://github.com/zegl/kube-score/blob/master/README_SECURITYCONTEXT.md)
+```yaml
+    securityContext:
+      readOnlyRootFilesystem: true ##  👈👈👈 
+```
+
+Notes:
+* Requiring the use of a read only root file system
+* readOnlyRootFilesystem is one setting that controls whether a container is able to write into its filesystem 
+* It’s a feature most want enabled in the event of a hack - if an attacker gets in, they won’t be able to tamper with the application or write foreign executables to disk
 
 </p>
 </details>
@@ -377,8 +396,6 @@ Notes:
 <details class="faq box"><summary>Pod NetworkPolicy</summary>
 <p>
 
-[Kubernetes Tutorial - Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
-
 ```Console
 Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. 
 Note, this feature needs to be supported by the CNI implementation used in the Kubernetes cluster to have an effect.
@@ -414,6 +431,7 @@ Notes:
 * Allow communications TO any pod with label: `tier=app`
 * Apply this network policy to any pod with label: `run=my-pod`
 * [Network Policy Editor for Kubernetes](https://editor.cilium.io)
+* [Kubernetes Tutorial - Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
 
 </p>
 </details>
