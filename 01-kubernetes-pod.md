@@ -1,6 +1,6 @@
 # Kubernetes Tutorial - Kubernetes Pod & Friends
 
- A pod should be considered as the smallest unit of execution in Kubernetes and all Kubernetes workloads run Pods at their core.
+ A pod should be considered as the smallest unit of execution in Kubernetes and all Kubernetes workload types run Pods at their core.
 
 In this section:
 - Pod - A pod is the smallest execution unit in Kubernetes
@@ -79,7 +79,7 @@ spec:
 <details class="faq box"><summary>Limits and Requests - CPU and Memory reservation for a Pod</summary>
 <p>
 
-> Problem Solving: I want to guarantee CPU and RAM for my microservice
+> Problem Solving: I want to guarantee CPU and RAM for my microservice application
 >
 > tl;dr – Let me make a CPU and RAM reservation
 
@@ -231,15 +231,11 @@ EOF
 
 ## Kubernetes Pod Best Practices 
 
-<details class="faq box"><summary>Tools</summary>
+<details class="faq box"><summary>Static Code Analysis</summary>
 <p>
 
-* [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions.
+* [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions
 * [datree](https://www.datree.io/) - Prevent Kubernetes Misconfigurations From Reaching Production
-
-Usage
-* `kubes-core score ~/ckad/01-kubernetes-pod-basic-pod.yml`
-* `datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml`
 
 </p>
 </details>
@@ -272,6 +268,73 @@ spec:
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
+```
+
+```bash
+kube-score score ~/ckad/01-kubernetes-pod-basic-pod.yml
+```
+```console
+[i725081@surface-book ~/ckad (docker-desktop:default)]$ kube-score score ~/ckad/01-kubernetes-pod-basic-pod.yml
+v1/Pod my-pod                                                                 💥
+    [CRITICAL] Container Security Context ReadOnlyRootFilesystem
+        · my-pod -> Container has no configured security context
+            Set securityContext to run the container in a more secure context.
+    [CRITICAL] Container Resources
+        · my-pod -> CPU limit is not set
+            Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
+        · my-pod -> Memory limit is not set
+            Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
+        · my-pod -> CPU request is not set
+            Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
+        · my-pod -> Memory request is not set
+            Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
+    [CRITICAL] Container Image Pull Policy
+        · my-pod -> ImagePullPolicy is not set to Always
+            It's recommended to always set the ImagePullPolicy to Always, to make sure that the imagePullSecrets are always correct, and to always get the image you want.
+    [CRITICAL] Pod NetworkPolicy
+        · The pod does not have a matching NetworkPolicy
+            Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. Note, this feature needs to be supported by the CNI
+            implementation used in the Kubernetes cluster to have an effect.
+    [CRITICAL] Container Security Context User Group ID
+        · my-pod -> Container has no configured security context
+            Set securityContext to run the container in a more secure context.
+```
+
+```bash
+datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
+```
+
+```console
+>>  File: 01-kubernetes-pod-basic-pod.yml
+WWWWWWWWWWWWW
+[V] YAML validation
+[V] Kubernetes schema validation
+
+[X] Policy check
+
+❌  Ensure each container has a configured memory request  [1 occurrence]
+    — metadata.name: my-pod (kind: Pod)
+💡  Missing property object `requests.memory` - value should be within the accepted boundaries recommended by the organization
+
+❌  Ensure each container has a configured CPU request  [1 occurrence]
+    — metadata.name: my-pod (kind: Pod)
+💡  Missing property object `requests.cpu` - value should be within the accepted boundaries recommended by the organization
+
+❌  Ensure each container has a configured memory limit  [1 occurrence]
+    — metadata.name: my-pod (kind: Pod)
+💡  Missing property object `limits.memory` - value should be within the accepted boundaries recommended by the organization
+
+❌  Ensure each container has a configured CPU limit  [1 occurrence]
+    — metadata.name: my-pod (kind: Pod)
+💡  Missing property object `limits.cpu` - value should be within the accepted boundaries recommended by the organization
+
+❌  Ensure each container has a configured liveness probe  [1 occurrence]
+    — metadata.name: my-pod (kind: Pod)
+💡  Missing property object `livenessProbe` - add a properly configured livenessProbe to catch possible deadlocks
+
+❌  Ensure each container has a configured readiness probe  [1 occurrence]
+    — metadata.name: my-pod (kind: Pod)
+💡  Missing property object `readinessProbe` - add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
 ```
 
 After:
