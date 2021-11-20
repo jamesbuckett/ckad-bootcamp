@@ -302,6 +302,32 @@ v1/Pod my-pod                                                                 �
 </p>
 </details>
 
+<details class="faq box"><summary>Container Image Tag</summary>
+<p>
+
+```Console
+Image with latest tag
+ImagePullPolicy is not set to Always
+```
+
+```yaml
+#Before
+  - image: nginx
+  - image: nginx:latest
+#After  
+  - image: nginx:1.20.0 ## 👈👈👈 
+    imagePullPolicy: Always ## 👈👈👈 
+```
+
+Notes:
+* tl;dr - Hard code which container version you want to run
+* Using a fixed tag is recommended to avoid accidental upgrades
+* It's recommended to always set the ImagePullPolicy to Always. 
+* To make sure that the imagePullSecrets are always correct (from private repositories), and to always get the image you want.
+
+</p>
+</details>
+
 
 <details class="faq box"><summary>Container Security Context User Group ID</summary>
 <p>
@@ -371,28 +397,46 @@ Resource requests are recommended to make sure that the application can start an
 </p>
 </details>
 
-<details class="faq box"><summary>Container Image Tag</summary>
+<details class="faq box"><summary>Pod Probes</summary>
 <p>
 
 ```Console
-Image with latest tag
-ImagePullPolicy is not set to Always
+    [CRITICAL] Pod Probes
+        · Container has the same readiness and liveness probe
+            Using the same probe for liveness and readiness is very likely dangerous. Generally it's better to avoid the livenessProbe than re-using the readinessProbe.
+            More information: https://github.com/zegl/kube-score/blob/master/README_PROBES.md
 ```
 
-```yaml
-#Before
-  - image: nginx
-  - image: nginx:latest
-#After  
-  - image: nginx:1.20.0 ## 👈👈👈 
-    imagePullPolicy: Always ## 👈👈👈 
-```
+Please read [Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
 
 Notes:
-* tl;dr - Hard code which container version you want to run
-* Using a fixed tag is recommended to avoid accidental upgrades
-* It's recommended to always set the ImagePullPolicy to Always. 
-* To make sure that the imagePullSecrets are always correct (from private repositories), and to always get the image you want.
+* Container has the same readiness and liveness probe
+* Using the same probe for liveness and readiness is very likely dangerous
+* Generally it's better to avoid the livenessProbe than re-using the readinessProbe
+* Set interval (default: 10s), timeout (default: 1s), successThreshold (default: 1), failureThreshold (default: 3) to your needs. 
+* In the default configuration, your application will fail for 30s (+ the time it takes for the network to react), for clients to stop sending traffic to your application.
+
+livenessProbe = Is the container healthy right now, or do we need to restart it?
+* It can be used to let Kubernetes know if your application is deadlocked, and needs to be restarted. 
+* Only the container with the failing probe will be restarted, other containers in the same Pod will be unaffected.
+
+readinessProbe = Is it a good idea to send traffic to this Pod right now?
+* A common misunderstanding is that, since Kubernetes manages the Pods, you don't need to do graceful draining of Pods during shutdown.
+* Without a readinessProbe you're risking that:
+  * Traffic is sent to the Pod before the server has started.
+  * Traffic is still sent to the Pod after the Pod has stopped.
+
+```yaml
+    readinessProbe: ## 👈👈👈 Add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 10 ## 👈👈👈 Probes start running after initialDelaySeconds after container is started (default: 0 seconds)
+      periodSeconds: 20 ## 👈👈👈 How often probe should run (default: 10 seconds)
+      timeoutSeconds: 5  ## 👈👈👈 Probe timeout (default: 1 second)
+      successThreshold: 1   ## 👈👈👈 Required number of successful probes to mark container healthy/ready (default: 1 iteration)
+      failureThreshold: 3   ## 👈👈👈 When a probe fails, it will try failureThreshold times before deeming unhealthy/not ready (default: 3 iterations)
+```
 
 </p>
 </details>
@@ -514,38 +558,6 @@ spec:
 
 </p>
 </details>
-
-<details class="faq box"><summary>Pod Probes</summary>
-<p>
-
-```Console
-    [CRITICAL] Pod Probes
-        · Container has the same readiness and liveness probe
-            Using the same probe for liveness and readiness is very likely dangerous. Generally it's better to avoid the livenessProbe than re-using the readinessProbe.
-            More information: https://github.com/zegl/kube-score/blob/master/README_PROBES.md
-```
-
-Please read [Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
-
-Notes:
-
-
-
-```yaml
-    resources:
-      limits:
-        cpu: "32m" ## 👈👈👈 Set resources.limits.cpu          
-        memory: "64Mi" ## 👈👈👈 Set resources.limits.memory
-      requests:
-        cpu: "32m" ## 👈👈👈 Set resources.requests.cpu      
-        memory: "64Mi" ## 👈👈👈 Set resources.requests.memory
-```
-
-</p>
-</details>
-
-
-
 <br />
 
 ## Clean Up
