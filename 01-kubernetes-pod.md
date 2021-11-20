@@ -359,6 +359,9 @@ ImagePullPolicy is not set to Always
 ```
 
 ```yaml
+#Before
+  - image: nginx
+#After  
   - image: nginx:1.20.0 ## 👈👈👈 
     imagePullPolicy: Always ## 👈👈👈 
 ```
@@ -379,11 +382,42 @@ Create a NetworkPolicy that targets this pod to control who/what can communicate
 Note, this feature needs to be supported by the CNI implementation used in the Kubernetes cluster to have an effect.
 ```
 
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: my-netpol  
+spec:
+  podSelector:
+    matchLabels:
+      run: my-pod #👈👈👈 Change - Which pod does this Network Policy Apply to
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              tier: web #👈👈👈 Ingress - Traffic from pod with label tier=web
+      ports:
+        - port: 80
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              tier: app #👈👈👈 Egress - Traffic to pod with label tier=app
+      ports:
+        - port: 80        
+```
+
+Notes:
+* Allow communications FROM any pod with label: `tier=web`
+* Allow communications TO any pod with label: `tier=app`
+* Apply this network policy to any pod with label: `run=my-pod`
+
+See this link: [Network Policy Editor for Kubernetes](https://editor.cilium.io)
+
+Network Policies are dealt with in [Kubernetes Tutorial - Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
+
 </p>
 </details>
-
-
-[Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
 
 <details class="faq box"><summary>Static Code Analysis - Pass</summary>
 <p>
@@ -432,10 +466,36 @@ spec:
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: my-netpol
+spec:
+  podSelector:
+    matchLabels:
+      run: my-pod #👈👈👈 Change - Which pod does this Network Policy Apply to
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              tier: web #👈👈👈 Ingress - Traffic from pod with label: tier=web
+      ports:
+        - port: 80
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              tier: app #👈👈👈 Egress - Traffic to pod with label: tier=app
+      ports:
+        - port: 80
 ```
 
 </p>
 </details>
+
+[Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
+
 <br />
 
 ## Clean Up
