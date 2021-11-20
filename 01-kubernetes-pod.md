@@ -235,13 +235,6 @@ EOF
 <p>
 
 * [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions
-* [datree](https://www.datree.io/) - Prevent Kubernetes Misconfigurations From Reaching Production
-
-</p>
-</details>
-
-<details class="faq box"><summary>Kubernetes Pod (po) - Best Practices</summary>
-<p>
 
 ```bash
 clear
@@ -249,7 +242,7 @@ mkdir -p ~/ckad/
 kubectl run my-pod --image=nginx --port=80 --dry-run=client -o yaml > ~/ckad/01-kubernetes-pod-basic-pod.yml
 ```
 
-Before:
+Output:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -303,45 +296,6 @@ v1/Pod my-pod                                                                 �
             implementation used in the Kubernetes cluster to have an effect.
 ```
 
-```bash
-datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
-```
-
-```console
- File: 01-kubernetes-pod-basic-pod.yml
-[V] YAML validation
-[V] Kubernetes schema validation
-[X] Policy check
-
-❌  Ensure each container image has a pinned (tag) version  [1 occurrence]
-    — metadata.name: my-pod (kind: Pod)
-💡  Incorrect value for key `image` - specify an image version to avoid unpleasant "version surprises" in the future
-
-❌  Ensure each container has a configured memory request  [1 occurrence]
-    — metadata.name: my-pod (kind: Pod)
-💡  Missing property object `requests.memory` - value should be within the accepted boundaries recommended by the organization
-
-❌  Ensure each container has a configured CPU request  [1 occurrence]
-    — metadata.name: my-pod (kind: Pod)
-💡  Missing property object `requests.cpu` - value should be within the accepted boundaries recommended by the organization
-
-❌  Ensure each container has a configured memory limit  [1 occurrence]
-    — metadata.name: my-pod (kind: Pod)
-💡  Missing property object `limits.memory` - value should be within the accepted boundaries recommended by the organization
-
-❌  Ensure each container has a configured CPU limit  [1 occurrence]
-    — metadata.name: my-pod (kind: Pod)
-💡  Missing property object `limits.cpu` - value should be within the accepted boundaries recommended by the organization
-
-❌  Ensure each container has a configured liveness probe  [1 occurrence]
-    — metadata.name: my-pod (kind: Pod)
-💡  Missing property object `livenessProbe` - add a properly configured livenessProbe to catch possible deadlocks
-
-❌  Ensure each container has a configured readiness probe  [1 occurrence]
-    — metadata.name: my-pod (kind: Pod)
-💡  Missing property object `readinessProbe` - add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
-```
-
 </p>
 </details>
 
@@ -349,7 +303,7 @@ datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
 <details class="faq box"><summary>Container Security Context User Group ID</summary>
 <p>
 
-
+Set securityContext to run the container in a more secure context.
 
 </p>
 </details>
@@ -357,7 +311,7 @@ datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
 <details class="faq box"><summary>Container Security Context ReadOnlyRootFilesystem</summary>
 <p>
 
-
+Set securityContext to run the container in a more secure context.
 
 </p>
 </details>
@@ -365,7 +319,10 @@ datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
 <details class="faq box"><summary>Container Resources</summary>
 <p>
 
-
+Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
+Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
+Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
+Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
 
 </p>
 </details>
@@ -373,7 +330,7 @@ datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
 <details class="faq box"><summary>Container Image Tag</summary>
 <p>
 
-
+Using a fixed tag is recommended to avoid accidental upgrades
 
 </p>
 </details>
@@ -381,7 +338,8 @@ datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
 <details class="faq box"><summary>Pod NetworkPolicy</summary>
 <p>
 
-
+Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. 
+Note, this feature needs to be supported by the CNI implementation used in the Kubernetes cluster to have an effect.
 
 </p>
 </details>
