@@ -246,7 +246,7 @@ EOF
 ```bash
 clear
 mkdir -p ~/ckad/
-kubectl run my-pod --image=nginx:1.20.0 --port=80 --dry-run=client -o yaml > ~/ckad/01-kubernetes-pod-basic-pod.yml
+kubectl run my-pod --image=nginx --port=80 --dry-run=client -o yaml > ~/ckad/01-kubernetes-pod-basic-pod.yml
 ```
 
 Before:
@@ -260,7 +260,7 @@ metadata:
   name: my-pod
 spec:
   containers:
-  - image: nginx:1.20.0
+  - image: nginx
     name: my-pod
     ports:
     - containerPort: 80
@@ -274,11 +274,15 @@ status: {}
 kube-score score ~/ckad/01-kubernetes-pod-basic-pod.yml
 ```
 ```console
-[i725081@surface-book ~/ckad (docker-desktop:default)]$ kube-score score ~/ckad/01-kubernetes-pod-basic-pod.yml
 v1/Pod my-pod                                                                 💥
+    [CRITICAL] Container Security Context User Group ID
+        · my-pod -> Container has no configured security context
+            Set securityContext to run the container in a more secure context.
+
     [CRITICAL] Container Security Context ReadOnlyRootFilesystem
         · my-pod -> Container has no configured security context
             Set securityContext to run the container in a more secure context.
+
     [CRITICAL] Container Resources
         · my-pod -> CPU limit is not set
             Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
@@ -288,16 +292,15 @@ v1/Pod my-pod                                                                 �
             Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
         · my-pod -> Memory request is not set
             Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
-    [CRITICAL] Container Image Pull Policy
-        · my-pod -> ImagePullPolicy is not set to Always
-            It's recommended to always set the ImagePullPolicy to Always, to make sure that the imagePullSecrets are always correct, and to always get the image you want.
+
+    [CRITICAL] Container Image Tag
+        · my-pod -> Image with latest tag
+            Using a fixed tag is recommended to avoid accidental upgrades
+
     [CRITICAL] Pod NetworkPolicy
         · The pod does not have a matching NetworkPolicy
             Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. Note, this feature needs to be supported by the CNI
             implementation used in the Kubernetes cluster to have an effect.
-    [CRITICAL] Container Security Context User Group ID
-        · my-pod -> Container has no configured security context
-            Set securityContext to run the container in a more secure context.
 ```
 
 ```bash
@@ -305,12 +308,14 @@ datree test  ~/ckad/01-kubernetes-pod-basic-pod.yml
 ```
 
 ```console
->>  File: 01-kubernetes-pod-basic-pod.yml
-WWWWWWWWWWWWW
+ File: 01-kubernetes-pod-basic-pod.yml
 [V] YAML validation
 [V] Kubernetes schema validation
-
 [X] Policy check
+
+❌  Ensure each container image has a pinned (tag) version  [1 occurrence]
+    — metadata.name: my-pod (kind: Pod)
+💡  Incorrect value for key `image` - specify an image version to avoid unpleasant "version surprises" in the future
 
 ❌  Ensure each container has a configured memory request  [1 occurrence]
     — metadata.name: my-pod (kind: Pod)
@@ -336,6 +341,50 @@ WWWWWWWWWWWWW
     — metadata.name: my-pod (kind: Pod)
 💡  Missing property object `readinessProbe` - add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
 ```
+
+</p>
+</details>
+
+
+<details class="faq box"><summary>Container Security Context User Group ID</summary>
+<p>
+
+
+
+</p>
+</details>
+
+<details class="faq box"><summary>Container Security Context ReadOnlyRootFilesystem</summary>
+<p>
+
+
+
+</p>
+</details>
+
+<details class="faq box"><summary>Container Resources</summary>
+<p>
+
+
+
+</p>
+</details>
+
+<details class="faq box"><summary>Container Image Tag</summary>
+<p>
+
+
+
+</p>
+</details>
+
+<details class="faq box"><summary>Pod NetworkPolicy</summary>
+<p>
+
+
+
+</p>
+</details>
 
 After:
 ```yaml
