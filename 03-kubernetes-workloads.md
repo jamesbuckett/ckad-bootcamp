@@ -273,10 +273,11 @@ EOF
 
 ## Kubernetes Workload Best Practices 
 
-<details class="faq box"><summary>Kubernetes Deployment (deploy) - PodAntiAffinity & PodDisruptionBudget</summary>
+<details class="faq box"><summary>Static Code Analysis - CRITICAL</summary>
 <p>
 
-Before:
+* [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -301,12 +302,79 @@ spec:
         - containerPort: 80
 ```
 
-After:
+```console
+    [WARNING] Deployment has host PodAntiAffinity
+        · Deployment does not have a host podAntiAffinity set
+            It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. This increases availability in case
+            the node becomes unavailable.
+    [CRITICAL] Deployment has PodDisruptionBudget
+        · No matching PodDisruptionBudget was found
+            It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations, such as when draining a node.
+```
 
-* PodDisruptionBudget 
-* tl;dr - Please cluster administrators, cool your jets, this is a critical application and I need some pods kept alive
-  * PodDisruptionBudget is active during any Kubernetes Cluster operation such a node drain which usually precedes a node repave 
-  * Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
+</p>
+</details>
+
+<details class="faq box"><summary>Kubernetes Deployment (deploy) - PodAntiAffinity</summary>
+<p>
+
+```console
+    [WARNING] Deployment has host PodAntiAffinity
+        · Deployment does not have a host podAntiAffinity set
+            It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. 
+            This increases availability in case the node becomes unavailable.
+```
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      affinity: ##  👈👈👈 
+        podAntiAffinity: ##  👈👈👈 
+          requiredDuringSchedulingIgnoredDuringExecution: ##  👈👈👈  Hard anti-affinity - guarantees the distribution
+          - labelSelector:
+              matchExpressions: ##  👈👈👈  Pod should not be scheduled on the node if a pod with the label app=nginx already present
+              - key: app ##  👈👈👈  app=nginx
+                operator: In
+                values:
+                - nginx ##  👈👈👈 app=nginx
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+Notes:
+  * tl;dr - Don't put all your eggs in the same basket 
+  * podAntiAffinity stops multiple pods from a deployment from being scheduled on the same node
+  * This increases availability in case the node becomes unavailable
+
+</p>
+</details>
+
+<details class="faq box"><summary>Kubernetes Deployment (deploy) - PodDisruptionBudget</summary>
+<p>
+
+```console
+    [CRITICAL] Deployment has PodDisruptionBudget
+        · No matching PodDisruptionBudget was found
+            It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations, such as when draining a node.
+```
 
 ```yaml
 apiVersion: policy/v1
@@ -320,44 +388,10 @@ spec:
       app: nginx
 ```
 
-* PodAntiAffinity
-  * tl;dr - Don't put all your eggs in the same basket 
-  * podAntiAffinity stops multiple pods from a deployment from being scheduled on the same node
-  * This increases availability in case the node becomes unavailable
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-  labels:
-    app: nginx
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution: ## Hard anti-affinity - guarantees the distribution
-          - labelSelector:
-              matchExpressions: # Pod should not be scheduled on the node if a pod with the label app=nginx already present
-              - key: app
-                operator: In
-                values:
-                - nginx
-            topologyKey: kubernetes.io/hostname
-      containers:
-      - name: nginx
-        image: nginx:1.14.2
-        ports:
-        - containerPort: 80
-```
+Notes: 
+* tl;dr - Please cluster administrators, cool your jets, this is a critical application and I need some pods kept alive
+* PodDisruptionBudget is active during any Kubernetes Cluster operation such a node drain which usually precedes a node repave 
+* Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
 
 </p>
 </details>
