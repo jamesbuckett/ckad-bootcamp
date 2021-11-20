@@ -303,9 +303,12 @@ v1/Pod my-pod                                                                 ðŸ
 <details class="faq box"><summary>Container Security Context User Group ID</summary>
 <p>
 
+Warning Message:
 ```Console
 Set securityContext to run the container in a more secure context.
 ```
+
+[Security Context](https://github.com/zegl/kube-score/blob/master/README_SECURITYCONTEXT.md)
 
 </p>
 </details>
@@ -313,9 +316,12 @@ Set securityContext to run the container in a more secure context.
 <details class="faq box"><summary>Container Security Context ReadOnlyRootFilesystem</summary>
 <p>
 
+Warning Message:
 ```Console
 Set securityContext to run the container in a more secure context.
 ```
+
+[Security Context](https://github.com/zegl/kube-score/blob/master/README_SECURITYCONTEXT.md)
 
 </p>
 </details>
@@ -331,7 +337,7 @@ Resource requests are recommended to make sure that the application can start an
 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
 ```
 
-Readiness and Liveness Probes
+[Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
 
 </p>
 </details>
@@ -339,6 +345,7 @@ Readiness and Liveness Probes
 <details class="faq box"><summary>Container Image Tag</summary>
 <p>
 
+Warning Message:
 ```Console
 Using a fixed tag is recommended to avoid accidental upgrades
 ```
@@ -349,6 +356,7 @@ Using a fixed tag is recommended to avoid accidental upgrades
 <details class="faq box"><summary>Pod NetworkPolicy</summary>
 <p>
 
+Warning Message:
 ```Console
 Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. 
 Note, this feature needs to be supported by the CNI implementation used in the Kubernetes cluster to have an effect.
