@@ -231,7 +231,7 @@ EOF
 
 ## Kubernetes Pod Best Practices 
 
-<details class="faq box"><summary>Static Code Analysis - Fail</summary>
+<details class="faq box"><summary>Static Code Analysis - CRITICAL</summary>
 <p>
 
 * [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions
@@ -319,9 +319,9 @@ Set securityContext to run the container in a more secure context.
 
 Notes
 * A userid above 10 000 is recommended to avoid conflicts with the host. 
-* Set securityContext.runAsUser to a value > 10000
+  * Set securityContext.runAsUser to a value > 10000
 * A groupid above 10 000 is recommended to avoid conflicts with the host. 
-* Set securityContext.runAsGroup to a value > 10000
+  * Set securityContext.runAsGroup to a value > 10000
 
 </p>
 </details>
@@ -339,9 +339,11 @@ Set securityContext to run the container in a more secure context.
 ```
 
 Notes:
+* tl;dr - Make the container filesystem immutable
 * Requiring the use of a read only root file system
 * readOnlyRootFilesystem is one setting that controls whether a container is able to write into its filesystem 
-* It’s a feature most want enabled in the event of a hack - if an attacker gets in, they won’t be able to tamper with the application or write foreign executables to disk
+* It’s a feature most want enabled in the event of a hack
+* If an attacker gets in, they won’t be able to tamper with the application or write foreign executables to disk
 
 </p>
 </details>
@@ -358,12 +360,12 @@ Resource requests are recommended to make sure that the application can start an
 
 ```yaml
     resources:
-      requests:
-        memory: "64Mi" ## 👈👈👈 Set resources.requests.memory
-        cpu: "32m" ## 👈👈👈 Set resources.requests.cpu
       limits:
+        cpu: "32m" ## 👈👈👈 Set resources.limits.cpu          
         memory: "64Mi" ## 👈👈👈 Set resources.limits.memory
-        cpu: "32m" ## 👈👈👈 Set resources.limits.cpu
+      requests:
+        cpu: "32m" ## 👈👈👈 Set resources.requests.cpu      
+        memory: "64Mi" ## 👈👈👈 Set resources.requests.memory
 ```
 
 </p>
@@ -380,12 +382,14 @@ ImagePullPolicy is not set to Always
 ```yaml
 #Before
   - image: nginx
+  - image: nginx:latest
 #After  
   - image: nginx:1.20.0 ## 👈👈👈 
     imagePullPolicy: Always ## 👈👈👈 
 ```
 
 Notes:
+* tl;dr - Hard code which container version you want to run
 * Using a fixed tag is recommended to avoid accidental upgrades
 * It's recommended to always set the ImagePullPolicy to Always. 
 * To make sure that the imagePullSecrets are always correct (from private repositories), and to always get the image you want.
@@ -409,19 +413,19 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      run: my-pod #👈👈👈 Change - Which pod does this Network Policy Apply to
-  ingress:
+      run: my-pod 
+  ingress: #👈👈👈 Ingress
     - from:
         - podSelector:
             matchLabels:
-              tier: web #👈👈👈 Ingress - Traffic from pod with label tier=web
+              tier: web 
       ports:
         - port: 80
-  egress:
+  egress: #👈👈👈 Egress
     - to:
         - podSelector:
             matchLabels:
-              tier: app #👈👈👈 Egress - Traffic to pod with label tier=app
+              tier: app 
       ports:
         - port: 80        
 ```
@@ -511,7 +515,36 @@ spec:
 </p>
 </details>
 
-[Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
+<details class="faq box"><summary>Pod Probes</summary>
+<p>
+
+```Console
+    [CRITICAL] Pod Probes
+        · Container has the same readiness and liveness probe
+            Using the same probe for liveness and readiness is very likely dangerous. Generally it's better to avoid the livenessProbe than re-using the readinessProbe.
+            More information: https://github.com/zegl/kube-score/blob/master/README_PROBES.md
+```
+
+Please read [Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
+
+Notes:
+
+
+
+```yaml
+    resources:
+      limits:
+        cpu: "32m" ## 👈👈👈 Set resources.limits.cpu          
+        memory: "64Mi" ## 👈👈👈 Set resources.limits.memory
+      requests:
+        cpu: "32m" ## 👈👈👈 Set resources.requests.cpu      
+        memory: "64Mi" ## 👈👈👈 Set resources.requests.memory
+```
+
+</p>
+</details>
+
+
 
 <br />
 
