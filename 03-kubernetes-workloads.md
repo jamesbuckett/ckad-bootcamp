@@ -273,7 +273,7 @@ EOF
 
 ## Kubernetes Workload Best Practices 
 
-<details class="faq box"><summary>Static Code Analysis - CRITICAL</summary>
+<details class="faq box"><summary>Static Code Analysis - Deployment</summary>
 <p>
 
 * [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions
@@ -305,8 +305,8 @@ spec:
 ```console
     [WARNING] Deployment has host PodAntiAffinity
         · Deployment does not have a host podAntiAffinity set
-            It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. This increases availability in case
-            the node becomes unavailable.
+            It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. 
+            This increases availability in case the node becomes unavailable.
     [CRITICAL] Deployment has PodDisruptionBudget
         · No matching PodDisruptionBudget was found
             It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations, such as when draining a node.
@@ -330,7 +330,7 @@ spec:
 Notes:
   * tl;dr - Don't put all your eggs in the same basket 
   * podAntiAffinity stops multiple pods from a deployment from being scheduled on the same node
-  * This increases availability in case the node becomes unavailable
+  * This increases availability in case a node becomes unavailable
 
 ```yaml
 apiVersion: apps/v1
@@ -353,7 +353,7 @@ spec:
         podAntiAffinity: ##  👈👈👈 
           requiredDuringSchedulingIgnoredDuringExecution: ##  👈👈👈  Hard anti-affinity - guarantees the distribution
           - labelSelector:
-              matchExpressions: ##  👈👈👈  Pod should not be scheduled on the node if a pod with the label app=nginx already present
+              matchExpressions: ##  👈👈👈  Pod should not be scheduled on the node if label app=nginx already present
               - key: app ##  👈👈👈  app=nginx
                 operator: In
                 values:
@@ -383,7 +383,7 @@ spec:
 Notes: 
 * tl;dr - Please cluster administrators, cool your jets, this is a critical application and I need my application to be available
 * A PodDisruptionBudget defines the budget of voluntary disruption during scheduled maintenance 
-* If you do not have a PodDisruptionBudget in place your workload might go offline when a cluster maintenance event is in place.
+* If you do not have a PodDisruptionBudget in place your workload might go offline when a cluster maintenance event is in place
 * Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
 
 ```yaml
