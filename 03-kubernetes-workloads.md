@@ -325,6 +325,13 @@ spec:
             This increases availability in case the node becomes unavailable.
 ```
 
+![PodAntiAffinity](https://user-images.githubusercontent.com/18049790/142724430-cd88bb28-e023-4390-9681-31a38dc956a8.jpg)
+
+Notes:
+  * tl;dr - Don't put all your eggs in the same basket 
+  * podAntiAffinity stops multiple pods from a deployment from being scheduled on the same node
+  * This increases availability in case the node becomes unavailable
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -359,11 +366,6 @@ spec:
         - containerPort: 80
 ```
 
-Notes:
-  * tl;dr - Don't put all your eggs in the same basket 
-  * podAntiAffinity stops multiple pods from a deployment from being scheduled on the same node
-  * This increases availability in case the node becomes unavailable
-
 </p>
 </details>
 
@@ -376,22 +378,25 @@ Notes:
             It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations, such as when draining a node.
 ```
 
+![PodDisruptionBudget](https://user-images.githubusercontent.com/18049790/142724615-93ecefda-cfcf-45c8-bd8b-f220a2908b62.jpg)
+
+Notes: 
+* tl;dr - Please cluster administrators, cool your jets, this is a critical application and I need my application to be available
+* A PodDisruptionBudget defines the budget of voluntary disruption during scheduled maintenance 
+* If you do not have a PodDisruptionBudget in place your workload might go offline when a cluster maintenance event is in place.
+* Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
+
 ```yaml
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
   name: my-pdb
 spec:
-  minAvailable: 2
+  minAvailable: 3
   selector:
     matchLabels:
       app: nginx
 ```
-
-Notes: 
-* tl;dr - Please cluster administrators, cool your jets, this is a critical application and I need some pods kept alive
-* PodDisruptionBudget is active during any Kubernetes Cluster operation such a node drain which usually precedes a node repave 
-* Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
 
 </p>
 </details>
