@@ -403,7 +403,8 @@ Resource requests are recommended to make sure that the application can start an
 ```Console
     [CRITICAL] Pod Probes
         · Container has the same readiness and liveness probe
-            Using the same probe for liveness and readiness is very likely dangerous. Generally it's better to avoid the livenessProbe than re-using the readinessProbe.
+            Using the same probe for liveness and readiness is very likely dangerous. 
+            Generally it's better to avoid the livenessProbe than re-using the readinessProbe.
             More information: https://github.com/zegl/kube-score/blob/master/README_PROBES.md
 ```
 
@@ -416,15 +417,18 @@ Notes:
 * Set interval (default: 10s), timeout (default: 1s), successThreshold (default: 1), failureThreshold (default: 3) to your needs. 
 * In the default configuration, your application will fail for 30s (+ the time it takes for the network to react), for clients to stop sending traffic to your application.
 
-livenessProbe = Is the container healthy right now, or do we need to restart it?
+livenessProbe:
+* tl;dr: Is the container healthy right now, or do we need to restart it?
 * It can be used to let Kubernetes know if your application is deadlocked, and needs to be restarted. 
 * Only the container with the failing probe will be restarted, other containers in the same Pod will be unaffected.
+* Do not use livenessProbe unless you have a clear use case
 
-readinessProbe = Is it a good idea to send traffic to this Pod right now?
-* A common misunderstanding is that, since Kubernetes manages the Pods, you don't need to do graceful draining of Pods during shutdown.
+readinessProbe:
+* tl;dr: Is it a good idea to send traffic to this Pod right now?
 * Without a readinessProbe you're risking that:
   * Traffic is sent to the Pod before the server has started.
   * Traffic is still sent to the Pod after the Pod has stopped.
+* Use for applications to decide when a pod should receive traffic  
 
 ```yaml
     readinessProbe: ## 👈👈👈 Add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
