@@ -377,6 +377,8 @@ Notes:
 <details class="faq box"><summary>Pod NetworkPolicy</summary>
 <p>
 
+[Kubernetes Tutorial - Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
+
 ```Console
 Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. 
 Note, this feature needs to be supported by the CNI implementation used in the Kubernetes cluster to have an effect.
@@ -411,10 +413,7 @@ Notes:
 * Allow communications FROM any pod with label: `tier=web`
 * Allow communications TO any pod with label: `tier=app`
 * Apply this network policy to any pod with label: `run=my-pod`
-
-See this link: [Network Policy Editor for Kubernetes](https://editor.cilium.io)
-
-Network Policies are dealt with in [Kubernetes Tutorial - Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
+* [Network Policy Editor for Kubernetes](https://editor.cilium.io)
 
 </p>
 </details>
