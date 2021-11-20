@@ -484,7 +484,7 @@ Notes:
 </p>
 </details>
 
-<details class="faq box"><summary>Static Code Analysis - Pass</summary>
+<details class="faq box"><summary>Static Code Analysis - PASS</summary>
 <p>
 
 Pass:
