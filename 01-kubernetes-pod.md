@@ -289,7 +289,10 @@ v1/Pod my-pod                                                                 �
     [CRITICAL] Container Image Tag
         · my-pod -> Image with latest tag
             Using a fixed tag is recommended to avoid accidental upgrades
-
+    [CRITICAL] Container Image Pull Policy
+       · my-pod -> ImagePullPolicy is not set to Always
+           It's recommended to always set the ImagePullPolicy to Always, to make sure that the imagePullSecrets are always correct, and to always get the image you want.
+           
     [CRITICAL] Pod NetworkPolicy
         · The pod does not have a matching NetworkPolicy
             Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. Note, this feature needs to be supported by the CNI
@@ -303,7 +306,6 @@ v1/Pod my-pod                                                                 �
 <details class="faq box"><summary>Container Security Context User Group ID</summary>
 <p>
 
-Warning Message:
 ```Console
 Set securityContext to run the container in a more secure context.
 ```
@@ -316,7 +318,6 @@ Set securityContext to run the container in a more secure context.
 <details class="faq box"><summary>Container Security Context ReadOnlyRootFilesystem</summary>
 <p>
 
-Warning Message:
 ```Console
 Set securityContext to run the container in a more secure context.
 ```
@@ -329,7 +330,6 @@ Set securityContext to run the container in a more secure context.
 <details class="faq box"><summary>Container Resources</summary>
 <p>
 
-Warning Message:
 ```Console
 Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
 Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
@@ -337,7 +337,15 @@ Resource requests are recommended to make sure that the application can start an
 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
 ```
 
-[Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
+```yaml
+    resources:
+      requests:
+        memory: "64Mi" ## 👈👈👈 Set resources.requests.memory
+        cpu: "32m" ## 👈👈👈 Set resources.requests.cpu
+      limits:
+        memory: "64Mi" ## 👈👈👈 Set resources.limits.memory
+        cpu: "32m" ## 👈👈👈 Set resources.limits.cpu
+```
 
 </p>
 </details>
@@ -345,10 +353,20 @@ Resource requests are recommended to make sure that the application can start an
 <details class="faq box"><summary>Container Image Tag</summary>
 <p>
 
-Warning Message:
 ```Console
-Using a fixed tag is recommended to avoid accidental upgrades
+Image with latest tag
+ImagePullPolicy is not set to Always
 ```
+
+```yaml
+  - image: nginx:1.20.0 ## 👈👈👈 
+    imagePullPolicy: Always ## 👈👈👈 
+```
+
+Notes:
+* Using a fixed tag is recommended to avoid accidental upgrades
+* It's recommended to always set the ImagePullPolicy to Always. 
+* To make sure that the imagePullSecrets are always correct (from private repositories), and to always get the image you want.
 
 </p>
 </details>
@@ -356,7 +374,6 @@ Using a fixed tag is recommended to avoid accidental upgrades
 <details class="faq box"><summary>Pod NetworkPolicy</summary>
 <p>
 
-Warning Message:
 ```Console
 Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. 
 Note, this feature needs to be supported by the CNI implementation used in the Kubernetes cluster to have an effect.
@@ -366,10 +383,12 @@ Note, this feature needs to be supported by the CNI implementation used in the K
 </details>
 
 
+[Readiness and Liveness Probes](https://github.com/zegl/kube-score/blob/master/README_PROBES.md)
+
 <details class="faq box"><summary>Static Code Analysis - Pass</summary>
 <p>
 
-After:
+Pass:
 ```yaml
 apiVersion: v1
 kind: Pod
