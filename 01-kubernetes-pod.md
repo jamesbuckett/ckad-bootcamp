@@ -231,7 +231,7 @@ EOF
 
 ## Kubernetes Pod Best Practices 
 
-<details class="faq box"><summary>Static Code Analysis</summary>
+<details class="faq box"><summary>Static Code Analysis - Fail</summary>
 <p>
 
 * [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions
