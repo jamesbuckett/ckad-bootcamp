@@ -309,7 +309,8 @@ spec:
             This increases availability in case the node becomes unavailable.
     [CRITICAL] Deployment has PodDisruptionBudget
         · No matching PodDisruptionBudget was found
-            It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations, such as when draining a node.
+            It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations 
+            Such as when draining a node.
 ```
 
 </p>
@@ -375,7 +376,8 @@ spec:
 ```console
     [CRITICAL] Deployment has PodDisruptionBudget
         · No matching PodDisruptionBudget was found
-            It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations, such as when draining a node.
+            It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations
+            Such as when draining a node.
 ```
 
 ![PodDisruptionBudget](https://user-images.githubusercontent.com/18049790/142724615-93ecefda-cfcf-45c8-bd8b-f220a2908b62.jpg)
