@@ -303,7 +303,9 @@ v1/Pod my-pod                                                                 ðŸ
 <details class="faq box"><summary>Container Security Context User Group ID</summary>
 <p>
 
+```Console
 Set securityContext to run the container in a more secure context.
+```
 
 </p>
 </details>
@@ -311,7 +313,9 @@ Set securityContext to run the container in a more secure context.
 <details class="faq box"><summary>Container Security Context ReadOnlyRootFilesystem</summary>
 <p>
 
+```Console
 Set securityContext to run the container in a more secure context.
+```
 
 </p>
 </details>
@@ -319,10 +323,15 @@ Set securityContext to run the container in a more secure context.
 <details class="faq box"><summary>Container Resources</summary>
 <p>
 
+Warning Message:
+```Console
 Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
 Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
+```
+
+Readiness and Liveness Probes
 
 </p>
 </details>
@@ -330,7 +339,9 @@ Resource requests are recommended to make sure that the application can start an
 <details class="faq box"><summary>Container Image Tag</summary>
 <p>
 
+```Console
 Using a fixed tag is recommended to avoid accidental upgrades
+```
 
 </p>
 </details>
@@ -338,11 +349,17 @@ Using a fixed tag is recommended to avoid accidental upgrades
 <details class="faq box"><summary>Pod NetworkPolicy</summary>
 <p>
 
+```Console
 Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. 
 Note, this feature needs to be supported by the CNI implementation used in the Kubernetes cluster to have an effect.
+```
 
 </p>
 </details>
+
+
+<details class="faq box"><summary>Static Code Analysis - Pass</summary>
+<p>
 
 After:
 ```yaml
