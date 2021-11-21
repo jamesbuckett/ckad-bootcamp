@@ -53,7 +53,7 @@ Notes:
 </p>
 </details>
 
-<details class="faq box"><summary>Role - specify which verbs can be performed on which resources</summary>
+<details class="faq box"><summary>Role (Role) - specify which verbs can be performed on which resources</summary>
 <p>
 
 ![07-03-k8s-bootcamp-security-role](https://user-images.githubusercontent.com/18049790/142753743-f17b0b0c-ba14-4555-bfe5-58e0c756a917.jpg)
@@ -80,7 +80,7 @@ Notes:
 </p>
 </details>
 
-<details class="faq box"><summary>RoleBinding - bind roles to specific users, groups, or ServiceAccounts</summary>
+<details class="faq box"><summary>RoleBinding (RoleBinding) - bind roles to specific users, groups, or ServiceAccounts</summary>
 <p>
 
 ![07-04-k8s-bootcamp-security-rolebinding](https://user-images.githubusercontent.com/18049790/142753744-898263f4-11e0-4850-83bf-caa83382aa5a.jpg)
@@ -112,23 +112,21 @@ Notes:
 <details class="faq box"><summary>Example Pod with RBAC</summary>
 <p>
 
+```bash
+kubectl delete sa default
+kubectl run service-pod --image=nginx --port=80  --labels="tier=web"
+kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
+```
 
+```bash
+kubectl run remote-run --image=busybox --restart=Never --rm -it
+wget -qO- my-service:8080
+```
 
 
 </p>
 </details>
 <br />
-
-```bash
-kubectl delete pod my-pod --now
-clear
-```
-
-
-
-
-
-
 
 
 ## Clean Up
