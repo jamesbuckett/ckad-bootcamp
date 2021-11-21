@@ -31,7 +31,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-pod
 
 Output:
 
-```bash
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:  
