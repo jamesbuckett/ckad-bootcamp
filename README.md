@@ -6,7 +6,7 @@
     * Different workload types possible in the Kubernetes [Workloads](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/03-kubernetes-workloads.md) section
     * Networking in the Kubernetes [Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md) section 
     * Storage in the Kubernetes [Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md) section
-    * Security in the Kubernetes Security section
+    * Security in the Kubernetes [Security](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/06-kubernetes-security.md) section
 
 ![image](https://user-images.githubusercontent.com/18049790/43352583-0b37edda-9269-11e8-9695-1e8de81acb76.png)
 <br />
