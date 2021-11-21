@@ -26,6 +26,6 @@ The sections follow a logical progression and should be followed in the order be
 - [Kubernetes Workloads](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/03-kubernetes-workloads.md)
 - [Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
 - [Kubernetes Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md)
-- Kubernetes Security
+- [Kubernetes Security](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/06-kubernetes-security.md)
 
 _End of Section_

@@ -27,14 +27,6 @@ kubectl config set-context --current --namespace=ns-bootcamp-sec
 
 xxx
 
-Notes:
-* ServiceAccounts are namespace scoped
-* A default serviceAccount is automatically created for each namespace
-* ServiceAccounts are nothing more than a way for an application to authenticate itself with the Kubernetes API server
-* ServiceAccount use JSON Web Tokens to authenticate with the Kubernetes API server
-* A ServiceAccount can contain a list of imagePullSecrets
-* This saves you from having to include the imagePullSecret with each Pod
-
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 
 ```yaml
@@ -48,6 +40,14 @@ imagePullSecrets:
 EOF
 ```  
 
+Notes:
+* ServiceAccounts are namespace scoped
+* A default serviceAccount is automatically created for each namespace
+* ServiceAccounts are nothing more than a way for an application to authenticate itself with the Kubernetes API server
+* ServiceAccount use JSON Web Tokens to authenticate with the Kubernetes API server
+* A ServiceAccount can contain a list of imagePullSecrets
+* This saves you from having to include the imagePullSecret with each Pod
+
 </p>
 </details>
 
@@ -55,12 +55,6 @@ EOF
 <p>
 
 xxx
-
-Notes:
-* Roles are namespaced, if the namespace is omitted, the current namespace is used
-* Services are resources in the core apiGroup, which has no name - hence the “”
-* Getting individual Services by name and listing all of them is allowed
-* This rule pertains to services, the plural name must be used
 
 ```yaml
 cat << EOF | kubectl apply -f -
@@ -72,8 +66,14 @@ rules:
 - apiGroups: [""]                    
   verbs: ["get", "list"]             
   resources: ["services"] 
-  EOF
+EOF
 ```  
+
+Notes:
+* Roles are namespaced, if the namespace is omitted, the current namespace is used
+* Services are resources in the core apiGroup, which has no name - hence the “”
+* Getting individual Services by name and listing all of them is allowed
+* This rule pertains to services, the plural name must be used
 
 </p>
 </details>
