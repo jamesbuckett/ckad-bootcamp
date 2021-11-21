@@ -99,6 +99,11 @@ subjects:
 EOF
 ```  
 
+Notes: 
+* This RoleBinding references the `my-role` Role
+* And binds it to the `my-service-account` ServiceAccount 
+
+
 </p>
 </details>
 
