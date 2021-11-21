@@ -63,7 +63,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: my-service-reader-role
+  name: my-role
 rules:
 - apiGroups: [""]                    
   verbs: ["get", "list"]             
@@ -118,20 +118,43 @@ kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 ```
 
 ```bash
-kubectl auth can-i list deployment --as=my-service-account
+kubectl auth can-i --list --as=system:serviceaccount:ns-bootcamp-sec:my-service-account
 ```
 
 ```console
-xx
+Resources                                       Non-Resource URLs                     Resource Names   Verbs
+*.*                                             []                                    []               [*]
+                                                [*]                                   []               [*]
+selfsubjectaccessreviews.authorization.k8s.io   []                                    []               [create]
+selfsubjectrulesreviews.authorization.k8s.io    []                                    []               [create]
+services                                        []                                    []               [get list] #👈👈👈
+                                                [/.well-known/openid-configuration]   []               [get]
+                                                [/api/*]                              []               [get]
+                                                [/api]                                []               [get]
+                                                [/apis/*]                             []               [get]
+                                                [/apis]                               []               [get]
+                                                [/healthz]                            []               [get]
+                                                [/healthz]                            []               [get]
+                                                [/livez]                              []               [get]
+                                                [/livez]                              []               [get]
+                                                [/openapi/*]                          []               [get]
+                                                [/openapi]                            []               [get]
+                                                [/openid/v1/jwks]                     []               [get]
+                                                [/readyz]                             []               [get]
+                                                [/readyz]                             []               [get]
+                                                [/version/]                           []               [get]
+                                                [/version/]                           []               [get]
+                                                [/version]                            []               [get]
+                                                [/version]                            []               [get]
 ```
 
 
 ```bash
-kubectl auth can-i list service --as=my-service-account
+kubectl auth can-i get services --as=system:serviceaccount:ns-bootcamp-sec:my-service-account
 ```
 
 ```console
-xx
+yes
 ```
 
 </p>
