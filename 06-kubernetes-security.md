@@ -2,11 +2,13 @@
 
  In this section:
 - ServiceAccount - Functional ID inside the Pod to connect to the API server
-- Roles and RoleBindings - Who can do what inside a namespace
-- ClusterRoles and ClusterRoleBindings - Who can do what on the cluster
+- Roles - specify which verbs can be performed on which resources in a namespace
+- RoleBindings - bind roles to specific users, groups, or ServiceAccounts in a namespace
+- ClusterRoles -  specify which verbs can be performed on which resources in a cluster
+- ClusterRoleBindings - bind roles to specific users, groups, or ServiceAccounts in a cluster
 <br />
 
-Security North Star
+![07-01-k8s-bootcamp-security-overview](https://user-images.githubusercontent.com/18049790/142753738-acbde4b0-c02f-40f2-8e79-4030c7b3c5a2.jpg)
 <br />
 
 ## Kubernetes Security
@@ -25,7 +27,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-sec
 <details class="faq box"><summary>ServiceAccount (sa) - Functional ID inside the Pod to connect to the API server</summary>
 <p>
 
-xxx
+![07-02-k8s-bootcamp-security-sa](https://user-images.githubusercontent.com/18049790/142753742-6f209245-f3e1-4316-ba9d-45cb92f415c2.jpg)
 
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 
@@ -54,7 +56,7 @@ Notes:
 <details class="faq box"><summary>Role - specify which verbs can be performed on which resources</summary>
 <p>
 
-xxx
+![07-03-k8s-bootcamp-security-role](https://user-images.githubusercontent.com/18049790/142753743-f17b0b0c-ba14-4555-bfe5-58e0c756a917.jpg)
 
 ```yaml
 cat << EOF | kubectl apply -f -
@@ -78,9 +80,10 @@ Notes:
 </p>
 </details>
 
-
 <details class="faq box"><summary>RoleBinding - bind roles to specific users, groups, or ServiceAccounts</summary>
 <p>
+
+![07-04-k8s-bootcamp-security-rolebinding](https://user-images.githubusercontent.com/18049790/142753744-898263f4-11e0-4850-83bf-caa83382aa5a.jpg)
 
 ```yaml
 cat << EOF | kubectl apply -f -
@@ -103,14 +106,13 @@ Notes:
 * This RoleBinding references the `my-role` Role
 * And binds it to the `my-service-account` ServiceAccount 
 
-
 </p>
 </details>
 
-
-
 <details class="faq box"><summary>Example Pod with RBAC</summary>
 <p>
+
+
 
 
 </p>
