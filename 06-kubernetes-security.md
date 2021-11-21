@@ -109,20 +109,29 @@ Notes:
 </p>
 </details>
 
-<details class="faq box"><summary>Example Pod with RBAC</summary>
+<details class="faq box"><summary>kubectl auth can-i</summary>
 <p>
 
-UNDER CONSTRUCTION - Example not valid
-
 ```bash
-kubectl delete sa default
 kubectl run service-pod --image=nginx --port=80  --labels="tier=web"
 kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 ```
 
 ```bash
-kubectl run remote-run --image=busybox --restart=Never --rm -it
-wget -qO- my-service:8080
+kubectl auth can-i list deployment --as=my-service-account
+```
+
+```console
+xx
+```
+
+
+```bash
+kubectl auth can-i list service --as=my-service-account
+```
+
+```console
+xx
 ```
 
 </p>
