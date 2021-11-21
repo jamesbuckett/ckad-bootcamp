@@ -2,10 +2,10 @@
 
  In this section:
 - ServiceAccount - Functional ID inside the Pod to connect to the API server
-- Roles - specify which verbs can be performed on which resources in a namespace
-- RoleBindings - bind roles to specific users, groups, or ServiceAccounts in a namespace
-- ClusterRoles -  specify which verbs can be performed on which resources in a cluster
-- ClusterRoleBindings - bind roles to specific users, groups, or ServiceAccounts in a cluster
+- Role - Specify which verbs can be performed on which resources in a namespace
+- RoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a namespace
+- ClusterRole -  Specify which verbs can be performed on which resources in a cluster
+- ClusterRoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a cluster
 <br />
 
 ![07-01-k8s-bootcamp-security-overview](https://user-images.githubusercontent.com/18049790/142753738-acbde4b0-c02f-40f2-8e79-4030c7b3c5a2.jpg)
