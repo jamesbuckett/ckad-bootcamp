@@ -51,7 +51,7 @@ Notes:
 </p>
 </details>
 
-<details class="faq box"><summary>Roles and RoleBindings</summary>
+<details class="faq box"><summary>Role - specify which verbs can be performed on which resources</summary>
 <p>
 
 xxx
@@ -61,7 +61,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: my-service-reader
+  name: my-service-reader-role
 rules:
 - apiGroups: [""]                    
   verbs: ["get", "list"]             
@@ -79,8 +79,25 @@ Notes:
 </details>
 
 
-<details class="faq box"><summary>ClusterRoles and ClusterRoleBindings</summary>
+<details class="faq box"><summary>RoleBinding - bind roles to specific users, groups, or ServiceAccounts</summary>
 <p>
+
+```yaml
+cat << EOF | kubectl apply -f -
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  name: my-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: my-role
+subjects:
+- kind: ServiceAccount
+  name: my-service-account  
+EOF
+```  
 
 </p>
 </details>
