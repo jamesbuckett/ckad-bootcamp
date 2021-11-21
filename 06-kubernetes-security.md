@@ -112,6 +112,8 @@ Notes:
 <details class="faq box"><summary>Example Pod with RBAC</summary>
 <p>
 
+UNDER CONSTRUCTION - Example not valid
+
 ```bash
 kubectl delete sa default
 kubectl run service-pod --image=nginx --port=80  --labels="tier=web"
@@ -122,7 +124,6 @@ kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 kubectl run remote-run --image=busybox --restart=Never --rm -it
 wget -qO- my-service:8080
 ```
-
 
 </p>
 </details>
