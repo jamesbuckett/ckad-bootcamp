@@ -46,7 +46,7 @@ Notes:
 * ServiceAccounts are namespace scoped
 * A default serviceAccount is automatically created for each namespace
 * ServiceAccounts are nothing more than a way for an application to authenticate itself with the Kubernetes API server
-* ServiceAccount use JSON Web Tokens to authenticate with the Kubernetes API server
+* ServiceAccount use [JSON Web Tokens](https://jwt.io/introduction) (JWT) to authenticate with the Kubernetes API server
 * A ServiceAccount can contain a list of imagePullSecrets
 * This saves you from having to include the imagePullSecret with each Pod
 
