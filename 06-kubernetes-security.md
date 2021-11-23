@@ -13,6 +13,21 @@
 
 ## Kubernetes Security
 
+<details class="faq box"><summary>Enable RBAC on Docker Desktopn</summary>
+<p>
+
+```bash
+kubectl patch clusterrolebinding docker-for-desktop-binding --type=json --patch $'[{"op":"replace", "path":"/subjects/0/name", "value":"system:serviceaccounts:kube-system"}]'
+```
+
+Notes:
+* Docker Desktop has a ClusterRoleBinding called docker-for-desktop-binding that gives cluster-admin privileges to all ServiceAccounts
+* This means that any Pod running on Docker Desktop has cluster-admin privileges
+
+
+</p>
+</details>
+
 <details class="faq box"><summary>Kubernetes Namespace (ns) - Logical isolation for your application</summary>
 <p>
 
@@ -113,11 +128,26 @@ Notes:
 <p>
 
 ```bash
+kubectl describe role my-role
+```
+
+```console
+Name:         my-role
+Labels:       <none>
+Annotations:  <none>
+PolicyRule:
+  Resources  Non-Resource URLs  Resource Names  Verbs
+  ---------  -----------------  --------------  -----
+  services   []                 []              [get list]
+```
+
+```bash
 kubectl run service-pod --image=nginx --port=80  --labels="tier=web"
 kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 ```
 
 ```bash
+# Check the permission of the service account: my-service-account 
 kubectl auth can-i --list --as=system:serviceaccount:ns-bootcamp-sec:my-service-account
 ```
 
