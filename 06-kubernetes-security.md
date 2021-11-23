@@ -1,6 +1,7 @@
 # Kubernetes Tutorial - Kubernetes Security
 
  In this section:
+
 - ServiceAccount - Functional ID inside the Pod to connect to the API server
 - Role - Specify which verbs can be performed on which resources in a namespace
 - RoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a namespace
@@ -38,9 +39,9 @@ EOF
 ```
 
 Notes:
-* Docker Desktop has a `ClusterRoleBinding` called `[docker-for-desktop-binding](https://www.portainer.io/blog/docker-desktop-kubernetes-not-enforcing-rbac-rules)` that gives `cluster-admin` privileges to all ServiceAccounts
-* This means that any Pod running on Docker Desktop has cluster-admin privileges
 
+- Docker Desktop has a `ClusterRoleBinding` called [docker-for-desktop-binding](https://www.portainer.io/blog/docker-desktop-kubernetes-not-enforcing-rbac-rules) that gives `cluster-admin` privileges to all ServiceAccounts
+- This means that any Pod running on Docker Desktop has cluster-admin privileges
 
 </p>
 </details>
@@ -75,12 +76,12 @@ EOF
 ```  
 
 Notes:
-* ServiceAccounts are namespace scoped
-* A default serviceAccount is automatically created for each namespace
-* ServiceAccounts are nothing more than a way for an application to authenticate itself with the Kubernetes API server
-* ServiceAccount use [JSON Web Tokens](https://jwt.io/introduction) (JWT) to authenticate with the Kubernetes API server
-* A ServiceAccount can contain a list of imagePullSecrets
-* This saves you from having to include the imagePullSecret with each Pod
+- ServiceAccounts are namespace scoped
+- A default serviceAccount is automatically created for each namespace
+- ServiceAccounts are nothing more than a way for an application to authenticate itself with the Kubernetes API server
+- ServiceAccount use [JSON Web Tokens](https://jwt.io/introduction) (JWT) to authenticate with the Kubernetes API server
+- A ServiceAccount can contain a list of imagePullSecrets
+- This saves you from having to include the imagePullSecret with each Pod
 
 </p>
 </details>
