@@ -13,15 +13,32 @@
 
 ## Kubernetes Security
 
-<details class="faq box"><summary>Enable RBAC on Docker Desktopn</summary>
+<details class="faq box"><summary>Enable RBAC on Docker Desktop</summary>
 <p>
 
 ```bash
-kubectl patch clusterrolebinding docker-for-desktop-binding --type=json --patch $'[{"op":"replace", "path":"/subjects/0/name", "value":"system:serviceaccounts:kube-system"}]'
+kubectl delete clusterrolebinding docker-for-desktop-binding
+```
+
+```bash
+cat << EOF | kubectl apply -f -
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: docker-for-desktop-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: system:serviceaccounts:kube-system
+EOF  
 ```
 
 Notes:
-* Docker Desktop has a ClusterRoleBinding called docker-for-desktop-binding that gives cluster-admin privileges to all ServiceAccounts
+* Docker Desktop has a `ClusterRoleBinding` called `[docker-for-desktop-binding](https://www.portainer.io/blog/docker-desktop-kubernetes-not-enforcing-rbac-rules)` that gives `cluster-admin` privileges to all ServiceAccounts
 * This means that any Pod running on Docker Desktop has cluster-admin privileges
 
 
