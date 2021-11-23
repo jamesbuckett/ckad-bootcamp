@@ -170,8 +170,6 @@ kubectl auth can-i --list --as=system:serviceaccount:ns-bootcamp-sec:my-service-
 
 ```console
 Resources                                       Non-Resource URLs                     Resource Names   Verbs
-*.*                                             []                                    []               [*]
-                                                [*]                                   []               [*]
 selfsubjectaccessreviews.authorization.k8s.io   []                                    []               [create]
 selfsubjectrulesreviews.authorization.k8s.io    []                                    []               [create]
 services                                        []                                    []               [get list] #👈👈👈
@@ -197,11 +195,21 @@ services                                        []                              
 
 
 ```bash
+# Permitted RBAC Action
 kubectl auth can-i get services --as=system:serviceaccount:ns-bootcamp-sec:my-service-account
 ```
 
 ```console
 yes
+```
+
+```bash
+# Illegal RBAC Action
+kubectl auth can-i get pods --as=system:serviceaccount:ns-bootcamp-sec:my-service-account
+```
+
+```console
+no
 ```
 
 </p>
