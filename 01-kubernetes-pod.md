@@ -73,12 +73,6 @@ spec:
     - containerPort: 80
 ```
 
-</p>
-</details>
-
-<details class="faq box"><summary>Kubernetes Pod (po) - Notes</summary>
-<p>
-
 There are three container types:
 * [containers](https://kubernetes.io/docs/concepts/containers/) - A container image is a ready-to-run software package, containing everything needed to run an application: the code and any runtime it requires, application and system libraries, and default values for any essential settings.
 * [initContainers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) - Specialized containers that run before app containers in a Pod. Init containers can contain utilities or setup scripts not present in an app image
@@ -181,23 +175,17 @@ spec:
 EOF
 ```
 
-</p>
-</details>
-
-<details class="faq box"><summary>Liveness and Readiness Probes - Notes</summary>
-<p>
-
 There are three probe types:
-* livenessProbe: 
+* [livenessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): 
   * Indicates whether the container is running. 
   * If the liveness probe fails, the kubelet kills the container, and the container is subjected to its restart policy. 
   * If a Container does not provide a liveness probe, the default state is Success.
-* readinessProbe: 
+* [readinessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): 
   * Indicates whether the container is ready to respond to requests. 
   * If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod. 
   * The default state of readiness before the initial delay is Failure. 
   * If a Container does not provide a readiness probe, the default state is Success.
-* startupProbe: 
+* [startupProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): 
   * Indicates whether the application within the container is started. 
   * All other probes are disabled if a startup probe is provided, until it succeeds. 
   * If the startup probe fails, the kubelet kills the container, and the container is subjected to its restart policy. 
