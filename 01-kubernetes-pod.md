@@ -501,17 +501,17 @@ metadata:
     run: my-pod
   name: my-pod
 spec:
-  securityContext:
+  securityContext: ## 👈👈👈 securityContext at the Pod Level
     runAsUser: 10000 ## 👈👈👈 A userid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsUser to a value > 10000
     runAsGroup: 30000 ## 👈👈👈 A groupid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsGroup to a value > 10000
-    fsGroup: 2000
+    fsGroup: 2000    
   containers:
   - image: nginx:1.20.0
     name: my-pod
     ports:
     - containerPort: 80
-    securityContext:
-      readOnlyRootFilesystem: true ##  👈👈👈 Container Security Context ReadOnlyRootFilesystem
+    securityContext: ## 👈👈👈 securityContext at the container level
+      readOnlyRootFilesystem: true ##  👈👈👈 Container Security Context ReadOnlyRootFilesystem    
     resources:
       requests:
         memory: "64Mi" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
