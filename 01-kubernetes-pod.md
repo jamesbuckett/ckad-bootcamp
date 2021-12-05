@@ -73,11 +73,6 @@ spec:
     - containerPort: 80
 ```
 
-There are three container types:
-* [containers](https://kubernetes.io/docs/concepts/containers/) - A container image is a ready-to-run software package, containing everything needed to run an application: the code and any runtime it requires, application and system libraries, and default values for any essential settings.
-* [initContainers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) - Specialized containers that run before app containers in a Pod. Init containers can contain utilities or setup scripts not present in an app image
-* [ephemeralcontainers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/) - A special type of container that runs temporarily in an existing Pod to accomplish user-initiated actions such as troubleshooting
-
 </p>
 </details>
 
@@ -174,34 +169,6 @@ spec:
       periodSeconds: 3
 EOF
 ```
-
-There are three probe types:
-* [readinessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): #👈👈👈 The recommended Probe to use
-  * Indicates whether the container is ready to respond to requests. 
-  * If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod. 
-  * The default state of readiness before the initial delay is Failure. 
-  * If a Container does not provide a readiness probe, the default state is Success.
-* [livenessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): 
-  * Indicates whether the container is running. 
-  * If the liveness probe fails, the kubelet kills the container, and the container is subjected to its restart policy. 
-  * If a Container does not provide a liveness probe, the default state is Success.
-* [startupProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): 
-  * Indicates whether the application within the container is started. 
-  * All other probes are disabled if a startup probe is provided, until it succeeds. 
-  * If the startup probe fails, the kubelet kills the container, and the container is subjected to its restart policy. 
-  * If a Container does not provide a startup probe, the default state is Success.
-
-There are three checks that a probe can perform:
-* HTTPGetAction: #👈👈👈 The default check in Cloud Native Applications
-  * Performs an HTTP GET request against the Pod's IP address on a specified port and path. 
-  * The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
-* ExecAction: 
-  * Executes a specified command inside the container. 
-  * The diagnostic is considered successful if the command exits with a status code of 0.
-* TCPSocketAction: 
-  * Performs a TCP check against the Pod's IP address on a specified port. 
-  * The diagnostic is considered successful if the port is open.
-
 
 </p>
 </details>
