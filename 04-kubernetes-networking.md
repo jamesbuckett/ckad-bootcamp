@@ -67,18 +67,6 @@ wget -qO- my-service:8080
 > tl;dr – Kubernetes always respects the Law of Three
 
 There are three type of service:
-```console
-kubectl create service
-Create a service using a specified subcommand.
-
-Aliases:
-service, svc
-
-Available Commands:
-  clusterip    Create a ClusterIP service
-  loadbalancer Create a LoadBalancer service
-  nodeport     Create a NodePort service
-```
 * [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types): #👈👈👈 Part of CKAD exam
   * Exposes the Service on a cluster-internal IP
   * Choosing this value makes the Service only reachable from within the cluster 
