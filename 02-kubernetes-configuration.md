@@ -106,6 +106,8 @@ EOF
 </p>
 </details>
 
+
+
 <details class="faq box"><summary>Kubernetes Secret  - Storing obfuscated environmental variables per namespace</summary>
 <p>
 
@@ -170,6 +172,43 @@ spec:
             key: password
 EOF
 ```
+
+</p>
+</details>
+
+<details class="faq box"><summary>The Laws of Three - Secret Types</summary>
+<p>
+
+> tl;dr – Kubernetes always respects the Law of Three
+
+There are three ways to create a secret: (CREATION)
+* [create Secret using kubectl command](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/) #👈👈👈 Part of CKAD exam
+* [create Secret from config file](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/)
+* [create Secret using kustomize](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kustomize/)
+
+There are three ways to use a secret: (CONSUMPTION)
+* As files in a volume mounted on one or more of its containers
+* As container environment variable #👈👈👈 Part of CKAD exam
+* By the kubelet when pulling images for the Pod
+
+There are three types of secret: (TYPES)
+```console
+kubectl create secret
+Create a secret using specified subcommand.
+
+Available Commands:
+  docker-registry Create a secret for use with a Docker registry
+  generic         Create a secret from a local file, directory, or literal value
+  tls             Create a TLS secret
+```
+* [generic](https://kubernetes.io/docs/concepts/configuration/secret/#opaque-secrets) #👈👈👈 Part of CKAD exam
+  * Create a secret from a local file, directory, or literal value
+* [tls](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets) 
+  * Create a TLS secret
+* [docker-registry](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets)
+  * Create a secret for use with a Docker registry
+  
+  
 
 </p>
 </details>
