@@ -36,8 +36,9 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 Notes
-* The default kube-proxy mode for rule-based IP management is iptables, and the iptables mode native method for load distribution is random selection. 
-
+* The default kube-proxy mode for rule-based IP management is `iptables`
+*  The `iptables` mode native method for load distribution is random selection
+* In English - No round robin load balancing for Kubernetes Service it is random selection
 
 Create a Pod 
 
