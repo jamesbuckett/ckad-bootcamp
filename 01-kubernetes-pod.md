@@ -228,6 +228,29 @@ There are three probe checks:
   * The diagnostic is considered successful if the port is open 
   * If the remote system (the container) closes the connection immediately after it opens, this counts as healthy
 
+I lied there is one extra probe check:
+* [grpc](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#probe-check-methods) `alpha feature`
+*   Performs a remote procedure call using gRPC
+*   The target should implement gRPC health checks
+*   The diagnostic is considered successful if the status of the response is SERVING
+*   gRPC probes are an alpha feature and are only available if you enable the GRPCContainerProbe feature gate
+
+</p>
+</details>
+
+<details class="faq box"><summary>The Laws of Three - Probe Results</summary>
+<p>
+
+> tl;dr – Kubernetes always respects the Law of Three
+
+There are three probe results:
+* Success
+  * The container passed the diagnostic
+* Failure
+  * The container failed the diagnostic
+* Unknown
+  * The diagnostic failed (no action should be taken, and the kubelet will make further checks)
+
 </p>
 </details>
 
