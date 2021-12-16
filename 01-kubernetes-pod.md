@@ -213,9 +213,6 @@ There are three probe types:
   * If the startup probe fails, the kubelet kills the container, and the container is subjected to its restart policy
   * If a container does not provide a startup probe, the default state is Success.
 
-</p>
-</details>
-
 <details class="faq box"><summary>The Laws of Three - Probe Checks</summary>
 <p>
 
@@ -232,6 +229,9 @@ There are three probe checks:
   * Performs a TCP check against the Pod's IP address on a specified port
   * The diagnostic is considered successful if the port is open 
   * If the remote system (the container) closes the connection immediately after it opens, this counts as healthy
+
+</p>
+</details>
 
 </p>
 </details>
