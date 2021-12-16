@@ -73,10 +73,20 @@ spec:
     - containerPort: 80
 ```
 
+</p>
+</details>
+
+
+<details class="faq box"><summary>The Laws of Three</summary>
+<p>
+
+> tl;dr – Kubernetes always respects the Law of Three
+
 There are three container types:
 * [containers](https://kubernetes.io/docs/concepts/containers/) - A container image is a ready-to-run software package, containing everything needed to run an application: the code and any runtime it requires, application and system libraries, and default values for any essential settings.
 * [initContainers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) - Specialized containers that run before app containers in a Pod. Init containers can contain utilities or setup scripts not present in an app image
 * [ephemeralcontainers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/) - A special type of container that runs temporarily in an existing Pod to accomplish user-initiated actions such as troubleshooting
+```
 
 </p>
 </details>
