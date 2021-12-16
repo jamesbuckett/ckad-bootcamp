@@ -73,6 +73,7 @@ spec:
     - containerPort: 80
 ```
 
+<<<<<<< HEAD
 </p>
 </details>
 
@@ -88,6 +89,8 @@ There are three container types:
 * [ephemeralcontainers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/) - A special type of container that runs temporarily in an existing Pod to accomplish user-initiated actions such as troubleshooting
 ```
 
+=======
+>>>>>>> e8bc4122e09df9f3b81e4abe4a4aea01de4c6d1b
 </p>
 </details>
 
@@ -184,33 +187,6 @@ spec:
       periodSeconds: 3
 EOF
 ```
-
-There are three probe types:
-* [livenessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): 
-  * Indicates whether the container is running. 
-  * If the liveness probe fails, the kubelet kills the container, and the container is subjected to its restart policy. 
-  * If a Container does not provide a liveness probe, the default state is Success.
-* [readinessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): #👈👈👈 The recommended Probe to use
-  * Indicates whether the container is ready to respond to requests. 
-  * If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod. 
-  * The default state of readiness before the initial delay is Failure. 
-  * If a Container does not provide a readiness probe, the default state is Success.
-* [startupProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#when-should-you-use-a-readiness-probe): 
-  * Indicates whether the application within the container is started. 
-  * All other probes are disabled if a startup probe is provided, until it succeeds. 
-  * If the startup probe fails, the kubelet kills the container, and the container is subjected to its restart policy. 
-  * If a Container does not provide a startup probe, the default state is Success.
-
-There are three checks that a probe can perform:
-* ExecAction: 
-  * Executes a specified command inside the container. 
-  * The diagnostic is considered successful if the command exits with a status code of 0.
-* TCPSocketAction: 
-  * Performs a TCP check against the Pod's IP address on a specified port. 
-  * The diagnostic is considered successful if the port is open.
-* HTTPGetAction: #👈👈👈 The default check in Cloud Native Applications
-  * Performs an HTTP GET request against the Pod's IP address on a specified port and path. 
-  * The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
 
 </p>
 </details>
@@ -543,17 +519,17 @@ metadata:
     run: my-pod
   name: my-pod
 spec:
-  securityContext:
+  securityContext: ## 👈👈👈 securityContext at the Pod Level
     runAsUser: 10000 ## 👈👈👈 A userid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsUser to a value > 10000
     runAsGroup: 30000 ## 👈👈👈 A groupid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsGroup to a value > 10000
-    fsGroup: 2000
+    fsGroup: 2000    
   containers:
   - image: nginx:1.20.0
     name: my-pod
     ports:
     - containerPort: 80
-    securityContext:
-      readOnlyRootFilesystem: true ##  👈👈👈 Container Security Context ReadOnlyRootFilesystem
+    securityContext: ## 👈👈👈 securityContext at the container level
+      readOnlyRootFilesystem: true ##  👈👈👈 Container Security Context ReadOnlyRootFilesystem    
     resources:
       requests:
         memory: "64Mi" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
