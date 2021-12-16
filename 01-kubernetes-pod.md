@@ -187,10 +187,6 @@ spec:
       periodSeconds: 3
 EOF
 ```
-
-</p>
-</details>
-
 <details class="faq box"><summary>The Laws of Three - Probe Types</summary>
 <p>
 
@@ -211,6 +207,9 @@ There are three probe types:
   * All other probes are disabled if a startup probe is provided, until it succeeds
   * If the startup probe fails, the kubelet kills the container, and the container is subjected to its restart policy
   * If a container does not provide a startup probe, the default state is Success.
+
+</p>
+</details>
 
 <details class="faq box"><summary>The Laws of Three - Probe Checks</summary>
 <p>
