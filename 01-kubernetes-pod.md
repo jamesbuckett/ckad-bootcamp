@@ -73,10 +73,6 @@ spec:
     - containerPort: 80
 ```
 
-</p>
-</details>
-
-
 <details class="faq box"><summary>The Laws of Three - Container Types</summary>
 <p>
 
@@ -91,6 +87,9 @@ There are three container types:
   * Init containers can contain utilities or setup scripts not present in an app image
 * [ephemeralcontainers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/)
   * A special type of container that runs temporarily in an existing Pod to accomplish user-initiated actions such as troubleshooting
+
+</p>
+</details>
 
 </p>
 </details>
