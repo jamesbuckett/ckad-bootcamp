@@ -73,12 +73,11 @@ spec:
     - containerPort: 80
 ```
 
-<<<<<<< HEAD
 </p>
 </details>
 
 
-<details class="faq box"><summary>The Laws of Three</summary>
+<details class="faq box"><summary>The Laws of Three - Container Types</summary>
 <p>
 
 > tl;dr – Kubernetes always respects the Law of Three
@@ -89,8 +88,6 @@ There are three container types:
 * [ephemeralcontainers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/) - A special type of container that runs temporarily in an existing Pod to accomplish user-initiated actions such as troubleshooting
 ```
 
-=======
->>>>>>> e8bc4122e09df9f3b81e4abe4a4aea01de4c6d1b
 </p>
 </details>
 
