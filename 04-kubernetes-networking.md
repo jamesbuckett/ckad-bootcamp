@@ -79,8 +79,9 @@ There are three type of service:
 
 I lied there is one extra service:
 * [ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname): 
+  * Services of type ExternalName map a Service to a DNS name
   * Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value
-  * No proxying of any kind is set up.
+  * No proxying of any kind is set up
 
 </p>
 </details>
