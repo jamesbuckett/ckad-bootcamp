@@ -70,9 +70,9 @@ There are three type of service:
   * Choosing this value makes the Service only reachable from within the cluster 
   * This is the default ServiceType
 * [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport): #👈👈👈 Part of CKAD exam
-  * Exposes the Service on each Node's IP at a static port (the NodePort) 
-  * A ClusterIP Service, to which the NodePort Service routes, is automatically created 
-  * You will  be able to contact the NodePort Service, from outside the cluster, by requesting <NodeIP>:<NodePort>
+  * A NodePort is an open port on every node of your cluster 
+  * When traffic is received on that open port, it directs it to a specific port on the ClusterIP for the service it is representing
+  * You will  be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
   * Exposes the Service externally using a cloud provider's load balancer
   * NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created
