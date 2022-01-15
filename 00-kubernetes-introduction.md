@@ -1,6 +1,9 @@
 # Kubernetes Tutorial - Kubernetes Introduction
 
-Kubernetes is a steady state engine for running distributed immutable workloads.
+Kubernetes Definitions (pick which ever definition resonates with your own experince)
+* Kubernetes is a Container Orchestration Engine
+* Kubernetes is an Operating System for Data Centers
+* Kubernetes is a steady state engine for running distributed immutable workloads
 
 In this section:
 * Kubernetes Resource Types (Logical Components)
