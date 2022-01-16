@@ -187,6 +187,31 @@ spec:
       periodSeconds: 3
 EOF
 ```
+
+Observation:
+* Start Octant
+* Go to the `ns-bootcamp-pod` namespace
+* Go to `Workloads`...`Pods`...`my-pod`
+* Go to the `Logs` tab
+
+```console
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:15 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-" #👈👈👈 Probe entries in STDOUT
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:15 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:18 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:18 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:21 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:21 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:24 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:24 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:27 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:27 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:30 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:30 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:33 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:33 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+my-container 10.1.0.1 - - [16/Jan/2022:04:55:36 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
+```
+
 <details class="faq box"><summary>The Laws of Three - Probe Types</summary>
 <p>
 
@@ -194,19 +219,21 @@ EOF
 
 There are three probe types:
 * [livenessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#types-of-probe) #👈👈👈 Part of CKAD exam
-  * Indicates whether the container is running 
-  * If the liveness probe fails, the kubelet kills the container, and the container is subjected to its restart policy
-  * If a container does not provide a liveness probe, the default state is Success
+  * Kubernetes uses liveness probes to know when to restart a container 
+  * If a container is unresponsive, perhaps the application is deadlocked due to a multi-threading defect, restarting the container can make the application more available, despite the defect
+  * For example, liveness probes could catch a deadlock, where an application is running, but unable to make progress
+  * The kubelet uses liveness probes to know when to restart a container
+    * If the liveness probe fails, the kubelet kills the container, and the container is subjected to its restart policy  
 * [readinessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#types-of-probe) #👈👈👈 Part of CKAD exam
-  * Indicates whether the container is ready to respond to requests
-  * If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod
-  * The default state of readiness before the initial delay is Failure
-  * If a container does not provide a readiness probe, the default state is Success.
+  * Kubernetes uses readiness probes to decide when the container is available for accepting traffic 
+  * The readiness probe is used to control which pods are used as the backends for a service 
+  * A pod is considered ready when all of its containers are ready 
+  * If a pod is not ready, it is removed from service load balancers 
+  * For example, if a container loads a large cache at startup and takes minutes to start, you do not want to send requests to this container until it is ready, or the requests will fail—you want to route requests to other pods, which are capable of servicing requests.  
 * [startupProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#types-of-probe)
   * Indicates whether the application within the container is started 
   * All other probes are disabled if a startup probe is provided, until it succeeds
   * If the startup probe fails, the kubelet kills the container, and the container is subjected to its restart policy
-  * If a container does not provide a startup probe, the default state is Success.
 
 </p>
 </details>
