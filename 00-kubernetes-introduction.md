@@ -6,7 +6,7 @@ Kubernetes Definitions (pick which ever definition resonates with your own exper
 * Kubernetes is a steady state engine for running distributed immutable workloads
 
 Kubernetes History
-* Personal [Borg](https://research.google/pubs/pub43438/) Cell
+* Modeled around a Personal [Borg](https://research.google/pubs/pub43438/) Cell
 * Initial code name was [Seven of Nine](https://en.wikipedia.org/wiki/Seven_of_Nine) a spin off from the [Borg](https://en.wikipedia.org/wiki/Borg)
 * The Kubernetes logo has seven spokes as an homage to Seven of Nine
 
