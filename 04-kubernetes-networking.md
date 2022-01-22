@@ -205,9 +205,9 @@ GUI for explaining and generating Network Policies: [editor.cilium.io](https://e
 kubernetes.io bookmark: [Declare Network Policy](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/)
 
 Notes 
-* Network policies do not conflict; they are additive. 
-* If any policy or policies select a pod, the pod is restricted to what is allowed by the union of those policies' ingress/egress rules. 
-* Thus, order of evaluation does not affect the policy result.
+* Network policies do not conflict; they are additive
+* If any policy or policies select a pod, the pod is restricted to what is allowed by the union of those policies' ingress/egress rules
+* Thus, order of evaluation does not affect the policy result
 
 
 ```diff
