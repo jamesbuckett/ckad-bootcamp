@@ -49,7 +49,7 @@ kubectl run service-pod --image=nginx --port=80  --labels="tier=web"
 Create the Service
 
 ```bash
-kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
+kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service --type=ClusterIP
 ```
 ```bash
 clear
@@ -98,7 +98,6 @@ EOF
 ```
 wget -qO- my-service:8080
 ```
-
 
 
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
