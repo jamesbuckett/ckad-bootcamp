@@ -76,22 +76,30 @@ There are three type of service:
   * You will  be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
 
 ```yaml
+cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: my-NodePort-service
+  namespace: ns-bootcamp-networking
 spec:
   type: NodePort #👈👈👈
   selector:
-    app: MyApp
+    tier: web
   ports:
       # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
-    - port: 80
+    - port: 8080
       targetPort: 80
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
       nodePort: 30007 #👈👈👈
+EOF      
+
 ```
+wget -qO- my-service:8080
+```
+
+
 
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
   * Exposes the Service externally using a cloud provider's load balancer
@@ -108,12 +116,17 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
 metadata:
-  name: google
+  name: my-ExternalName-service
   namespace: ns-bootcamp-networking
 spec:
   type: ExternalName #👈👈👈
   externalName: www.google.com
-  EOF
+EOF
+```
+
+```bash
+wget -qO- my-ExternalName-service
+nslookup my-ExternalName-service
 ```
 
 </p>
