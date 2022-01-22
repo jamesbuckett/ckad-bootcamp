@@ -75,30 +75,33 @@ There are three type of service:
   * When traffic is received on that open port, it directs it to a specific port on the ClusterIP for the service it is representing
   * You will  be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
 
+<details class="faq box"><summary></summary>
+<p>
+
 ```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-NodePort-service
+  name: my-nodeport-service
   namespace: ns-bootcamp-networking
 spec:
   type: NodePort #👈👈👈
   selector:
     tier: web
-  ports:
-      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+  ports:    
     - port: 8080
       targetPort: 80
-      # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
       nodePort: 30007 #👈👈👈
-EOF      
+EOF
 
-```
-wget -qO- my-service:8080
+```bash
+wget -qO- localhost:30007
 ```
 
+</p>
+</details>
 
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
   * Exposes the Service externally using a cloud provider's load balancer
@@ -110,12 +113,15 @@ I lied there is one extra service:
   * Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value
   * No proxying of any kind is set up
 
+<details class="faq box"><summary></summary>
+<p>
+
 ```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-ExternalName-service
+  name: my-externalname-service
   namespace: ns-bootcamp-networking
 spec:
   type: ExternalName #👈👈👈
