@@ -1,9 +1,17 @@
 # Kubernetes Tutorial - Kubernetes Introduction
 
-Kubernetes Definitions (pick which ever definition resonates with your own experince)
+Kubernetes Definitions (pick which ever definition resonates with your own experience)
 * Kubernetes is a Container Orchestration Engine
 * Kubernetes is an Operating System for Data Centers
 * Kubernetes is a steady state engine for running distributed immutable workloads
+
+Kubernetes History
+* Personal [Borg](https://research.google/pubs/pub43438/) Cell
+* Initial code name was [Seven of Nine](https://en.wikipedia.org/wiki/Seven_of_Nine) a spin off from the [Borg](https://en.wikipedia.org/wiki/Borg)
+* The Kubernetes logo has seven spokes as an homage to Seven of Nine
+
+![image](https://user-images.githubusercontent.com/18049790/43352583-0b37edda-9269-11e8-9695-1e8de81acb76.png)
+
 
 In this section:
 * Kubernetes Resource Types (Logical Components)
