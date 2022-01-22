@@ -69,10 +69,30 @@ There are three type of service:
   * Exposes the Service on a cluster-internal IP
   * Choosing this value makes the Service only reachable from within the cluster 
   * This is the default ServiceType
+
 * [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport): #👈👈👈 Part of CKAD exam
   * A NodePort is an open port on every node of your cluster 
   * When traffic is received on that open port, it directs it to a specific port on the ClusterIP for the service it is representing
   * You will  be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: NodePort #👈👈👈
+  selector:
+    app: MyApp
+  ports:
+      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+    - port: 80
+      targetPort: 80
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30007 #👈👈👈
+```
+
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
   * Exposes the Service externally using a cloud provider's load balancer
   * NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created
@@ -82,6 +102,19 @@ I lied there is one extra service:
   * Services of type ExternalName map a Service to a DNS name
   * Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value
   * No proxying of any kind is set up
+
+```yaml
+cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: google
+  namespace: ns-bootcamp-networking
+spec:
+  type: ExternalName #👈👈👈
+  externalName: www.google.com
+  EOF
+```
 
 </p>
 </details>
