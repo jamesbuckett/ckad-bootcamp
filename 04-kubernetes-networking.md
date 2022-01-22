@@ -95,6 +95,7 @@ spec:
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
       nodePort: 30007 #👈👈👈
 EOF
+```
 
 ```bash
 wget -qO- localhost:30007
@@ -127,11 +128,6 @@ spec:
   type: ExternalName #👈👈👈
   externalName: www.google.com
 EOF
-```
-
-```bash
-wget -qO- my-ExternalName-service
-nslookup my-ExternalName-service
 ```
 
 </p>
