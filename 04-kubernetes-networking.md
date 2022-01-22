@@ -75,7 +75,7 @@ There are three type of service:
   * When traffic is received on that open port, it directs it to a specific port on the ClusterIP for the service it is representing
   * You will  be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
 
-<details class="faq box"><summary></summary>
+<details class="faq box"><summary>NodePort Example</summary>
 <p>
 
 ```yaml
@@ -113,7 +113,7 @@ I lied there is one extra service:
   * Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value
   * No proxying of any kind is set up
 
-<details class="faq box"><summary></summary>
+<details class="faq box"><summary>ExternalName Example</summary>
 <p>
 
 ```yaml
@@ -133,6 +133,9 @@ EOF
 wget -qO- my-ExternalName-service
 nslookup my-ExternalName-service
 ```
+
+</p>
+</details>
 
 </p>
 </details>
