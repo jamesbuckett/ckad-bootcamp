@@ -59,7 +59,10 @@ kubectl run remote-run --image=busybox --restart=Never --rm -it
 wget -qO- my-service:8080
 ```
 
-<details class="faq box"><summary>The Laws of Three - Types of Service</summary>
+</p>
+</details>
+
+<details class="faq box"><summary>The Laws of Four - Types of Service</summary>
 <p>
 
 > tl;dr – Kubernetes always respects the Law of Three
@@ -74,9 +77,6 @@ There are three type of service:
   * A NodePort is an open port on every node of your cluster 
   * When traffic is received on that open port, it directs it to a specific port on the ClusterIP for the service it is representing
   * You will  be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
-
-<details class="faq box"><summary>NodePort Example</summary>
-<p>
 
 ```yaml
 cat << EOF | kubectl apply -f -
@@ -101,21 +101,14 @@ EOF
 wget -qO- localhost:30007
 ```
 
-</p>
-</details>
-
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
   * Exposes the Service externally using a cloud provider's load balancer
   * NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created
 
-I lied there is one extra service:
 * [ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname): 
   * Services of type ExternalName map a Service to a DNS name
   * Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value
   * No proxying of any kind is set up
-
-<details class="faq box"><summary>ExternalName Example</summary>
-<p>
 
 ```yaml
 cat << EOF | kubectl apply -f -
@@ -129,12 +122,6 @@ spec:
   externalName: www.google.com
 EOF
 ```
-
-</p>
-</details>
-
-</p>
-</details>
 
 </p>
 </details>
