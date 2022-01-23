@@ -86,7 +86,7 @@ There are three container types:
   * Specialized containers that run before app containers in a Pod
   * Init containers can contain utilities or setup scripts not present in an app image
 * [ephemeralcontainers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/)
-  * A special type of container that runs temporarily in an existing Pod to accomplish user-initiated actions such as troubleshooting
+  * A special type of container that runs temporarily in an existing Pod to accomplish user-initiated actions such as [troubleshooting](https://github.com/jamesbuckett/ckad-advanced-topics/blob/master/05-kubernetes-pod-ephemeral.md)
 
 </p>
 </details>
@@ -212,7 +212,13 @@ my-container 10.1.0.1 - - [16/Jan/2022:04:55:33 +0000] "GET / HTTP/1.1" 200 612 
 my-container 10.1.0.1 - - [16/Jan/2022:04:55:36 +0000] "GET / HTTP/1.1" 200 612 "-" "kube-probe/1.21" "-"
 ```
 
-<details class="faq box"><summary>The Laws of Three - Probe Types</summary>
+</p>
+</details>
+
+<details class="faq box"><summary>Liveness and Readiness Probes - The Laws of Three</summary>
+<p>
+
+<details class="faq box"><summary>Liveness and Readiness Probes - Probe Types</summary>
 <p>
 
 > tl;dr – Kubernetes always respects the Law of Three
@@ -238,7 +244,7 @@ There are three probe types:
 </p>
 </details>
 
-<details class="faq box"><summary>The Laws of Three - Probe Checks</summary>
+<details class="faq box"><summary>Liveness and Readiness Probes - Probe Checks</summary>
 <p>
 
 > tl;dr – Kubernetes always respects the Law of Three
@@ -265,7 +271,7 @@ I lied there is one extra probe check:
 </p>
 </details>
 
-<details class="faq box"><summary>The Laws of Three - Probe Results</summary>
+<details class="faq box"><summary>Liveness and Readiness Probes - Probe Results</summary>
 <p>
 
 > tl;dr – Kubernetes always respects the Law of Three
