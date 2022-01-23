@@ -108,6 +108,7 @@ wget -qO- localhost:30007
   * Exposes the Service externally using a cloud provider's load balancer
   * NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created
 
+I lied there is one extra Service Type:
 * [ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname): 
   * Services of type ExternalName map a Service to a DNS name
   * Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value
