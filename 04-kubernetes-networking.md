@@ -62,7 +62,7 @@ wget -qO- my-service:8080
 </p>
 </details>
 
-<details class="faq box"><summary>The Laws of Four - Types of Service</summary>
+<details class="faq box"><summary>Kubernetes Service (svc) -  Types of Service</summary>
 <p>
 
 > tl;dr – Kubernetes always respects the Law of Three
@@ -98,6 +98,9 @@ EOF
 ```
 
 ```bash
+# NodeIP:NodePort
+# NodeIP = kubectl get nodes -o wide 
+# NodePort = nodePort: 30007
 wget -qO- localhost:30007
 ```
 
