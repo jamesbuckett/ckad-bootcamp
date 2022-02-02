@@ -208,6 +208,24 @@ Please NOTE:
 - Perform this on any cluster that enforces Network Policies
 ```
 
+<details class="faq box"><summary>Kubernetes NetworkPolicy (netpol) - Types of Selector</summary>
+<p>
+
+> tl;dr – Kubernetes always respects the Law of Three
+
+* podSelector 
+  * This selects particular Pods in the same namespace as the NetworkPolicy which should be allowed as ingress sources or egress destinations
+* namespaceSelector
+  * This selects particular namespaces for which all Pods should be allowed as ingress sources or egress destinations
+* ipBlock 
+  * This selects particular IP CIDR ranges to allow as ingress sources or egress destinations
+  * These should be cluster-external IPs, since Pod IPs are ephemeral and unpredictable.
+
+</p>
+</details>
+
+
+
 * [Sample CKAD Question - NetworkPolicy](https://github.com/jamesbuckett/ckad-questions/blob/main/04-ckad-services-networking.md#04-01-create-a-namespace-called-netpol-namespace-create-a-pod-called-web-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierweb-create-a-pod-called-app-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierapp-create-a-pod-called-db-pod-using-the-nginx-image-and-exposing-port-80-label-the-pod-tierdb-create-a-network-policy-called-my-netpol-that-allows-the-web-pod-to-only-egress-to-app-pod-on-port-80)
 
 
