@@ -65,18 +65,29 @@ wget -qO- my-service:8080
 <details class="faq box"><summary>Kubernetes Service (svc) -  Types of Service</summary>
 <p>
 
-> tl;dr – Kubernetes always respects the Law of Three
+> tl;dr – Kubernetes always respects the Law of Three (sometimes)
 
-There are three type of service:
+There are four types of Kubernetes service:
+
+<details class="faq box"><summary>Kubernetes Service (svc) - ClusterIP</summary>
+<p>
+
 * [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types): #👈👈👈 Part of CKAD exam
   * Exposes the Service on a cluster-internal IP
   * Choosing this value makes the Service only reachable from within the cluster 
   * This is the default ServiceType
 
+</p>
+</details>
+
+<details class="faq box"><summary>Kubernetes Service (svc) -  NodePort</summary>
+<p>
+
 * [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport): #👈👈👈 Part of CKAD exam
   * A NodePort is an open port on every node of your cluster 
   * When traffic is received on that open port, it directs it to a specific port on the ClusterIP for the service it is representing
   * You will  be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
+  * Do NOT do this in Production
 
 ```yaml
 cat << EOF | kubectl apply -f -
@@ -104,11 +115,24 @@ EOF
 wget -qO- localhost:30007
 ```
 
+</p>
+</details>
+
+<details class="faq box"><summary>Kubernetes Service (svc) -  LoadBalancer</summary>
+<p>
+
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
+  * Expensive if you deploy a Cloud Load Balancer for each Service
+  * Quickly went out of fashion and addressed by Ingress which consolidates services and routes to a single Cloud Load Balancer
   * Exposes the Service externally using a cloud provider's load balancer
   * NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created
 
-I lied there is one extra Service Type:
+</p>
+</details>
+
+<details class="faq box"><summary>Kubernetes Service (svc) -  ExternalName</summary>
+<p>
+
 * [ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname): 
   * Services of type ExternalName map a Service to a DNS name
   * Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value
@@ -126,6 +150,9 @@ spec:
   externalName: www.google.com
 EOF
 ```
+
+</p>
+</details>
 
 </p>
 </details>
@@ -217,13 +244,13 @@ Please NOTE:
 <details class="faq box"><summary>Kubernetes NetworkPolicy (netpol) - Types of Selector</summary>
 <p>
 
-> tl;dr – Kubernetes always respects the Law of Three
+> tl;dr – Kubernetes always respects the Law of Three 
 
-* podSelector 
+* [podSelector ](https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors)
   * This selects particular Pods in the same namespace as the NetworkPolicy which should be allowed as ingress sources or egress destinations
-* namespaceSelector
+* [namespaceSelector](https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors)
   * This selects particular namespaces for which all Pods should be allowed as ingress sources or egress destinations
-* ipBlock 
+* [ipBlock](https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors)
   * This selects particular IP CIDR ranges to allow as ingress sources or egress destinations
   * These should be cluster-external IPs, since Pod IPs are ephemeral and unpredictable.
 
