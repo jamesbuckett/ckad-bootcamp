@@ -8,7 +8,7 @@
 - ClusterRoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a cluster
 <br />
 
-![07-01-k8s-bootcamp-security-overview](https://user-images.githubusercontent.com/18049790/142753738-acbde4b0-c02f-40f2-8e79-4030c7b3c5a2.jpg)
+![rbac](https://user-images.githubusercontent.com/18049790/145154335-3086bbce-14d9-4a7d-83b7-92a61d4a9456.jpg)
 <br />
 
 ## Kubernetes Security
