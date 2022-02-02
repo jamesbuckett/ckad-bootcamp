@@ -23,6 +23,8 @@ In this section:
 
 The North Star Diagram 
 * Kubernetes logical components that wrap application code
+* Refer back to this diagram if you get lost in all the new Kubernetes terms
+* Just remember everything in Kubernetes is performing some function to keep your code running
 
 ![00-north-star](https://user-images.githubusercontent.com/18049790/139566099-c561e1e6-ce62-431f-bb14-f7ea2d4aea3e.jpg)
 <br />

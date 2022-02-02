@@ -247,7 +247,7 @@ There are three probe types:
 <details class="faq box"><summary>Liveness and Readiness Probes - Probe Checks</summary>
 <p>
 
-> tl;dr – Kubernetes always respects the Law of Three
+> tl;dr – Kubernetes always respects the Law of Three, sometimes Four
 
 There are three probe checks:
 * [exec](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#probe-check-methods) 

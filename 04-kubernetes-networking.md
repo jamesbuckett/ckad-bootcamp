@@ -65,11 +65,11 @@ wget -qO- my-service:8080
 <details class="faq box"><summary>Kubernetes Service (svc) -  Types of Service</summary>
 <p>
 
-> tl;dr – Kubernetes always respects the Law of Three (sometimes)
+> tl;dr – Kubernetes always respects the Law of Three, sometimes Four
 
 There are four types of Kubernetes service:
 
-<details class="faq box"><summary>Kubernetes Service (svc) - ClusterIP</summary>
+<details class="faq box"><summary>Kubernetes Service (svc) - ClusterIP (default)</summary>
 <p>
 
 * [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types): #👈👈👈 Part of CKAD exam
@@ -80,7 +80,7 @@ There are four types of Kubernetes service:
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Service (svc) -  NodePort</summary>
+<details class="faq box"><summary>Kubernetes Service (svc) -  NodePort (insecure)</summary>
 <p>
 
 * [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport): #👈👈👈 Part of CKAD exam
@@ -118,7 +118,7 @@ wget -qO- localhost:30007
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Service (svc) -  LoadBalancer</summary>
+<details class="faq box"><summary>Kubernetes Service (svc) -  LoadBalancer (expensive)</summary>
 <p>
 
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
@@ -130,7 +130,7 @@ wget -qO- localhost:30007
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Service (svc) -  ExternalName</summary>
+<details class="faq box"><summary>Kubernetes Service (svc) -  ExternalName (DNS)</summary>
 <p>
 
 * [ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname): 
