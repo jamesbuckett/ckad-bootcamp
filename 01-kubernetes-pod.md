@@ -636,9 +636,9 @@ spec:
     runAsGroup: 30000 ## 👈👈👈 A groupid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsGroup to a value > 10000
     fsGroup: 2000    
   volumes:
-  - name: cache-volume
+  - name: cache-volume ##  👈👈👈 nginx needs to write to these directories
     emptyDir: {}
-  - name: runtime-volume
+  - name: runtime-volume ##  👈👈👈 nginx needs to write to these directories
     emptyDir: {}  
   containers:
   - image: nginx:1.20.0
