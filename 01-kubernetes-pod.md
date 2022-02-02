@@ -351,6 +351,8 @@ EOF
 <details class="faq box"><summary>Static Code Analysis - CRITICAL</summary>
 <p>
 
+> tl;dr I do not want you to get hacked straight out of the gate so here are the security best practices for securing a Pod
+
 * [kube-score](https://github.com/zegl/kube-score) - kube-score is a tool that performs static code analysis of your Kubernetes object definitions
 
 ```bash
@@ -608,8 +610,18 @@ Notes:
 <details class="faq box"><summary>Static Code Analysis - PASS</summary>
 <p>
 
-Pass:
+```console
+networking.k8s.io/v1/NetworkPolicy my-netpol                                  ✅
+v1/Pod my-pod                                                                 ✅
+```
+
 ```yaml
+cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Namespace
+metadata:  
+  name: ns-bootcamp-pod
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -617,11 +629,17 @@ metadata:
   labels:
     run: my-pod
   name: my-pod
+  namespace: ns-bootcamp-pod 
 spec:
   securityContext: ## 👈👈👈 securityContext at the Pod Level
     runAsUser: 10000 ## 👈👈👈 A userid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsUser to a value > 10000
     runAsGroup: 30000 ## 👈👈👈 A groupid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsGroup to a value > 10000
     fsGroup: 2000    
+  volumes:
+  - name: cache-volume
+    emptyDir: {}
+  - name: runtime-volume
+    emptyDir: {}  
   containers:
   - image: nginx:1.20.0
     name: my-pod
@@ -629,6 +647,11 @@ spec:
     - containerPort: 80
     securityContext: ## 👈👈👈 securityContext at the container level
       readOnlyRootFilesystem: true ##  👈👈👈 Container Security Context ReadOnlyRootFilesystem    
+    volumeMounts:
+      - name: cache-volume 
+        mountPath: /var/cache/nginx ##  👈👈👈 nginx needs to write to these directories
+      - name: runtime-volume
+        mountPath: /var/run ##  👈👈👈 nginx needs to write to these directories
     resources:
       requests:
         memory: "64Mi" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
@@ -636,14 +659,8 @@ spec:
       limits:
         memory: "64Mi" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
         cpu: "32m" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
-    imagePullPolicy: Always ## 👈👈👈 It's recommended to always set the ImagePullPolicy to Always. To make sure that the imagePullSecrets are always correct, and to always get the image you want.
-    livenessProbe: ## 👈👈👈 Missing property object `livenessProbe` - add a properly configured livenessProbe to catch possible deadlocks
-      httpGet:
-        path: /
-        port: 80
-      initialDelaySeconds: 10
-      periodSeconds: 5
-    readinessProbe: ## 👈👈👈 Missing property object `readinessProbe` - Add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
+    imagePullPolicy: Always ## 👈👈👈 It's recommended to always set the ImagePullPolicy to Always. To make sure that the imagePullSecrets are always correct, and to always get the image you want
+    readinessProbe: ## 👈👈👈 Missing property object `readinessProbe` 
       httpGet:
         path: /
         port: 80
@@ -657,6 +674,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: my-netpol
+  namespace: ns-bootcamp-pod 
 spec:
   podSelector:
     matchLabels:
@@ -675,6 +693,7 @@ spec:
               tier: app #👈👈👈 Egress - Traffic to pod with label: tier=app
       ports:
         - port: 80
+EOF
 ```
 
 </p>
