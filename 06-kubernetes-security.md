@@ -232,4 +232,6 @@ kubectl delete sa my-serviceaccount
 </p>
 </details>
 
+Next [Sample CKAD exercises and solutions](https://github.com/jamesbuckett/ckad-questions)
+
 _End of Section_

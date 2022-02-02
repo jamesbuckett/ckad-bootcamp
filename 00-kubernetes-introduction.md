@@ -33,4 +33,6 @@ What happens when you type `kubectl`?
 
 ![00-under-the-hood](https://user-images.githubusercontent.com/18049790/139566351-14b705cb-7ca3-410f-8e4f-49b9a6d24812.jpg)
 
+Next [Kubernetes Tutorial - Kubernetes Pod & Friends](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/01-kubernetes-pod.md)
+
 _End of Section_
