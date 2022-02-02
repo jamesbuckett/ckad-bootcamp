@@ -244,6 +244,10 @@ yes | rm -R ~/ckad/
 kubectl delete ns ns-bootcamp-networking --now
 ```
 
+</p>
+</details>
+<br />
+
 Next [Kubernetes Tutorial - Kubernetes Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md)
 
 _End of Section_

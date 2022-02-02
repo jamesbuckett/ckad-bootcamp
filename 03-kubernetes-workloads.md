@@ -415,6 +415,10 @@ yes | rm -R ~/ckad/
 kubectl delete ns ns-bootcamp-workloads --grace-period 0 --force
 ```
 
+</p>
+</details>
+<br />
+
 Next [https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
 
 _End of Section_

@@ -175,6 +175,10 @@ yes | rm -R ~/ckad/
 kubectl delete ns ns-bootcamp-storage --grace-period 0 --force
 ```
 
+</p>
+</details>
+<br />
+
 Next [Kubernetes Tutorial - Kubernetes Security](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/06-kubernetes-security.md)
 
 _End of Section_

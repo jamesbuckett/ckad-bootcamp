@@ -695,6 +695,7 @@ kubectl delete sa my-serviceaccount
 
 </p>
 </details>
+<br />
 
 Next [Kubernetes Tutorial - Configuration](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/02-kubernetes-configuration.md)
 
