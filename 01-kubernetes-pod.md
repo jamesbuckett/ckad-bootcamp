@@ -650,7 +650,7 @@ spec:
         memory: "64Mi" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
         cpu: "32m" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
     imagePullPolicy: Always ## 👈👈👈 It's recommended to always set the ImagePullPolicy to Always. To make sure that the imagePullSecrets are always correct, and to always get the image you want
-    readinessProbe: ## 👈👈👈 Missing property object `readinessProbe` 
+    readinessProbe: ## 👈👈👈 Missing property object readinessProbe
       httpGet:
         path: /
         port: 80
