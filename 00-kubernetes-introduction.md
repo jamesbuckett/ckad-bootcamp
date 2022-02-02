@@ -4,6 +4,7 @@ Kubernetes Definitions (pick which ever definition resonates with your own exper
 * Kubernetes is a Container Orchestration Engine
 * Kubernetes is an Operating System for Data Centers
 * Kubernetes is a steady state engine for running distributed immutable workloads
+<br />
 
 Kubernetes History
 * Modeled around a Personal [Borg](https://research.google/pubs/pub43438/) Cell
@@ -11,7 +12,7 @@ Kubernetes History
 * The Kubernetes logo has seven spokes as an homage to Seven of Nine
 
 ![image](https://user-images.githubusercontent.com/18049790/43352583-0b37edda-9269-11e8-9695-1e8de81acb76.png)
-
+<br />
 
 In this section:
 * Kubernetes Resource Types (Logical Components)

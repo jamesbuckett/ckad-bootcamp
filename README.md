@@ -27,6 +27,14 @@ The sections follow a logical progression and should be followed in the order be
 - [Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
 - [Kubernetes Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md)
 - [Kubernetes Security](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/06-kubernetes-security.md)
+<br />
+
+## Practical 
+
+* You can follow along and cut and paste the example code snippets into your own cluster 
+* A single node cluster is sufficient for all examples
+* All code snippets have been created and tested on [Docker Desktop](https://www.docker.com/products/docker-desktop)
+* To clean up just execute commands in the "Clean Up" section at the end of each section
+<br />
 
 _End of Section_
-<br />
