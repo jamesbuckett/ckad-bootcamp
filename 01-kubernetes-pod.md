@@ -610,6 +610,86 @@ Notes:
 <details class="faq box"><summary>Static Code Analysis - PASS</summary>
 <p>
 
+```yaml
+echo "
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my-pod
+  name: my-pod
+  namespace: ns-bootcamp-pod 
+spec:
+  securityContext: ## 👈👈👈 securityContext at the Pod Level
+    runAsUser: 10000 ## 👈👈👈 A userid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsUser to a value > 10000
+    runAsGroup: 30000 ## 👈👈👈 A groupid above 10 000 is recommended to avoid conflicts with the host. Set securityContext.runAsGroup to a value > 10000
+    fsGroup: 2000    
+  volumes:
+  - name: cache-volume ##  👈👈👈 nginx needs to write to these directories
+    emptyDir: {}
+  - name: runtime-volume ##  👈👈👈 nginx needs to write to these directories
+    emptyDir: {}  
+  containers:
+  - image: nginx:1.20.0
+    name: my-pod
+    ports:
+    - containerPort: 80
+    securityContext: ## 👈👈👈 securityContext at the container level
+      readOnlyRootFilesystem: true ##  👈👈👈 Container Security Context ReadOnlyRootFilesystem    
+    volumeMounts:
+      - name: cache-volume 
+        mountPath: /var/cache/nginx ##  👈👈👈 nginx needs to write to these directories
+      - name: runtime-volume
+        mountPath: /var/run ##  👈👈👈 nginx needs to write to these directories
+    resources:
+      requests:
+        memory: "64Mi" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
+        cpu: "32m" ## 👈👈👈 Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
+      limits:
+        memory: "64Mi" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
+        cpu: "32m" ## 👈👈👈 Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
+    imagePullPolicy: Always ## 👈👈👈 It's recommended to always set the ImagePullPolicy to Always. To make sure that the imagePullSecrets are always correct, and to always get the image you want
+    readinessProbe: ## 👈👈👈 Missing property object `readinessProbe` 
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 10
+      periodSeconds: 5
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: my-netpol
+  namespace: ns-bootcamp-pod 
+spec:
+  podSelector:
+    matchLabels:
+      run: my-pod #👈👈👈 Change - Which pod does this Network Policy Apply to
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              tier: web #👈👈👈 Ingress - Traffic from pod with label: tier=web
+      ports:
+        - port: 80
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              tier: app #👈👈👈 Egress - Traffic to pod with label: tier=app
+      ports:
+        - port: 80
+"  > ~/ckad/01-kubernetes-pod-pass-pod.yml        
+```
+
+```bash
+kube-score score ~/ckad/01-kubernetes-pod-pass-pod.yml
+```
+
 ```console
 networking.k8s.io/v1/NetworkPolicy my-netpol                                  ✅
 v1/Pod my-pod                                                                 ✅
@@ -621,7 +701,7 @@ apiVersion: v1
 kind: Namespace
 metadata:  
   name: ns-bootcamp-pod
-```
+---
 apiVersion: v1
 kind: Pod
 metadata:
