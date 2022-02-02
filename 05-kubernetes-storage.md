@@ -6,6 +6,8 @@ In this section:
 * Pod – a running container that will consume a PersistentVolume
 * StorageClass – allows for dynamic provisioning of PersistentVolumes
 
+![06-pv-pvc-pod](https://user-images.githubusercontent.com/18049790/140639299-1b5a2c1b-139d-4b52-9a35-66d79de5fb71.jpg)
+
 <br />
 
 ## Kubernetes Storage
