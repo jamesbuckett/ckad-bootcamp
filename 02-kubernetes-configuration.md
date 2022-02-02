@@ -181,7 +181,7 @@ There are three ways to use a secret: (CONSUMPTION)
 </p>
 </details>
 
-<details class="faq box"><summary>A Pod consuming the ConfigMap and Secret</summary>
+<details class="faq box"><summary>Example: A Pod consuming the ConfigMap and Secret</summary>
 <p>
 
 ![03-pod-cm-sec](https://user-images.githubusercontent.com/18049790/140637137-09125908-0320-49c2-aafd-c91b956bddbf.jpg)
