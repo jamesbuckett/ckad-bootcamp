@@ -194,7 +194,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: / #👈👈👈 Change
+      - path: /nginx #👈👈👈 Change
         pathType: Prefix
         backend:
           service:
@@ -205,8 +205,10 @@ EOF
 ```
 
 ```bash
-curl localhost
+curl localhost/nginx
 ```
+
+Notes on [rewrite-target](https://kubernetes.github.io/ingress-nginx/examples/rewrite/)
 
 </p>
 </details>
