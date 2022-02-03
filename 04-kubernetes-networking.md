@@ -161,7 +161,7 @@ EOF
 
 > Problem Statement: I want a way to expose my application outside the Kubernetes cluster
 
-> tl;dr – Want to open up your microservice application to the Internet with a fancy URL?
+> tl;dr – Think Layer 7 Load balancer for individual microservices
 
 ![05-network-ing](https://user-images.githubusercontent.com/18049790/140637548-d1a9ced9-7c66-406c-86d3-1a7001de2e75.jpg)
 
