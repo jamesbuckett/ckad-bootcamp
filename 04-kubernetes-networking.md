@@ -167,7 +167,6 @@ EOF
 
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
-Notes
 * Ingress operates using three constructs:
   * Ingress Controller 
     * Control Plane for Ingress
@@ -194,7 +193,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /nginx #👈👈👈 Change
+      - path: / #👈👈👈 Change
         pathType: Prefix
         backend:
           service:
@@ -205,7 +204,7 @@ EOF
 ```
 
 ```bash
-curl localhost/nginx
+curl localhost
 ```
 
 Notes on [rewrite-target](https://kubernetes.github.io/ingress-nginx/examples/rewrite/)
