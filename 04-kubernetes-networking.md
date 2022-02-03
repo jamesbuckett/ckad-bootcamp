@@ -330,6 +330,45 @@ AND Rule
           role: frontend
 ```
 
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: internal-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      name: internal #👈👈👈To which Pod does this Policy apply 
+  policyTypes:
+  - Egress
+  - Ingress
+  ingress:
+    - {}
+  egress:
+  - to: #👈👈👈 First Rule Egress to mysql on port 3306
+    - podSelector:
+        matchLabels:
+          name: mysql
+    ports:
+    - protocol: TCP
+      port: 3306
+
+  - to: #👈👈👈 Second Rule Egress to payroll on port 8080
+    - podSelector:
+        matchLabels:
+          name: payroll
+    ports:
+    - protocol: TCP
+      port: 8080
+
+  - ports: #👈👈👈 Third Rule Egress to DNS on port 53
+    - port: 53
+      protocol: UDP
+    - port: 53
+      protocol: TCP
+```
+
 </p>
 </details>
 <br />
