@@ -330,6 +330,8 @@ AND Rule
           role: frontend
 ```
 
+DNS Rule
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
