@@ -38,7 +38,7 @@ kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-n
 Notes
 * The default kube-proxy mode for rule-based IP management is `iptables`
 *  The `iptables` mode native method for load distribution is random selection
-* In English - No round robin load balancing for Kubernetes Service it is random selection
+* In English - No round robin load balancing for Kubernetes Service, it is random selection
 
 Create a Pod 
 
@@ -123,9 +123,8 @@ wget -qO- localhost:30007
 
 * [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
   * Expensive if you deploy a Cloud Load Balancer for each Service
-  * Quickly went out of fashion and addressed by Ingress which consolidates services and routes to a single Cloud Load Balancer
   * Exposes the Service externally using a cloud provider's load balancer
-  * NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created
+  * Quickly went out of fashion and was addressed by [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) which consolidates services and routes to a single Cloud Load Balancer
 
 </p>
 </details>
