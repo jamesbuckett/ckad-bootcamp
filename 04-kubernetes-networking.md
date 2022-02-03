@@ -168,12 +168,15 @@ EOF
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
 Notes
-* Ingress operates using a controller with an Ingress resource and a daemon
-* The Ingress resource is a set of rules governing traffic. 
-  * kind: Ingress
-* The daemon applies the rules inside a specialized Kubernetes pod. 
-  * Envoy DaemonSet
-
+* Ingress operates using three constructs:
+  * Ingress Controller 
+    * Control Plane for Ingress
+  * Ingress Resources
+    * Ingress Traffic Rules #👈👈👈 These are the YAML files that you will work with
+  * Ingress DaemonSet
+    * Execution Plane for Ingress
+    * Cluster wide pods that apply the traffic rules
+    
 Prerequisite Software for this example to work:
 ```bash
 kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
