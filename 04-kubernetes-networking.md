@@ -254,6 +254,83 @@ Please NOTE:
   * This selects particular IP CIDR ranges to allow as ingress sources or egress destinations
   * These should be cluster-external IPs, since Pod IPs are ephemeral and unpredictable.
 
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: test-network-policy
+  namespace: default
+spec:
+  podSelector: #👈👈👈 To which pod does this Network Policy apply: label = role: db
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - ipBlock: #👈👈👈This selects particular IP CIDR ranges
+        cidr: 172.17.0.0/16
+        except:
+        - 172.17.1.0/24
+    - namespaceSelector: #👈👈👈This selects particular namespaces
+        matchLabels:
+          project: myproject
+    - podSelector: #👈👈👈This selects particular Pods
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 6379
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/24
+    ports:
+    - protocol: TCP
+      port: 5978
+```
+
+</p>
+</details>
+
+<details class="faq box"><summary>Kubernetes NetworkPolicy (netpol) - AND & OR Rules</summary>
+<p>
+
+OR Rule
+
+```yaml
+  ingress:
+  - from:
+    - ipBlock: #👈👈👈- = First Rule OR 
+        cidr: 172.17.0.0/16
+        except:
+        - 172.17.1.0/24
+    - namespaceSelector: #👈👈👈- = Second Rule OR
+        matchLabels:
+          project: myproject
+    - podSelector: #👈👈👈- = Third Rule
+        matchLabels:
+          role: frontend
+```
+
+AND Rule
+
+```yaml
+  ingress:
+  - from:
+    - ipBlock: #👈👈👈- = First Rule First Element AND  
+        cidr: 172.17.0.0/16
+        except:
+        - 172.17.1.0/24
+      namespaceSelector: #👈👈👈 First Rule Second Element OR
+        matchLabels:
+          project: myproject
+    - podSelector: #👈👈👈- = Second Rule
+        matchLabels:
+          role: frontend
+```
+
 </p>
 </details>
 <br />
