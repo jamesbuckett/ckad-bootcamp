@@ -1,5 +1,7 @@
 # CKAD Boot Camp
 
+A warm welcome to the CKAD Study Group for Q1 2022
+
 * This tutorial is an introduction to Kubernetes for Application Developers
     * It covers the basics of compute in the Kubernetes [Pod](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/01-kubernetes-pod.md) section
     * Storing configuration in the environment in the Kubernetes [Configuration](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/02-kubernetes-configuration.md) section
