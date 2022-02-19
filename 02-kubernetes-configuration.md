@@ -1,5 +1,7 @@
 # Kubernetes Tutorial - Configuration
 
+kubernetes-configuration
+
 In this section:
 
 - Resource Quota - Namespace restriction on total resource usage

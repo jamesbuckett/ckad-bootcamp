@@ -1,5 +1,7 @@
 # Kubernetes Tutorial - Kubernetes Workloads
 
+kubernetes-workloads
+
 All workloads run Pods at their core.
 
 In this section:
