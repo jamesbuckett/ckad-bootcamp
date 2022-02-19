@@ -1,9 +1,5 @@
 # Kubernetes Tutorial - Configuration
 
-kubernetes-configuration
-
-In this section:
-
 - Resource Quota - Namespace restriction on total resource usage
 - Limit Range - A policy to constrain resource allocations (to Pods or Containers) in a namespace
 - Configuration Map - Storing environmental variables per namespace

@@ -1,9 +1,5 @@
 # Kubernetes Tutorial - Kubernetes Workloads
 
-kubernetes-workloads
-
-All workloads run Pods at their core.
-
 In this section:
 * Deployments - Resilient, scalable long running workload with zero downtime upgrades
 * Jobs - Running a workload to guaranteed completion

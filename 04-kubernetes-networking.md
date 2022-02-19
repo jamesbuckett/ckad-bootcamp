@@ -1,7 +1,5 @@
 # Kubernetes Tutorial - Kubernetes Networking
 
-kubernetes-networking
-
 In this section:
 - Service - A load balancer for Pods
 - Ingress - Expose Kubernetes Services outside a Kubernetes cluster

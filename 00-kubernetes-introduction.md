@@ -1,7 +1,5 @@
 # Kubernetes Tutorial - Kubernetes Introduction
 
-kubernetes-introduction
-
 Kubernetes Definitions (pick which ever definition resonates with your own experience)
 * Kubernetes is a Container Orchestration Engine
 * Kubernetes is an Operating System for Data Centers

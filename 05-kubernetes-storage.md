@@ -1,7 +1,5 @@
 # Kubernetes Tutorial - Kubernetes Storage
 
-kubernetes-storage
-
 In this section:
 * PersistentVolume – the low level representation of a storage volume
 * PersistentVolumeClaim – the binding between a Pod and PersistentVolume

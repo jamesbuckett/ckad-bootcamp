@@ -1,7 +1,5 @@
 # CKAD Boot Camp
 
-README.md
-
 * This tutorial is an introduction to Kubernetes for Application Developers
     * It covers the basics of compute in the Kubernetes [Pod](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/01-kubernetes-pod.md) section
     * Storing configuration in the environment in the Kubernetes [Configuration](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/02-kubernetes-configuration.md) section
