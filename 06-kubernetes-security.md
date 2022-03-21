@@ -11,9 +11,9 @@
 ![rbac](https://user-images.githubusercontent.com/18049790/145154335-3086bbce-14d9-4a7d-83b7-92a61d4a9456.jpg)
 <br />
 
-## Kubernetes Security
+<details class="faq box"><summary>Kubernetes Security - Introduction</summary>
+<p>
 
-Introduction
 * Security in Kubernetes follows the usual Authentication and Authorization approaches
   * Authentication - Who You Are?
     * Kubernetes has a system for strong workload identity
@@ -24,10 +24,13 @@ Introduction
     * This solves the Authentication part of the puzzel
   * Authorization - What You Can Do?
     * Authorization is solved via Roles Based Access Control
+    * Roles Based Access Control is implemented by the following Kubernetes Resource Types:
       * Service Account - Who you are
       * Role - What you can do
       * Rolebinding - Glue Service Account to Role
   
+</p>
+</details>
 
 <details class="faq box"><summary>Optional - Enable RBAC on Docker Desktop - Optional</summary>
 <p>
