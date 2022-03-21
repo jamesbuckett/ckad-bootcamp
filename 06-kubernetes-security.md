@@ -63,6 +63,11 @@ kubectl config set-context --current --namespace=ns-bootcamp-sec
 <details class="faq box"><summary>ServiceAccount (sa) - Functional ID inside the Pod to connect to the API server</summary>
 <p>
 
+Why do we have Service Accounts?
+* Kubernetes has a system for strong workload identity
+* All workloads are associated with service accounts, and they have short-lived OpenID-Connect (OIDC) identity-tokens issued by Kubernetes
+* The Kubernetes API server signs these OIDC tokens, and other workloads can validate tokens through the Kubernetes API server
+
 ![07-02-k8s-bootcamp-security-sa](https://user-images.githubusercontent.com/18049790/142753742-6f209245-f3e1-4316-ba9d-45cb92f415c2.jpg)
 
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
