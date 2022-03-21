@@ -67,6 +67,8 @@ Why do we have Service Accounts?
 * Kubernetes has a system for strong workload identity
 * All workloads are associated with service accounts, and they have short-lived OpenID-Connect (OIDC) identity-tokens issued by Kubernetes
 * The Kubernetes API server signs these OIDC tokens, and other workloads can validate tokens through the Kubernetes API server
+* OIDC stands for “OpenID Connect”
+  * It is an authentication protocol which allows the verification of a user identity when a user is trying to access a protected HTTPs end point
 * This solves the Authentication part of the puzzel
 * Authorization is solved via RBAC with Roles assocaited to the Service Account
 
