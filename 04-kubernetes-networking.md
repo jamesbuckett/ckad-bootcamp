@@ -209,6 +209,10 @@ curl localhost
 
 Notes on [rewrite-target](https://kubernetes.github.io/ingress-nginx/examples/rewrite/)
 
+Future Direction:
+* It is expected that Ingress with evolve into [Gateway API](https://kubernetes.io/blog/2021/04/22/evolving-kubernetes-networking-with-the-gateway-api/#introducing-the-gateway-api)
+
+
 </p>
 </details>
 
