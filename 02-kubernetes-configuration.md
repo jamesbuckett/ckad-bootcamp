@@ -144,7 +144,7 @@ EOF
 There are three types of secret: (TYPES)
 * [generic](https://kubernetes.io/docs/concepts/configuration/secret/#opaque-secrets) #👈👈👈 Part of CKAD exam
   * Create a secret from a local file, directory, or literal value
-* [tls](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets) 
+* [tls](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) 
   * Create a TLS secret
 * [docker-registry](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets)
   * Create a secret for use with a Docker registry
