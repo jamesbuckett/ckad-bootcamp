@@ -38,4 +38,3 @@ The sections follow a logical progression and should be followed in the order be
 <br />
 
 
-_End of Section_
