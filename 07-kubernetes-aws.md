@@ -12,6 +12,7 @@
 
 * AWS and Kubernetes
   * AWS Elastic Kubernetes Service (EKS)
+    * Managed Kubernetes Services 
 
 </p>
 </details>
@@ -21,6 +22,7 @@
 <p>
 
 * AWS Networking and Kubernetes
+  * AWS Virtual Private Cloud
   * AWS Application Load Balancer
   * AWS Route 53
 
