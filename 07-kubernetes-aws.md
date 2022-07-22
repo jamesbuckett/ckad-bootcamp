@@ -1,31 +1,26 @@
 # Kubernetes Tutorial - Kubernetes and AWS
 
  In this section:
-- Kubernetes on AWS 
-* Elastic Kubernetes Service
-* AWS Virtual Private Cloud
-- Kubernetes Networking on AWS
-* AWS Application Load Balancer
-* AWS Route 53
-- Kubernetes Security on AWS
-* Identity and Access Managent
+- AWS and Kubernetes
+- AWS Networking and Kubernetes
+- AWS Security and Kubernetes
 
 <br />
 
-<details class="faq box"><summary>Kubernetes on AWS</summary>
+<details class="faq box"><summary>AWS and Kubernetes</summary>
 <p>
 
-* Kubernetes on AWS
+* AWS and Kubernetes
   * AWS Elastic Kubernetes Service (EKS)
 
 </p>
 </details>
 
 
-<details class="faq box"><summary>Kubernetes Networking on AWS</summary>
+<details class="faq box"><summary>AWS Networking and Kubernetes</summary>
 <p>
 
-* Kubernetes Networking
+* AWS Networking and Kubernetes
   * AWS Application Load Balancer
   * AWS Route 53
 
@@ -33,34 +28,14 @@
 </details>
 
 
-<details class="faq box"><summary>Kubernetes Security on AWS</summary>
+<details class="faq box"><summary>AWS Security and Kubernetes</summary>
 <p>
 
-* Kubernetes Security
+* AWS Security and Kubernetes
   * Identity and Access Management
 
 </p>
 </details>
 <br />
-
-
-
-## Clean Up
-
-<details class="faq box"><summary>Clean Up</summary>
-<p>
-
-```bash
-cd
-yes | rm -R ~/ckad/
-kubectl delete ns ns-bootcamp-sec
-kubectl delete sa my-serviceaccount
-```
-
-</p>
-</details>
-<br />
-
-Next [Sample CKAD exercises and solutions](https://github.com/jamesbuckett/ckad-questions)
 
 _End of Section_
