@@ -131,6 +131,18 @@ spec:
         cpu: "500m" #👈👈👈 500m = 500 milliCPU (½ CPU)
 EOF
 ```
+
+[CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu)
+* Limits and requests for CPU resources are measured in cpu units. 
+* In Kubernetes, 1 CPU unit is equivalent to 1 physical CPU core, or 1 virtual core 
+  * Depending on whether the node is a physical host or a virtual machine running inside a physical machine.
+* Fractional requests are allowed. 
+* When you define a container with spec.containers[].resources.requests.cpu set to 0.5 
+  * You are requesting half as much CPU time compared to if you asked for 1.0 CPU
+* For CPU resource units, the quantity expression 0.1 is equivalent to the expression 100m 
+  * Which can be read as "one hundred millicpu"
+  * Some people say "one hundred millicores", and this is understood to mean the same thing
+
 The Relationship between Resources and Quality of Service
 
 ![02-qos](https://user-images.githubusercontent.com/18049790/140636729-64c34a54-38e3-4057-92ca-3ffd82c4fbb6.jpg)
