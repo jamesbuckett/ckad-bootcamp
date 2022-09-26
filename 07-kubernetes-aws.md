@@ -35,6 +35,11 @@
 
 * AWS Security and Kubernetes
   * Identity and Access Management
+    * Pod Identity 
+
+* Pod Identity 
+  * Service Account maps to Role 
+  * Role maps to Permissions
 
 </p>
 </details>
