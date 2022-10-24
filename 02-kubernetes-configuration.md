@@ -46,6 +46,12 @@ spec:
 EOF
 ```
 
+Observation:
+* Start Octant
+* Go to  `Cluster Overview` on left side
+* Go to `Namespaces`
+* Scroll down to `Resource Quotas`
+
 </p>
 </details>
 
@@ -75,6 +81,12 @@ spec:
     type: Container 
 EOF
 ```
+
+Observation:
+* Start Octant
+* Go to  `Cluster Overview` on left side
+* Go to `Namespaces`
+* Scroll down to `Resource Limits`
 
 </p>
 </details>
@@ -213,6 +225,37 @@ spec:
             name: my-secret  #👈👈👈 Secret
             key: password
 EOF
+```
+
+Observation
+* Start Octant
+* Go to  `Workloads`...`Pods`
+* Select `my-pod`...`Terminal`...type `env`
+
+```bash
+# kubectl exec --stdin --tty my-pod -- /bin/bash
+
+root@my-pod:/# env
+error-log-level=notice #👈👈👈
+SECRET-ENV-USER=bob #👈👈👈
+SECRET-ENV-PASSWORD=123456 #👈👈👈
+KUBERNETES_SERVICE_PORT_HTTPS=443
+KUBERNETES_SERVICE_PORT=443
+HOSTNAME=my-pod
+PWD=/
+PKG_RELEASE=1~buster
+HOME=/root
+KUBERNETES_PORT_443_TCP=tcp://10.245.0.1:443
+NJS_VERSION=0.5.3
+TERM=xterm
+SHLVL=1
+KUBERNETES_PORT_443_TCP_PROTO=tcp
+KUBERNETES_PORT_443_TCP_ADDR=10.245.0.1
+KUBERNETES_SERVICE_HOST=10.245.0.1
+KUBERNETES_PORT=tcp://10.245.0.1:443
+KUBERNETES_PORT_443_TCP_PORT=443
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+NGINX_VERSION=1.20.0
 ```
 
 </p>
