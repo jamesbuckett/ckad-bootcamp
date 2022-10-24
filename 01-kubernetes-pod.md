@@ -275,10 +275,10 @@ There are three probe checks:
 
 I lied there is one extra probe check:
 * [grpc](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#probe-check-methods) `alpha feature`
-*   Performs a remote procedure call using gRPC
-*   The target should implement gRPC health checks
-*   The diagnostic is considered successful if the status of the response is SERVING
-*   gRPC probes are an alpha feature and are only available if you enable the GRPCContainerProbe feature gate
+  *   Performs a remote procedure call using gRPC
+  *   The target should implement gRPC health checks
+  *   The diagnostic is considered successful if the status of the response is SERVING
+  *   gRPC probes are an alpha feature and are only available if you enable the GRPCContainerProbe feature gate
 
 </p>
 </details>
