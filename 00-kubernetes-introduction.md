@@ -43,3 +43,5 @@ What happens when you type `kubectl`?
 Next [Kubernetes Tutorial - Kubernetes Pod & Friends](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/01-kubernetes-pod.md)
 
 _End of Section_
+
+This is an intentional edit
