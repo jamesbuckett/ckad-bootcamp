@@ -128,7 +128,7 @@ spec:
         cpu: "250m" #👈👈👈 250m = 250 milliCPU
       limits:  #👈👈👈 Maximum “Limit”
         memory: "128Mi" #👈👈👈 128Mi = 128 Megabyte
-        cpu: "500m" #👈👈👈 500m = 500 milliCPU (½ CPU)
+        # cpu: "500m" #👈👈👈 500m = 500 milliCPU (½ CPU) [CPU limits on Kubernetes are an antipattern](https://home.robusta.dev/blog/stop-using-cpu-limits?s=03)
 EOF
 ```
 
