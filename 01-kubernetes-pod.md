@@ -18,19 +18,20 @@ In this section:
 <details class="faq box"><summary>Kubernetes Namespace (ns)  - Logical isolation for your application</summary>
 <p>
 
-What is a Kubernetes Namespace:
+> Problem Statement: I want logical separation and isolation for my application
+>
+> tl;dr – This is the holder for your application
+
+What is a Kubernetes Namespace?
 * In Kubernetes, a namespace is a way to divide cluster resources between multiple users (via resource quotas). 
 * When you create a namespace, you can specify resource quotas for that namespace, which can help ensure that one team or set of users doesn't use too many resources and negatively impact the other users in the cluster.
 * Namespaces are also used to isolate resources within a cluster, so that different teams or projects can use the same names for resources without conflicting with each other. 
 * For example, you could have a Deployment named "frontend" in the "dev" namespace, and another Deployment also named "frontend" in the "prod" namespace, and they would not conflict with each other.
 * In short, namespaces are a way to organize and divide resources in a Kubernetes cluster, and can be used to isolate resources and set resource quotas.
 
-> Problem Statement: I want logical separation and isolation for my application
->
-> tl;dr – This is the holder for your application
-
 kubernetes.io bookmark: [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 
+Create a namespace with the name: `ns-bootcamp-pod`
 ```bash
 kubectl create namespace ns-bootcamp-pod
 kubectl config set-context --current --namespace=ns-bootcamp-pod
@@ -51,7 +52,11 @@ metadata:
 <details class="faq box"><summary>Kubernetes Pod (po) - A pod is the smallest execution unit in Kubernetes</summary>
 <p>
 
-What is a Kubernetes Pod:
+> Problem Statement: I want to run immutable and resilient Linux or Windows workloads 
+>
+> tl;dr – Compute, Network, Storage and Monitoring around your application
+
+What is a Kubernetes Pod?
 * In Kubernetes, a pod is the smallest deployable unit. 
 * It is the basic execution unit of a Kubernetes application–the smallest and simplest unit in the Kubernetes object model that you create or deploy.
 * A pod consists of one or more containers, and is used to host the containers that make up an application. 
@@ -62,14 +67,11 @@ What is a Kubernetes Pod:
 * This is in contrast to more long-lived objects like Deployments, which create and manage ReplicaSets, which in turn create and manage pods.
 * In summary, a pod is a deployable unit in Kubernetes that consists of one or more containers and is used to host the containers that make up an application.
 
-> Problem Statement: I want to run immutable and resilient Linux workloads 
->
-> tl;dr – Compute, Network, Storage and Monitoring around your application
-
 ![02-basic-pod](https://user-images.githubusercontent.com/18049790/140636726-0c08ffb0-e520-42ba-8807-8928da6c53e7.jpg)
 
 kubernetes.io bookmark: [Using Pods](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)
 
+Run a Pod called `my-pod` using the `nginx` image exposing port 80
 ```bash
 clear
 # Create the pod via the command line imperatively
@@ -89,6 +91,12 @@ spec:
     image: nginx:1.20.0
     ports:
     - containerPort: 80
+```
+
+Delete the Pod called `my-pod`
+```bash
+kubectl delete pod my-pod --grace-period 0 --force
+clear
 ```
 
 <details class="faq box"><summary>The Laws of Three - Container Types</summary>
@@ -115,7 +123,11 @@ There are three container types:
 <details class="faq box"><summary>Limits and Requests - CPU and Memory reservation for a Pod</summary>
 <p>
 
-What is a Kubernetes Limit and Request:
+> Problem Solving: I want to guarantee CPU and RAM for my microservice application
+>
+> tl;dr – Let me make a CPU and RAM reservation
+
+What is a Kubernetes Limit and Request?
 * In Kubernetes, a limit is the maximum amount of resources (such as CPU or memory) that a container is allowed to use. 
 * A request is the minimum amount of resources that a container is guaranteed to be allocated.
 * When you create a pod in Kubernetes, you can specify resource limits and requests for the containers in the pod. 
@@ -125,19 +137,11 @@ What is a Kubernetes Limit and Request:
 * When the Kubernetes scheduler places a pod on a node, it ensures that the node has enough resources available to meet the resource requests of all of the containers in the pod.
 * By setting resource limits and requests, you can ensure that your containers have the resources they need to run properly, and that the resources in your cluster are being used efficiently.
 
-> Problem Solving: I want to guarantee CPU and RAM for my microservice application
->
-> tl;dr – Let me make a CPU and RAM reservation
-
 ![02-cpu-ram](https://user-images.githubusercontent.com/18049790/140636727-9b6ceba7-5bfa-4f24-bca0-7f40c73181b2.jpg)
 
 kubernetes.io bookmark: [Meaning of Memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
-```bash
-kubectl delete pod my-pod --grace-period 0 --force
-clear
-```
-
+Create a Pod with Limits and Requests
 ```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
@@ -160,6 +164,12 @@ spec:
 EOF
 ```
 
+Delete the Pod called `my-pod`
+```bash
+kubectl delete pod my-pod --grace-period 0 --force
+clear
+```
+
 [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu)
 * Limits and requests for CPU resources are measured in cpu units. 
 * In Kubernetes, 1 CPU unit is equivalent to 1 physical CPU core, or 1 virtual core 
@@ -173,7 +183,7 @@ EOF
 
 The Relationship between Resources and Quality of Service
 
-What is Kubernetes Quality of Service:
+What is Kubernetes Quality of Service?
 * In Kubernetes, Quality of Service (QoS) refers to the relative priority of pods and the resources they are allowed to consume. 
 * There are three QoS classes in Kubernetes:
   * BestEffort: 
@@ -196,7 +206,11 @@ What is Kubernetes Quality of Service:
 <details class="faq box"><summary>Liveness and Readiness Probes - Health Checks for a Pod</summary>
 <p>
 
-What are Kubernetes Probes:
+> Problem Solving: I want a way to check the health of my microservices application
+
+> tl;dr – How to perform Health Checks on my microservices application 
+
+What are Kubernetes Probes?
 * In Kubernetes, a probe is a mechanism for checking the health of a container. 
 * There are two types of probes: liveness probes and readiness probes.
   * Liveness probes are used to determine if a container is still running. 
@@ -207,19 +221,11 @@ What are Kubernetes Probes:
 * By configuring liveness and readiness probes for your containers, you can ensure that your applications are running properly and are able to handle traffic. 
 * This can help improve the reliability and availability of your applications.
 
-> Problem Solving: I want a way to check the health of my microservices application
-
-> tl;dr – How to perform Health Checks on my microservices application 
-
 ![probes](https://user-images.githubusercontent.com/18049790/140636733-846c09eb-2e81-467a-8ad0-331e45b9b4fd.jpg)
 
 kubernetes.io bookmark: [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request)
 
-```bash
-kubectl delete pod my-pod --grace-period 0 --force
-clear
-```
-
+Create a Pod with Probes
 ```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
