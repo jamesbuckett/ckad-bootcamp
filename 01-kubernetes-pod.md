@@ -365,6 +365,15 @@ There are three probe results:
 <details class="faq box"><summary>ServiceAccount (sa) - Functional ID inside the Pod to connect to the API server</summary>
 <p>
 
+What is a Kubernetes Service Account?
+* In Kubernetes, a service account provides an identity for processes that run in a cluster. 
+* When you create a service account, you can specify the permissions that the service account has within the cluster. 
+* This allows you to finely control the actions that the service account can perform.
+* Service accounts are used to grant permissions to processes that need to interact with the Kubernetes API. 
+* For example, if you want to deploy an application to a cluster, you might use a service account to authenticate the deployment process with the API server.
+* By default, every Kubernetes cluster includes a set of built-in service accounts, including the `default` service account that is used by pods that do not specify a service account. 
+* You can also create custom service accounts and grant them the permissions that are required for your specific use case.
+
 ![02-sa](https://user-images.githubusercontent.com/18049790/140636731-77ba1689-b901-4ad9-bb2a-885fdddfe3ca.jpg)
 
 kubernetes.io bookmark: [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
