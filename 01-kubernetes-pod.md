@@ -18,6 +18,13 @@ In this section:
 <details class="faq box"><summary>Kubernetes Namespace (ns)  - Logical isolation for your application</summary>
 <p>
 
+What is a Kubernetes Namespace:
+* In Kubernetes, a namespace is a way to divide cluster resources between multiple users (via resource quotas). 
+* When you create a namespace, you can specify resource quotas for that namespace, which can help ensure that one team or set of users doesn't use too many resources and negatively impact the other users in the cluster.
+* Namespaces are also used to isolate resources within a cluster, so that different teams or projects can use the same names for resources without conflicting with each other. 
+* For example, you could have a Deployment named "frontend" in the "dev" namespace, and another Deployment also named "frontend" in the "prod" namespace, and they would not conflict with each other.
+* In short, namespaces are a way to organize and divide resources in a Kubernetes cluster, and can be used to isolate resources and set resource quotas.
+
 > Problem Statement: I want logical separation and isolation for my application
 >
 > tl;dr – This is the holder for your application
@@ -43,6 +50,17 @@ metadata:
 
 <details class="faq box"><summary>Kubernetes Pod (po) - A pod is the smallest execution unit in Kubernetes</summary>
 <p>
+
+What is a Kubernetes Pod:
+* In Kubernetes, a pod is the smallest deployable unit. 
+* It is the basic execution unit of a Kubernetes application–the smallest and simplest unit in the Kubernetes object model that you create or deploy.
+* A pod consists of one or more containers, and is used to host the containers that make up an application. 
+* The containers in a pod are designed to work together and share resources, such as storage and networking. 
+* They can also communicate with each other using localhost.
+* Pods are ephemeral, meaning that they are not meant to be long-lived. 
+* When a pod is deleted, all of the containers in the pod are also deleted. 
+* This is in contrast to more long-lived objects like Deployments, which create and manage ReplicaSets, which in turn create and manage pods.
+* In summary, a pod is a deployable unit in Kubernetes that consists of one or more containers and is used to host the containers that make up an application.
 
 > Problem Statement: I want to run immutable and resilient Linux workloads 
 >
@@ -97,6 +115,16 @@ There are three container types:
 <details class="faq box"><summary>Limits and Requests - CPU and Memory reservation for a Pod</summary>
 <p>
 
+What is a Kubernetes Limit and Request:
+* In Kubernetes, a limit is the maximum amount of resources (such as CPU or memory) that a container is allowed to use. 
+* A request is the minimum amount of resources that a container is guaranteed to be allocated.
+* When you create a pod in Kubernetes, you can specify resource limits and requests for the containers in the pod. 
+* The resource limits define the maximum amount of resources that a container is allowed to use. 
+* If a container exceeds its resource limits, it may be terminated by the Kubernetes system.
+* The resource requests define the minimum amount of resources that a container is guaranteed to be allocated. 
+* When the Kubernetes scheduler places a pod on a node, it ensures that the node has enough resources available to meet the resource requests of all of the containers in the pod.
+* By setting resource limits and requests, you can ensure that your containers have the resources they need to run properly, and that the resources in your cluster are being used efficiently.
+
 > Problem Solving: I want to guarantee CPU and RAM for my microservice application
 >
 > tl;dr – Let me make a CPU and RAM reservation
@@ -145,6 +173,19 @@ EOF
 
 The Relationship between Resources and Quality of Service
 
+What is Kubernetes Quality of Service:
+* In Kubernetes, Quality of Service (QoS) refers to the relative priority of pods and the resources they are allowed to consume. 
+* There are three QoS classes in Kubernetes:
+  * BestEffort: 
+    * This is the default QoS class, and it means that the pod is not guaranteed any specific amount of resources. 
+    * The pod will only receive resources if they are available after all other pods have been given their required resources.
+  * Burstable: 
+    * This QoS class means that the pod is guaranteed a certain minimum amount of resources, but is allowed to use additional resources if they are available.
+  * Guaranteed: 
+    * This QoS class means that the pod is guaranteed a certain amount of resources, and will always receive that amount of resources regardless of the usage of other pods in the cluster.
+* By setting the QoS class for a pod, you can control the priority and resource allocation for that pod relative to other pods in the cluster. 
+* This can be useful in cases where you have critical workloads that need to be guaranteed a certain amount of resources, or if you want to ensure that certain pods always have access to the resources they need to function properly.
+
 ![02-qos](https://user-images.githubusercontent.com/18049790/140636729-64c34a54-38e3-4057-92ca-3ffd82c4fbb6.jpg)
 
 [CPU limits on Kubernetes are an antipattern](https://home.robusta.dev/blog/stop-using-cpu-limits?s=03)
@@ -154,6 +195,17 @@ The Relationship between Resources and Quality of Service
 
 <details class="faq box"><summary>Liveness and Readiness Probes - Health Checks for a Pod</summary>
 <p>
+
+What are Kubernetes Probes:
+* In Kubernetes, a probe is a mechanism for checking the health of a container. 
+* There are two types of probes: liveness probes and readiness probes.
+  * Liveness probes are used to determine if a container is still running. 
+    * If a liveness probe fails, the Kubernetes system will restart the container in an attempt to recover it.
+  * Readiness probes are used to determine if a container is ready to start accepting traffic. 
+    * If a readiness probe fails, the Kubernetes system will not send traffic to the container until it becomes ready.
+* Probes are implemented as HTTP requests or command executions, and can be configured to specify the initial delay, the period between checks, and the number of failures allowed before marking the container as failed.
+* By configuring liveness and readiness probes for your containers, you can ensure that your applications are running properly and are able to handle traffic. 
+* This can help improve the reliability and availability of your applications.
 
 > Problem Solving: I want a way to check the health of my microservices application
 
