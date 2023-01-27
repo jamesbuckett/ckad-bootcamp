@@ -38,8 +38,9 @@
     * Pod Identity 
 
 * Pod Identity 
-  * Service Account maps to Role 
+  * Maps Kubernetes Service Account to an AWS IAM Role 
   * Role maps to Permissions
+  * Thus granting permissions to AWS Resources
 
 </p>
 </details>
