@@ -56,7 +56,7 @@ clear
 # Check your work - run a diagnostics pod
 kubectl run remote-run --image=busybox --restart=Never --rm -it
 # Repeat this command to see different responses
-wget -qO- my-service:8080
+wget -cqS my-service:8080
 ```
 
 </p>
