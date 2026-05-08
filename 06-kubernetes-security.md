@@ -256,6 +256,6 @@ kubectl delete sa my-service-account
 </details>
 <br />
 
-Next [Sample CKAD exercises and solutions](https://github.com/jamesbuckett/ckad-questions)
+Prev [Kubernetes Tutorial - Kubernetes Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md) | Next [Sample CKAD exercises and solutions](https://github.com/jamesbuckett/ckad-questions)
 
 _End of Section_

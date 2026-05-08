@@ -416,6 +416,6 @@ kubectl delete ns ns-bootcamp-workloads --grace-period 0 --force
 </details>
 <br />
 
-Next [Kubernetes Tutorial - Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
+Prev [Kubernetes Tutorial - Configuration](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/02-kubernetes-configuration.md) | Next [Kubernetes Tutorial - Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
 
 _End of Section_

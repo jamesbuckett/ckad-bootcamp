@@ -38,4 +38,9 @@ The sections follow a logical progression and should be followed in the order be
 * To clean up just execute commands in the "Clean Up" section at the end of each section
 <br />
 
+## Contributing
+
+Contributions are welcome — see [CONTRIBUTING](CONTRIBUTING.md) for the patterns the repo uses and how to submit changes.
+<br />
+
 _End of Section_

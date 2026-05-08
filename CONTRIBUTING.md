@@ -4,9 +4,9 @@ Thanks for your interest in improving this CKAD bootcamp tutorial. Contributions
 
 ## How to contribute
 
-- **Spot a bug or typo?** Open an issue, or send a PR directly. Small fixes don't need a prior issue.
-- **Want to add or restructure content?** Open an issue first so we can agree on scope before you write the section.
-- Fork the repo, create a branch, push your changes, and open a pull request against `master`.
+* **Spot a bug or typo?** Open an issue, or send a PR directly. Small fixes don't need a prior issue.
+* **Want to add or restructure content?** Open an issue first so we can agree on scope before you write the section.
+* Fork the repo, create a branch, push your changes, and open a pull request against `master`.
 
 ## Testing examples
 
@@ -18,18 +18,19 @@ Each chapter ends with a **Clean Up** section. Run that before moving to the nex
 
 The repo uses a few patterns consistently — please follow them when editing:
 
-- **Chapter title:** `# Kubernetes Tutorial - <Topic>`.
-- **Sections** use the `<details><summary>...</summary><p>` collapsible HTML pattern. This renders as a click-to-expand block on GitHub.
-- **Code fences** are always language-tagged: `bash`, `yaml`, `console`, `diff`. Use lowercase tags.
-- **Inline call-outs** in YAML examples use the `#👈👈👈` marker followed by a short note pointing at the line of interest.
-- **Problem framing** uses the pattern:
+* **Chapter title:** `# Kubernetes Tutorial - <Topic>`.
+* **Unordered lists** use `*` (not `-`). Apply this in chapter content, README, and CONTRIBUTING.
+* **Sections** use the `<details><summary>...</summary><p>` collapsible HTML pattern. This renders as a click-to-expand block on GitHub.
+* **Code fences** are always language-tagged: `bash`, `yaml`, `console`, `diff`. Use lowercase tags.
+* **Inline call-outs** in YAML examples use the `#👈👈👈` marker followed by a short note pointing at the line of interest.
+* **Problem framing** uses the pattern:
   ```
   > Problem Statement: <user-facing need>
   >
   > tl;dr – <one-line summary>
   ```
-- **Upstream references** use `kubernetes.io bookmark: [Title](url)`.
-- **Section ends** with `_End of Section_` and a `Next [Chapter Name](url)` link.
+* **Upstream references** use `kubernetes.io bookmark: [Title](url)`.
+* **Section ends** with `_End of Section_` and `Prev`/`Next` links to the adjacent chapters where applicable.
 
 ## Images
 

@@ -398,6 +398,6 @@ kubectl delete ns ns-bootcamp-networking --now
 </details>
 <br />
 
-Next [Kubernetes Tutorial - Kubernetes Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md)
+Prev [Kubernetes Tutorial - Kubernetes Workloads](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/03-kubernetes-workloads.md) | Next [Kubernetes Tutorial - Kubernetes Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md)
 
 _End of Section_

@@ -334,11 +334,11 @@ There are three probe checks:
   * If the remote system (the container) closes the connection immediately after it opens, this counts as healthy
 
 I lied there is one extra probe check:
-* [grpc](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#probe-check-methods) `alpha feature`
+* [grpc](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#probe-check-methods)
   * Performs a remote procedure call using gRPC
   * The target should implement gRPC health checks
   * The diagnostic is considered successful if the status of the response is SERVING
-  * gRPC probes are an alpha feature and are only available if you enable the GRPCContainerProbe feature gate
+  * gRPC probes graduated to stable in Kubernetes 1.27 (alpha in 1.23, beta in 1.24); no feature gate is required on supported clusters
 
 </p>
 </details>
@@ -800,6 +800,6 @@ kubectl delete sa my-serviceaccount
 </details>
 <br />
 
-Next [Kubernetes Tutorial - Configuration](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/02-kubernetes-configuration.md)
+Prev [Kubernetes Tutorial - Kubernetes Introduction](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/00-kubernetes-introduction.md) | Next [Kubernetes Tutorial - Configuration](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/02-kubernetes-configuration.md)
 
 _End of Section_
