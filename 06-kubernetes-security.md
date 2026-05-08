@@ -1,11 +1,11 @@
 # Kubernetes Tutorial - Kubernetes Security
 
 In this section:
-- ServiceAccount - Functional ID inside the Pod
-- Role - Specify which verbs can be performed on which resources in a namespace
-- RoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a namespace
-- ClusterRole -  Specify which verbs can be performed on which resources in a cluster
-- ClusterRoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a cluster
+* ServiceAccount - Functional ID inside the Pod
+* Role - Specify which verbs can be performed on which resources in a namespace
+* RoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a namespace
+* ClusterRole - Specify which verbs can be performed on which resources in a cluster
+* ClusterRoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a cluster
 <br />
 
 ![rbac](https://user-images.githubusercontent.com/18049790/145154335-3086bbce-14d9-4a7d-83b7-92a61d4a9456.jpg)
@@ -62,8 +62,8 @@ EOF
 
 Notes:
 
-- Docker Desktop has a `ClusterRoleBinding` called [docker-for-desktop-binding](https://www.portainer.io/blog/docker-desktop-kubernetes-not-enforcing-rbac-rules) that gives `cluster-admin` privileges to all ServiceAccounts
-- This means that any Pod running on Docker Desktop has cluster-admin privileges
+* Docker Desktop has a `ClusterRoleBinding` called [docker-for-desktop-binding](https://www.portainer.io/blog/docker-desktop-kubernetes-not-enforcing-rbac-rules) that gives `cluster-admin` privileges to all ServiceAccounts
+* This means that any Pod running on Docker Desktop has cluster-admin privileges
 
 </p>
 </details>
@@ -98,12 +98,12 @@ EOF
 ```
 
 Notes:
-- ServiceAccounts are namespace scoped
-- A default serviceAccount is automatically created for each namespace
-- ServiceAccounts are nothing more than a way for an application to authenticate itself with the Kubernetes API server
-- ServiceAccount use [JSON Web Tokens](https://jwt.io/introduction) (JWT) to authenticate with the Kubernetes API server
-- A ServiceAccount can contain a list of imagePullSecrets
-- This saves you from having to include the imagePullSecret with each Pod
+* ServiceAccounts are namespace scoped
+* A default ServiceAccount is automatically created for each namespace
+* ServiceAccounts are nothing more than a way for an application to authenticate itself with the Kubernetes API server
+* ServiceAccounts use [JSON Web Tokens](https://jwt.io/introduction) (JWT) to authenticate with the Kubernetes API server
+* A ServiceAccount can contain a list of imagePullSecrets
+* This saves you from having to include the imagePullSecret with each Pod
 
 </p>
 </details>

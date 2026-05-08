@@ -1,9 +1,9 @@
 # Kubernetes Tutorial - Kubernetes Networking
 
 In this section:
-- Service - A load balancer for Pods
-- Ingress - Expose Kubernetes Services outside a Kubernetes cluster
-- Network Policy - Software based firewall around Kubernetes Pods
+* Service - A load balancer for Pods
+* Ingress - Expose Kubernetes Services outside a Kubernetes cluster
+* Network Policy - Software based firewall around Kubernetes Pods
 <br />
 
 ![05-network-basic](https://user-images.githubusercontent.com/18049790/140637546-e3535aa3-cbd6-4dd9-bd39-37c466b6566a.jpg)
@@ -160,7 +160,7 @@ EOF
 <p>
 
 > Problem Statement: I want a way to expose my application outside the Kubernetes cluster
-
+>
 > tl;dr – Think Layer 7 Load balancer for individual microservices
 
 ![05-network-ing](https://user-images.githubusercontent.com/18049790/140637548-d1a9ced9-7c66-406c-86d3-1a7001de2e75.jpg)

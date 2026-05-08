@@ -1,9 +1,9 @@
 # Kubernetes Tutorial - Kubernetes and AWS
 
 In this section:
-- AWS and Kubernetes
-- AWS Networking and Kubernetes
-- AWS Security and Kubernetes
+* AWS and Kubernetes
+* AWS Networking and Kubernetes
+* AWS Security and Kubernetes
 
 > **Note:** This section is an outline / work in progress. Each subsection currently lists topics rather than providing tutorials.
 

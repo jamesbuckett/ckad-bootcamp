@@ -1,9 +1,10 @@
 # Kubernetes Tutorial - Configuration
 
-- Resource Quota - Namespace restriction on total resource usage
-- Limit Range - A policy to constrain resource allocations (to Pods or Containers) in a namespace
-- Configuration Map - Storing environmental variables per namespace
-- Secret  - Storing obfuscated environmental variables per namespace
+In this section:
+* Resource Quota - Namespace restriction on total resource usage
+* Limit Range - A policy to constrain resource allocations (to Pods or Containers) in a namespace
+* Configuration Map - Storing environmental variables per namespace
+* Secret - Storing obfuscated environmental variables per namespace
 <br />
 
 ![01-config](https://user-images.githubusercontent.com/18049790/135598375-34b557bc-96fd-499b-bc02-c2bb0c743199.jpg)
@@ -25,7 +26,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-configuration
 <details class="faq box"><summary>Kubernetes ResourceQuota (quota) - Namespace restriction on total resource usage</summary>
 <p>
 
-> Problem Statement:  I want to prevent resource contention and "land grabs" by controlling how much CPU or memory an application can consume.
+> Problem Statement: I want to prevent resource contention and "land grabs" by controlling how much CPU or memory an application can consume
 >
 > tl;dr – CPU and Memory constraints for the namespace
 

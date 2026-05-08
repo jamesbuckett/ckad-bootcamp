@@ -24,9 +24,8 @@ kubectl config set-context --current --namespace=ns-bootcamp-workloads
 <details class="faq box"><summary>Kubernetes Deployment (deploy) - Resilient, scalable long running workload with zero downtime upgrades</summary>
 <p>
 
-> Problem Statement:
-> I want to have zero downtime when doing software deployments and I want a resilient microservices application
-
+> Problem Statement: I want to have zero downtime when doing software deployments and I want a resilient microservices application
+>
 > tl;dr – The thing that controls how you do upgrades with zero-downtime, also resilience with replicas
 
 ![04-deployment](https://user-images.githubusercontent.com/18049790/140640341-b72a123b-befe-4701-8b92-130f25c062bf.jpg)

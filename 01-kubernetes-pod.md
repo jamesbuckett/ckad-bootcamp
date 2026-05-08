@@ -3,11 +3,11 @@
 A pod should be considered as the smallest unit of execution in Kubernetes and all Kubernetes workload types run Pods at their core.
 
 In this section:
-- Pod - A pod is the smallest execution unit in Kubernetes
-- Limits and Requests - CPU and Memory reservation for a Pod
-- Liveness and Readiness - Health Checks for a Pod
-- ServiceAccount - Functional ID inside the Pod to connect to the API server
-- Security Context - Linux privilege and access control settings for a Pod or Container
+* Pod - A pod is the smallest execution unit in Kubernetes
+* Limits and Requests - CPU and Memory reservation for a Pod
+* Liveness and Readiness - Health Checks for a Pod
+* ServiceAccount - Functional ID inside the Pod to connect to the API server
+* Security Context - Linux privilege and access control settings for a Pod or Container
 <br />
 
 ![00-pod](https://user-images.githubusercontent.com/18049790/135598360-f75b3c0d-1a41-4bb2-bf0e-cb983e819690.jpg)
@@ -335,10 +335,10 @@ There are three probe checks:
 
 I lied there is one extra probe check:
 * [grpc](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#probe-check-methods) `alpha feature`
-  *   Performs a remote procedure call using gRPC
-  *   The target should implement gRPC health checks
-  *   The diagnostic is considered successful if the status of the response is SERVING
-  *   gRPC probes are an alpha feature and are only available if you enable the GRPCContainerProbe feature gate
+  * Performs a remote procedure call using gRPC
+  * The target should implement gRPC health checks
+  * The diagnostic is considered successful if the status of the response is SERVING
+  * gRPC probes are an alpha feature and are only available if you enable the GRPCContainerProbe feature gate
 
 </p>
 </details>
