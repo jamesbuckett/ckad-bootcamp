@@ -1,9 +1,11 @@
 # Kubernetes Tutorial - Kubernetes and AWS
 
- In this section:
+In this section:
 - AWS and Kubernetes
 - AWS Networking and Kubernetes
 - AWS Security and Kubernetes
+
+> **Note:** This section is an outline / work in progress. Each subsection currently lists topics rather than providing tutorials.
 
 <br />
 
@@ -12,7 +14,7 @@
 
 * AWS and Kubernetes
   * AWS Elastic Kubernetes Service (EKS)
-    * Managed Kubernetes Services 
+    * Managed Kubernetes Services
 
 </p>
 </details>
@@ -35,10 +37,10 @@
 
 * AWS Security and Kubernetes
   * Identity and Access Management
-    * Pod Identity 
+    * Pod Identity
 
-* Pod Identity 
-  * Maps Kubernetes Service Account to an AWS IAM Role 
+* Pod Identity
+  * Maps Kubernetes Service Account to an AWS IAM Role
   * Role maps to Permissions
   * Thus granting permissions to AWS Resources
 

@@ -28,7 +28,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-networking
 <p>
 
 > Problem Statement: I want a stable network entry point into my application
-> 
+>
 > tl;dr – Think Load balancer for individual microservices
 
 ![05-network-svc](https://user-images.githubusercontent.com/18049790/140637642-5ef46de4-4867-41a6-ba44-6333cd9441af.jpg)
@@ -37,10 +37,10 @@ kubernetes.io bookmark: [Service](https://kubernetes.io/docs/concepts/services-n
 
 Notes
 * The default kube-proxy mode for rule-based IP management is `iptables`
-*  The `iptables` mode native method for load distribution is random selection
+* The `iptables` mode native method for load distribution is random selection
 * In English - No round robin load balancing for Kubernetes Service, it is random selection
 
-Create a Pod 
+Create a Pod
 
 ```bash
 kubectl run service-pod --image=nginx --port=80  --labels="tier=web"
@@ -74,7 +74,7 @@ There are four types of Kubernetes service:
 
 * [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types): #👈👈👈 Part of CKAD exam
   * Exposes the Service on a cluster-internal IP
-  * Choosing this value makes the Service only reachable from within the cluster 
+  * Choosing this value makes the Service only reachable from within the cluster
   * This is the default ServiceType
 
 </p>
@@ -84,9 +84,9 @@ There are four types of Kubernetes service:
 <p>
 
 * [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport): #👈👈👈 Part of CKAD exam
-  * A NodePort is an open port on every node of your cluster 
+  * A NodePort is an open port on every node of your cluster
   * When traffic is received on that open port, it directs it to a specific port on the ClusterIP for the service it is representing
-  * You will  be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
+  * You will be able to contact the NodePort Service, from outside the cluster, by requesting `NodeIP:NodePort`
   * Do NOT do this in Production
 
 ```yaml
@@ -100,7 +100,7 @@ spec:
   type: NodePort #👈👈👈
   selector:
     tier: web
-  ports:    
+  ports:
     - port: 8080
       targetPort: 80
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
@@ -110,7 +110,7 @@ EOF
 
 ```bash
 # NodeIP:NodePort
-# NodeIP = kubectl get nodes -o wide 
+# NodeIP = kubectl get nodes -o wide
 # NodePort = nodePort: 30007
 wget -qO- localhost:30007
 ```
@@ -121,7 +121,7 @@ wget -qO- localhost:30007
 <details class="faq box"><summary>Kubernetes Service (svc) -  LoadBalancer (expensive)</summary>
 <p>
 
-* [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): 
+* [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer):
   * Expensive if you deploy a Cloud Load Balancer for each Service
   * Exposes the Service externally using a cloud provider's load balancer
   * Quickly went out of fashion and was addressed by [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) which consolidates services and routes to a single Cloud Load Balancer
@@ -132,7 +132,7 @@ wget -qO- localhost:30007
 <details class="faq box"><summary>Kubernetes Service (svc) -  ExternalName (DNS)</summary>
 <p>
 
-* [ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname): 
+* [ExternalName](https://kubernetes.io/docs/concepts/services-networking/service/#externalname):
   * Services of type ExternalName map a Service to a DNS name
   * Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value
   * No proxying of any kind is set up
@@ -168,14 +168,14 @@ EOF
 kubernetes.io bookmark: [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
 * Ingress operates using three constructs:
-  * Ingress Controller 
+  * Ingress Controller
     * Control Plane for Ingress
   * Ingress Resources
     * Ingress Traffic Rules #👈👈👈 These are the YAML files that you will work with
   * Ingress DaemonSet
     * Execution Plane for Ingress
     * Cluster wide pods that apply the traffic rules
-    
+
 Prerequisite Software for this example to work:
 ```bash
 kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
@@ -221,7 +221,7 @@ Future Direction:
 
 > Problem Statement: I want a way to deny all network traffic around pods unless explicitly allowed
 >
-> tl;dr – Trust no one, explicitly define who talks to who with my software based firewall 
+> tl;dr – Trust no one, explicitly define who talks to who with my software based firewall
 
 ![05-netpol](https://user-images.githubusercontent.com/18049790/140638229-62871b17-bc71-4e51-a71c-4c75c178a78f.jpg)
 
@@ -229,7 +229,7 @@ GUI for explaining and generating Network Policies: [editor.cilium.io](https://e
 
 kubernetes.io bookmark: [Declare Network Policy](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/)
 
-Notes 
+Notes
 * Network policies do not conflict; they are additive
 * If any policy or policies select a pod, the pod is restricted to what is allowed by the union of those policies' ingress/egress rules
 * Thus, order of evaluation does not affect the policy result
@@ -251,7 +251,7 @@ Please NOTE:
 <details class="faq box"><summary>Kubernetes NetworkPolicy (netpol) - Types of Selector</summary>
 <p>
 
-> tl;dr – Kubernetes always respects the Law of Three 
+> tl;dr – Kubernetes always respects the Law of Three
 
 * [podSelector ](https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors)
   * This selects particular Pods in the same namespace as the NetworkPolicy which should be allowed as ingress sources or egress destinations
@@ -309,7 +309,7 @@ OR Rule
 ```yaml
   ingress:
   - from:
-    - ipBlock: #👈👈👈- = First Rule OR 
+    - ipBlock: #👈👈👈- = First Rule OR
         cidr: 172.17.0.0/16
         except:
         - 172.17.1.0/24
@@ -326,7 +326,7 @@ AND Rule
 ```yaml
   ingress:
   - from:
-    - ipBlock: #👈👈👈- = First Rule First Element AND  
+    - ipBlock: #👈👈👈- = First Rule First Element AND
         cidr: 172.17.0.0/16
         except:
         - 172.17.1.0/24
@@ -349,7 +349,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: internal #👈👈👈To which Pod does this Policy apply 
+      name: internal #👈👈👈To which Pod does this Policy apply
   policyTypes:
   - Egress
   - Ingress

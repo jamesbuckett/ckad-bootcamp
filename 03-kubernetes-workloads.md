@@ -24,7 +24,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-workloads
 <details class="faq box"><summary>Kubernetes Deployment (deploy) - Resilient, scalable long running workload with zero downtime upgrades</summary>
 <p>
 
-> Problem Statement: 
+> Problem Statement:
 > I want to have zero downtime when doing software deployments and I want a resilient microservices application
 
 > tl;dr – The thing that controls how you do upgrades with zero-downtime, also resilience with replicas
@@ -66,8 +66,8 @@ EOF
 <p>
 
 > Problem Statement: I want to run a Linux workload to guaranteed completion
-> 
-> tl;dr – Want to run a batch job? 
+>
+> tl;dr – Want to run a batch job?
 
 ![04-job](https://user-images.githubusercontent.com/18049790/140640468-f448ce27-2c29-4081-b81b-00acfdcb63cb.jpg)
 
@@ -106,7 +106,7 @@ kubectl logs $pods
 <p>
 
 > Problem Statement: I want to run a Linux workload to guaranteed completion on a particular schedule
-> 
+>
 > tl;dr – Want to run a cronjob?
 
 ![04-cronjob](https://user-images.githubusercontent.com/18049790/140640514-e7eb5127-f772-4ea7-94dd-c6ddea78ee30.jpg)
@@ -210,7 +210,7 @@ EOF
 <p>
 
 > Problem Statement: I want to run a Linux workload on every single worker node
-> 
+>
 > tl;dr – Want to run everywhere in the cluster?
 
 kubernetes.io bookmark: [Writing a DaemonSet Spec](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#writing-a-daemonset-spec)
@@ -269,7 +269,7 @@ EOF
 </details>
 <br />
 
-## Kubernetes Workload Best Practices 
+## Kubernetes Workload Best Practices
 
 <details class="faq box"><summary>Static Code Analysis - Deployment</summary>
 <p>
@@ -303,11 +303,11 @@ spec:
 ```console
     [WARNING] Deployment has host PodAntiAffinity
       · Deployment does not have a host podAntiAffinity set
-      It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. 
+      It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node.
       This increases availability in case the node becomes unavailable.
     [CRITICAL] Deployment has PodDisruptionBudget
       · No matching PodDisruptionBudget was found
-      It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations 
+      It's recommended to define a PodDisruptionBudget to avoid unexpected downtime during Kubernetes maintenance operations
       Such as when draining a node.
 ```
 
@@ -320,14 +320,14 @@ spec:
 ```console
     [WARNING] Deployment has host PodAntiAffinity
       · Deployment does not have a host podAntiAffinity set
-      It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node. 
+      It's recommended to set a podAntiAffinity that stops multiple pods from a deployment from being scheduled on the same node.
       This increases availability in case the node becomes unavailable.
 ```
 
 ![PodAntiAffinity](https://user-images.githubusercontent.com/18049790/142724430-cd88bb28-e023-4390-9681-31a38dc956a8.jpg)
 
 Notes:
-  * tl;dr - Don't put all your eggs in the same basket 
+  * tl;dr - Don't put all your eggs in the same basket
   * podAntiAffinity stops multiple pods from a deployment from being scheduled on the same node
   * This increases availability in case a node becomes unavailable
 
@@ -348,8 +348,8 @@ spec:
       labels:
         app: nginx
     spec:
-      affinity: ##  👈👈👈 
-        podAntiAffinity: ##  👈👈👈 
+      affinity: ##  👈👈👈
+        podAntiAffinity: ##  👈👈👈
           requiredDuringSchedulingIgnoredDuringExecution: ##  👈👈👈  Hard anti-affinity - guarantees the distribution
           - labelSelector:
               matchExpressions: ##  👈👈👈  Pod should not be scheduled on the node if label app=nginx already present
@@ -380,9 +380,9 @@ spec:
 
 ![PodDisruptionBudget](https://user-images.githubusercontent.com/18049790/142724615-93ecefda-cfcf-45c8-bd8b-f220a2908b62.jpg)
 
-Notes: 
+Notes:
 * tl;dr - Please cluster administrators, cool your jets, this is a critical application and I need my application to be available
-* A PodDisruptionBudget defines the budget of voluntary disruption during scheduled maintenance 
+* A PodDisruptionBudget defines the budget of voluntary disruption during scheduled maintenance
 * If you do not have a PodDisruptionBudget in place your workload might go offline when a cluster maintenance event is in place
 * Ensures a certain number or percentage of pods with an assigned label will not Voluntarily be evicted at any one point in time
 

@@ -38,10 +38,10 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: my-quota  
+  name: my-quota
 spec:
   hard:
-    cpu: 500Mi
+    cpu: "500m"
     memory: 2G
 EOF
 ```
@@ -69,7 +69,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: LimitRange
 metadata:
-  name: my-limit-range  
+  name: my-limit-range
 spec:
   limits:
   - default:
@@ -78,7 +78,7 @@ spec:
     defaultRequest:
       cpu: 100m
       memory: 128Mi
-    type: Container 
+    type: Container
 EOF
 ```
 
@@ -107,7 +107,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-configmap  
+  name: my-configmap
 data:
   error-log-level: notice
 EOF
@@ -116,11 +116,11 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Secret  - Storing obfuscated environmental variables per namespace</summary>
+<details class="faq box"><summary>Kubernetes Secret - Storing obfuscated environmental variables per namespace</summary>
 <p>
 
 > Problem Statement: I want a way to obfuscate my environmental variables
-> 
+>
 > tl;dr – base64 encoded environment variables in memory
 
 ![03-secret](https://user-images.githubusercontent.com/18049790/140637140-709ae658-74e4-4a76-aa5f-b2751cb1e4c7.jpg)
@@ -132,31 +132,28 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
 metadata:
-  name: my-secret  
+  name: my-secret
 data:
   password: MTIzNDU2
   user: Ym9i
-kind: Secret
-metadata:
-  name: my-secret
 EOF
 ```
 
 </p>
 </details>
 
-<details class="faq box"><summary>Kubernetes Secret  - The Laws of Three</summary>
+<details class="faq box"><summary>Kubernetes Secret - The Laws of Three</summary>
 <p>
 
 > tl;dr – Kubernetes always respects the Law of Three
 
-<details class="faq box"><summary>Kubernetes Secret  - Types of Secret</summary>
+<details class="faq box"><summary>Kubernetes Secret - Types of Secret</summary>
 <p>
 
 There are three types of secret: (TYPES)
 * [generic](https://kubernetes.io/docs/concepts/configuration/secret/#opaque-secrets) #👈👈👈 Part of CKAD exam
   * Create a secret from a local file, directory, or literal value
-* [tls](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) 
+* [tls](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets)
   * Create a TLS secret
 * [docker-registry](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets)
   * Create a secret for use with a Docker registry
@@ -165,7 +162,7 @@ There are three types of secret: (TYPES)
 </details>
 
 
-<details class="faq box"><summary>Kubernetes Secret  - Create a Secret</summary>
+<details class="faq box"><summary>Kubernetes Secret - Create a Secret</summary>
 <p>
 
 There are three ways to create a secret: (CREATION)
@@ -177,7 +174,7 @@ There are three ways to create a secret: (CREATION)
 </details>
 
 
-<details class="faq box"><summary>Kubernetes Secret  - Consume a Secret</summary>
+<details class="faq box"><summary>Kubernetes Secret - Consume a Secret</summary>
 <p>
 
 There are three ways to use a secret: (CONSUMPTION)
@@ -201,7 +198,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod  
+  name: my-pod
 spec:
   containers:
   - name: my-container

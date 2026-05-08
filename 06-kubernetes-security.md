@@ -1,6 +1,6 @@
 # Kubernetes Tutorial - Kubernetes Security
 
- In this section:
+In this section:
 - ServiceAccount - Functional ID inside the Pod
 - Role - Specify which verbs can be performed on which resources in a namespace
 - RoleBinding - Bind roles to specific users, groups, or ServiceAccounts in a namespace
@@ -21,14 +21,14 @@
     * The Kubernetes API server signs these OIDC tokens, and other workloads can validate tokens through the Kubernetes API server
       * OIDC stands for “OpenID Connect”
       * It is an authentication protocol which allows the verification of a user identity when a user is trying to access a protected HTTPS end point
-    * This solves the Authentication part of the puzzel
+    * This solves the Authentication part of the puzzle
   * Authorization - What You Can Do?
-    * Authorization is solved via Roles Based Access Control
-    * Roles Based Access Control is implemented by the following Kubernetes Resource Types:
-      * Service Account - Who you are
+    * Authorization is solved via Role-Based Access Control (RBAC)
+    * Role-Based Access Control is implemented by the following Kubernetes Resource Types:
+      * ServiceAccount - Who you are
       * Role - What you can do
-      * Rolebinding - Glue Service Account to Role
-  
+      * RoleBinding - Glue ServiceAccount to Role
+
 </p>
 </details>
 
@@ -57,7 +57,7 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
   name: system:serviceaccounts:kube-system
-EOF  
+EOF
 ```
 
 Notes:
@@ -95,7 +95,7 @@ metadata:
 imagePullSecrets:
 - name: my-image-pull-secret
 EOF
-```  
+```
 
 Notes:
 - ServiceAccounts are namespace scoped
@@ -120,11 +120,11 @@ kind: Role
 metadata:
   name: my-role
 rules:
-- apiGroups: [""]                    
-  verbs: ["get", "list"]             
-  resources: ["services"] 
+- apiGroups: [""]
+  verbs: ["get", "list"]
+  resources: ["services"]
 EOF
-```  
+```
 
 Notes:
 * Roles are namespaced, if the namespace is omitted, the current namespace is used
@@ -153,13 +153,13 @@ roleRef:
   name: my-role
 subjects:
 - kind: ServiceAccount
-  name: my-service-account  
+  name: my-service-account
 EOF
-```  
+```
 
-Notes: 
+Notes:
 * This RoleBinding references the `my-role` Role
-* And binds it to the `my-service-account` ServiceAccount 
+* And binds it to the `my-service-account` ServiceAccount
 
 </p>
 </details>
@@ -187,7 +187,7 @@ kubectl expose pod service-pod --port=8080 --target-port=80 --name=my-service
 ```
 
 ```bash
-# Check the permission of the service account: my-service-account 
+# Check the permission of the service account: my-service-account
 kubectl auth can-i --list --as=system:serviceaccount:ns-bootcamp-sec:my-service-account
 ```
 
@@ -249,7 +249,7 @@ no
 cd
 yes | rm -R ~/ckad/
 kubectl delete ns ns-bootcamp-sec
-kubectl delete sa my-serviceaccount
+kubectl delete sa my-service-account
 ```
 
 </p>

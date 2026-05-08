@@ -26,7 +26,7 @@ kubectl config set-context --current --namespace=ns-bootcamp-storage
 <details class="faq box"><summary>Kubernetes PersistentVolume (pv) – the low level representation of a storage volume</summary>
 <p>
 
-> Problem Statement: I want a way abstract Storage definitions away from application developers
+> Problem Statement: I want a way to abstract Storage definitions away from application developers
 >
 > tl;dr – Define some external storage for use by the Kubernetes cluster
 
@@ -49,7 +49,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/my-host" #👈👈👈 Path on Linux Node 
+    path: "/mnt/my-host" #👈👈👈 Path on Linux Node
 EOF
 ```
 
@@ -60,7 +60,7 @@ EOF
 <p>
 
 > Problem Statement: I want a way for my microservices application to claim some storage
-> 
+>
 > tl;dr – Now I want to claim some storage for use inside my container
 
 ![06-pvc](https://user-images.githubusercontent.com/18049790/140639304-92e5766a-82eb-4e5b-8af2-05c191fc753d.jpg)
@@ -72,7 +72,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: my-pvc #👈👈👈 PersistentVolumeClaim Name 
+  name: my-pvc #👈👈👈 PersistentVolumeClaim Name
 spec:
   storageClassName: manual #👈👈👈 NOT link to PersistentVolume
   accessModes:
@@ -86,7 +86,7 @@ EOF
 </p>
 </details>
 
-<details class="faq box"><summary>Example: Kubernetes Pod consuming  PersistentVolumeClaim and  PersistentVolume</summary>
+<details class="faq box"><summary>Example: Kubernetes Pod consuming PersistentVolumeClaim and PersistentVolume</summary>
 <p>
 
 ![06-pv-pvc-pod](https://user-images.githubusercontent.com/18049790/140639299-1b5a2c1b-139d-4b52-9a35-66d79de5fb71.jpg)
@@ -99,7 +99,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
-  name: storage-pod 
+  name: storage-pod
 spec:
   volumes:
     - name: my-volume
@@ -134,7 +134,7 @@ cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
-  name: storage-pod 
+  name: storage-pod
 spec:
   volumes:
     - name: my-volume
