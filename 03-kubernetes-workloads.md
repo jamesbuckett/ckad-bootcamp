@@ -185,7 +185,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: k8s.gcr.io/nginx-slim:0.8
+        image: registry.k8s.io/nginx-slim:0.8
         ports:
         - containerPort: 80
           name: web
@@ -234,9 +234,9 @@ spec:
         name: fluentd-elasticsearch
     spec:
       tolerations:
-      # this toleration is to have the daemonset runnable on master nodes
-      # remove it if your masters can't run pods
-      - key: node-role.kubernetes.io/master
+      # this toleration is to have the daemonset runnable on control-plane nodes
+      # remove it if your control-plane nodes can't run pods
+      - key: node-role.kubernetes.io/control-plane
         operator: Exists
         effect: NoSchedule
       containers:

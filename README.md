@@ -7,7 +7,6 @@
     * Networking in the Kubernetes [Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md) section
     * Storage in the Kubernetes [Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md) section
     * Security in the Kubernetes [Security](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/06-kubernetes-security.md) section
-    * Running Kubernetes on the public cloud in the Kubernetes [AWS](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/07-kubernetes-aws.md) section
 
 ![image](https://user-images.githubusercontent.com/18049790/43352583-0b37edda-9269-11e8-9695-1e8de81acb76.png)
 <br />
@@ -28,7 +27,6 @@ The sections follow a logical progression and should be followed in the order be
 - [Kubernetes Networking](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/04-kubernetes-networking.md)
 - [Kubernetes Storage](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/05-kubernetes-storage.md)
 - [Kubernetes Security](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/06-kubernetes-security.md)
-- [Kubernetes and AWS](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/07-kubernetes-aws.md)
 <br />
 
 ## Practical
