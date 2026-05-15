@@ -1,5 +1,12 @@
 # CKAD Boot Camp
 
+[![License](https://img.shields.io/github/license/jamesbuckett/ckad-bootcamp)](LICENSE)
+[![Kubernetes CKAD](https://img.shields.io/badge/Kubernetes-CKAD-326CE5?logo=kubernetes&logoColor=white)](https://www.cncf.io/training/certification/ckad/)
+[![Docker Desktop Tested](https://img.shields.io/badge/Docker%20Desktop-Tested-2496ED?logo=docker&logoColor=white)](https://www.docker.com/products/docker-desktop)
+[![Last Commit](https://img.shields.io/github/last-commit/jamesbuckett/ckad-bootcamp)](https://github.com/jamesbuckett/ckad-bootcamp/commits/master)
+[![Stars](https://img.shields.io/github/stars/jamesbuckett/ckad-bootcamp?style=social)](https://github.com/jamesbuckett/ckad-bootcamp/stargazers)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 * This tutorial is an introduction to Kubernetes for Application Developers
     * It covers the basics of compute in the Kubernetes [Pod](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/01-kubernetes-pod.md) section
     * Storing configuration in the environment in the Kubernetes [Configuration](https://github.com/jamesbuckett/ckad-bootcamp/blob/master/02-kubernetes-configuration.md) section
